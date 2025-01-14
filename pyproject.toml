@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "db-schemata"
+version = "0.1.0"
+description = ""
+authors = ["gabriel.mango <gabriel.mango@defensoria.mg.def.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.3"
+python-dotenv = "^1.0.1"
+sqlalchemy = "^2.0.35"
+psycopg2 = "^2.9.9"
+schedule = "^1.2.2"
+requests = "^2.32.3"
+numpy = "^2.1.1"
+holidays = "^0.57"
+openpyxl = "^3.1.5"
+pymongo = "^4.10.1"
+tqdm = "^4.67.1"
+isort = "^5.13.2"
+blue = "^0.9.1"
+polars = "^1.18.0"
+pyarrow = "^18.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.2"
+blue = "^0.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
