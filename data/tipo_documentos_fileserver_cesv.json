@@ -1,0 +1,240 @@
+[
+    {
+        "nome": "CPF",
+        "sigla": "CPFSGE",
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Identidade",
+        "sigla": "IDESGE",
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Declaração de Média Global",
+        "sigla": "DECMEDGLOSGE",
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Declaração de Matrícula – com período",
+        "sigla": "DECMATSGE",
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Currículo Vitae - livre",
+        "sigla": "CURVITSGE",
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Laudo Médico emitido em até 12 meses",
+        "sigla": "LAUMEDSGE",
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Histórico Escolar",
+        "sigla": "HISESCSGE",
+        "funcionalidades": [
+            "Graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Diploma/Declaração de Conclusão",
+        "sigla": "DIPDECCONSGE",
+        "funcionalidades": [
+            "Pós-graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Histórico Escolar da Graduação",
+        "sigla": "HISESCGRASGE",
+        "funcionalidades": [
+            "Pós-graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Declaração de Colação de Grau",
+        "sigla": "DECCOLGRASGE",
+        "funcionalidades": [
+            "Pós-graduação"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Edital",
+        "sigla": "EDISGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Alteração de Item",
+        "sigla": "ALTITESGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Prorrogação de Inscrição",
+        "sigla": "PROINSSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Alteração de Entrevista",
+        "sigla": "ALTENTSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Alteração de Prova",
+        "sigla": "ALTPROSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Comunicado",
+        "sigla": "COMSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Resultado Análise Curricular",
+        "sigla": "RESANACURSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Resultado de Entrevista",
+        "sigla": "RESENTSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Resultado de Prova",
+        "sigla": "RESPROSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Resultado Preliminar",
+        "sigla": "RESPRESGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Resultado Definitivo",
+        "sigla": "RESDEFSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Recurso",
+        "sigla": "RECSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Homologação",
+        "sigla": "HOMSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Convocação",
+        "sigla": "CONSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Espelho de Prova e Gabarito",
+        "sigla": "ESPPROGABSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Gabarito",
+        "sigla": "GABSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Espelho de Prova",
+        "sigla": "ESPPROSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Prorrogação de Prazo",
+        "sigla": "PROPRASGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    },
+    {
+        "nome": "Retificação e Encerramento de Certame",
+        "sigla": "RETENCCERSGE",
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projeto": "Sistema de Gestão de Estágio - SGE"
+    }
+]
