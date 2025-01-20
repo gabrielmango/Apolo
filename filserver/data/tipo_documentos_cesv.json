@@ -6,7 +6,7 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -21,7 +21,7 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -36,7 +36,7 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -51,7 +51,7 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -66,7 +66,7 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -81,7 +81,7 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -95,7 +95,7 @@
         "funcionalidades": [
             "Graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -109,7 +109,7 @@
         "funcionalidades": [
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -123,7 +123,7 @@
         "funcionalidades": [
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -137,7 +137,7 @@
         "funcionalidades": [
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF",
             "JPG",
@@ -151,7 +151,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -162,7 +162,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -173,7 +173,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -184,7 +184,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -195,7 +195,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -206,7 +206,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -217,7 +217,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -228,7 +228,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -239,7 +239,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -250,7 +250,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -261,7 +261,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -272,7 +272,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -283,7 +283,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -294,7 +294,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -305,7 +305,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -316,7 +316,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -327,7 +327,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -338,7 +338,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
@@ -349,7 +349,7 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
         "extensoes": [
             "PDF"
         ]
