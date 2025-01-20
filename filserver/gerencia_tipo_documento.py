@@ -101,6 +101,30 @@ def insert_tipo_documento(
     return data[0]['co_seq_tipo_documento']
 
 
+def insert_tb_tipo_doc_funcion_scsdp(
+    ambiente, id_tipo_documento, uuid_funcionalidade
+):
+    executar_query(
+        False,
+        f"""
+        INSERT INTO fileserver.tb_tipo_doc_funcion_scsdp(
+            co_tipo_documento, co_uuid_funcionalidade_scsdp, 
+            st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1
+        )
+        SELECT 
+            {id_tipo_documento}, '{uuid_funcionalidade}', 
+            TRUE, now(), 'CREATE', 1, uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
+        WHERE NOT EXISTS (
+            SELECT 1
+            FROM fileserver.tb_tipo_doc_funcion_scsdp
+            WHERE co_tipo_documento = {id_tipo_documento}
+            AND co_uuid_funcionalidade_scsdp = '{uuid_funcionalidade}'
+        );
+        """,
+        ambiente,
+    )
+
+
 def main():
     tipos_documentos = carregar_de_json(
         r'filserver\data\tipo_documentos_cesv.json'
@@ -113,9 +137,6 @@ def main():
     projetos = retorna_projetos(
         retorna_lista_projeto(tipos_documentos), string_scsdp['dev']
     )
-
-    print(funcionalidades)
-    print(projetos)
 
     for tipo in tipos_documentos:
 
@@ -132,7 +153,14 @@ def main():
             string_fileserver['preprod'],
         )
 
-        print(tipo['nome'], tipo_documento_id)
+        for funcionalidade in tipo['funcionalidades']:
+            uuid_funcionalidade = funcionalidades[funcionalidade]
+
+            insert_tb_tipo_doc_funcion_scsdp(
+                string_fileserver['preprod'],
+                tipo_documento_id,
+                uuid_funcionalidade,
+            )
 
 
 if __name__ == '__main__':
