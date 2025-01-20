@@ -1,16 +1,62 @@
-from dotenv import dotenv_values
-
+from database import consulta_para_lista
+from utils.ambientes import string_fileserver, string_scsdp
 from utils.gerenciar_json import carregar_de_json
 
-config = dotenv_values('.env')
 
-ambientes_fileserver = {
-    'dev': config['FILESERVER_POSTGRES_DEV'],
-    'tst': config['FILESERVER_POSTGRES_TST'],
-    'hml': config['FILESERVER_POSTGRES_HML'],
-    'preprod': config['FILESERVER_POSTGRES_PREPROD'],
-    'prod': config['FILESERVER_POSTGRES_PROD'],
-}
+def retorna_uuid_funcionalidade(funcionalidade, ambiente):
+    data = consulta_para_lista(
+        ambiente,
+        f"""
+        select co_uuid
+        from scsdp.tb_funcionalidade
+        where upper(unaccent(trim(no_funcionalidade))) = upper(unaccent(trim('{funcionalidade}')));
+        """,
+    )
+    return data[0]['co_uuid'] if len(data) == 1 else None
+
+
+def retorna_uuid_projeto(projeto, ambiente):
+    data = consulta_para_lista(
+        ambiente,
+        f"""
+        select co_uuid
+        from scsdp.tb_projeto
+        where upper(unaccent(trim(no_projeto))) = upper(unaccent(trim('{projeto}')));
+        """,
+    )
+    return data[0]['co_uuid'] if len(data) == 1 else None
+
+
+def retorna_lista_funcionalidade(tipos_documentos):
+    lista_funcionalidades = set()
+    for tipo in tipos_documentos:
+        for funcionalidade in tipo['funcionalidades']:
+            lista_funcionalidades.add(funcionalidade)
+    return list(lista_funcionalidades)
+
+
+def retorna_lista_projeto(tipos_documentos):
+    lista_projetos = set()
+    for tipo in tipos_documentos:
+        for projeto in tipo['projetos']:
+            lista_projetos.add(projeto)
+    return list(lista_projetos)
+
+
+def retorna_dicionario_funcionalidade(lista_funcionalidades, ambiente):
+    dicionario_funcionalidade = {}
+    for funcionalidade in lista_funcionalidades:
+        uuid = retorna_uuid_funcionalidade(funcionalidade, ambiente)
+        dicionario_funcionalidade[funcionalidade] = uuid
+    return dicionario_funcionalidade
+
+
+def retorna_dicionario_projeto(lista_projetos, ambiente):
+    dicionario_projeto = {}
+    for projeto in lista_projetos:
+        uuid = retorna_uuid_projeto(projeto, ambiente)
+        dicionario_projeto[projeto] = uuid
+    return dicionario_projeto
 
 
 def main():
@@ -18,13 +64,17 @@ def main():
         r'filserver\data\tipo_documentos_cesv.json'
     )
 
-    lista_funcionalidades = set()
-    lista_projetos = set()
-    for tipo in tipos_documentos:
-        for funcionalidade in tipo['funcionalidades']:
-            lista_funcionalidades.add(funcionalidade)
-        for projeto in tipo['projetos']:
-            lista_projetos.add(projeto)
+    funcionalidades = retorna_dicionario_funcionalidade(
+        retorna_lista_funcionalidade(tipos_documentos), string_scsdp['dev']
+    )
+
+    projetos = retorna_dicionario_projeto(
+        retorna_lista_projeto(tipos_documentos), string_scsdp['dev']
+    )
+
+    print(funcionalidades)
+
+    print(projetos)
 
 
 if __name__ == '__main__':

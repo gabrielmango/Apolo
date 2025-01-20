@@ -1,3 +1,4 @@
+import pandas as pd
 import psycopg2
 from sqlalchemy import create_engine, text
 
@@ -54,3 +55,8 @@ def executa_sql(conn_string: str, query_string: str):
 
     except Exception as e:
         print(e)
+
+
+def consulta_para_lista(conn_string: str, query_string: str):
+    data = pd.read_sql(query_string, conn_string)
+    return data.to_dict(orient='records')
