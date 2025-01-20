@@ -3,28 +3,39 @@ from utils.ambientes import string_fileserver, string_scsdp
 from utils.gerenciar_json import carregar_de_json
 
 
+def retorna_dicionario(ambiente, query):
+    data = consulta_para_lista(ambiente, query)
+    return data[0]['co_uuid'] if len(data) == 1 else None
+
+
 def retorna_uuid_funcionalidade(funcionalidade, ambiente):
-    data = consulta_para_lista(
+    return retorna_dicionario(
         ambiente,
         f"""
-        select co_uuid
-        from scsdp.tb_funcionalidade
-        where upper(unaccent(trim(no_funcionalidade))) = upper(unaccent(trim('{funcionalidade}')));
+        select 
+            co_uuid
+        from 
+            scsdp.tb_funcionalidade
+        where 
+            upper(unaccent(trim(no_funcionalidade))) = 
+            upper(unaccent(trim('{funcionalidade}')));
         """,
     )
-    return data[0]['co_uuid'] if len(data) == 1 else None
 
 
 def retorna_uuid_projeto(projeto, ambiente):
-    data = consulta_para_lista(
+    return retorna_dicionario(
         ambiente,
         f"""
-        select co_uuid
-        from scsdp.tb_projeto
-        where upper(unaccent(trim(no_projeto))) = upper(unaccent(trim('{projeto}')));
+        select 
+            co_uuid
+        from 
+            scsdp.tb_projeto
+        where 
+            upper(unaccent(trim(no_projeto))) = 
+            upper(unaccent(trim('{projeto}')));
         """,
     )
-    return data[0]['co_uuid'] if len(data) == 1 else None
 
 
 def retorna_lista_funcionalidade(tipos_documentos):
@@ -71,10 +82,6 @@ def main():
     projetos = retorna_dicionario_projeto(
         retorna_lista_projeto(tipos_documentos), string_scsdp['dev']
     )
-
-    print(funcionalidades)
-
-    print(projetos)
 
 
 if __name__ == '__main__':
