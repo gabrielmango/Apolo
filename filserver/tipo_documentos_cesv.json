@@ -6,7 +6,13 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Identidade",
@@ -15,7 +21,13 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Declaração de Média Global",
@@ -24,7 +36,13 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Declaração de Matrícula – com período",
@@ -33,7 +51,13 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Currículo Vitae - livre",
@@ -42,7 +66,13 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Laudo Médico emitido em até 12 meses",
@@ -51,7 +81,13 @@
             "Graduação",
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Histórico Escolar",
@@ -59,7 +95,13 @@
         "funcionalidades": [
             "Graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Diploma/Declaração de Conclusão",
@@ -67,7 +109,13 @@
         "funcionalidades": [
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Histórico Escolar da Graduação",
@@ -75,7 +123,13 @@
         "funcionalidades": [
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Declaração de Colação de Grau",
@@ -83,7 +137,13 @@
         "funcionalidades": [
             "Pós-graduação"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
     },
     {
         "nome": "Edital",
@@ -91,7 +151,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Alteração de Item",
@@ -99,7 +162,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Prorrogação de Inscrição",
@@ -107,7 +173,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Alteração de Entrevista",
@@ -115,7 +184,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Alteração de Prova",
@@ -123,7 +195,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Comunicado",
@@ -131,7 +206,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Resultado Análise Curricular",
@@ -139,7 +217,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Resultado de Entrevista",
@@ -147,7 +228,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Resultado de Prova",
@@ -155,7 +239,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Resultado Preliminar",
@@ -163,7 +250,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Resultado Definitivo",
@@ -171,7 +261,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Recurso",
@@ -179,7 +272,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Homologação",
@@ -187,7 +283,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Convocação",
@@ -195,7 +294,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Espelho de Prova e Gabarito",
@@ -203,7 +305,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Gabarito",
@@ -211,7 +316,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Espelho de Prova",
@@ -219,7 +327,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Prorrogação de Prazo",
@@ -227,7 +338,10 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     },
     {
         "nome": "Retificação e Encerramento de Certame",
@@ -235,6 +349,9 @@
         "funcionalidades": [
             "Portal"
         ],
-        "projeto": "Sistema de Gestão de Estágio - SGE"
+        "projeto": "Sistema de Gestão de Estágio - SGE",
+        "extensoes": [
+            "PDF"
+        ]
     }
 ]
