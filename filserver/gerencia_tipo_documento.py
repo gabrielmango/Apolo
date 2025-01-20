@@ -1,16 +1,11 @@
-from database import consulta_para_lista
+from database import consulta_para_lista, executar_query, inserir_sql
 from utils.ambientes import string_fileserver, string_scsdp
 from utils.gerenciar_json import carregar_de_json
 
 
-def retorna_dicionario(ambiente, query):
-    data = consulta_para_lista(ambiente, query)
-    return data[0]['co_uuid'] if len(data) == 1 else None
-
-
 def retorna_uuid_funcionalidade(funcionalidade, ambiente):
-    return retorna_dicionario(
-        ambiente,
+    return executar_query(
+        True,
         f"""
         select 
             co_uuid
@@ -20,12 +15,13 @@ def retorna_uuid_funcionalidade(funcionalidade, ambiente):
             upper(unaccent(trim(no_funcionalidade))) = 
             upper(unaccent(trim('{funcionalidade}')));
         """,
+        ambiente,
     )
 
 
 def retorna_uuid_projeto(projeto, ambiente):
-    return retorna_dicionario(
-        ambiente,
+    return executar_query(
+        True,
         f"""
         select 
             co_uuid
@@ -35,6 +31,7 @@ def retorna_uuid_projeto(projeto, ambiente):
             upper(unaccent(trim(no_projeto))) = 
             upper(unaccent(trim('{projeto}')));
         """,
+        ambiente,
     )
 
 
@@ -54,20 +51,54 @@ def retorna_lista_projeto(tipos_documentos):
     return list(lista_projetos)
 
 
-def retorna_dicionario_funcionalidade(lista_funcionalidades, ambiente):
+def retorna_funcionalidades(lista_funcionalidades, ambiente):
     dicionario_funcionalidade = {}
     for funcionalidade in lista_funcionalidades:
         uuid = retorna_uuid_funcionalidade(funcionalidade, ambiente)
-        dicionario_funcionalidade[funcionalidade] = uuid
+        dicionario_funcionalidade[funcionalidade] = uuid[0]['co_uuid']
     return dicionario_funcionalidade
 
 
-def retorna_dicionario_projeto(lista_projetos, ambiente):
+def retorna_projetos(lista_projetos, ambiente):
     dicionario_projeto = {}
     for projeto in lista_projetos:
         uuid = retorna_uuid_projeto(projeto, ambiente)
-        dicionario_projeto[projeto] = uuid
+        dicionario_projeto[projeto] = uuid[0]['co_uuid']
     return dicionario_projeto
+
+
+def insert_tipo_documento(
+    nome, sigla, tamanho, fl_habilita_campo_texto_1, ambiente
+):
+    query = f"""
+        INSERT INTO fileserver.tb_tipo_documento(
+            no_tipo_documento, sg_tipo_documento, nu_tamanho_documento, fl_habilita_campo_texto_1,
+            st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1
+        )
+        SELECT 
+            '{nome}', '{sigla}', {tamanho}, {fl_habilita_campo_texto_1},
+            TRUE, now(), 'CREATE', 1, uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
+        WHERE NOT EXISTS (
+            SELECT 1
+            FROM fileserver.tb_tipo_documento
+            WHERE no_tipo_documento = '{nome}'
+            AND sg_tipo_documento = '{sigla}'
+        );
+    """
+    inserir_sql(ambiente, query)
+
+    data = executar_query(
+        True,
+        f"""
+        select co_seq_tipo_documento
+        from fileserver.tb_tipo_documento
+        WHERE no_tipo_documento = '{nome}'
+        AND sg_tipo_documento = '{sigla}';
+        """,
+        ambiente,
+    )
+
+    return data[0]['co_seq_tipo_documento']
 
 
 def main():
@@ -75,13 +106,33 @@ def main():
         r'filserver\data\tipo_documentos_cesv.json'
     )
 
-    funcionalidades = retorna_dicionario_funcionalidade(
+    funcionalidades = retorna_funcionalidades(
         retorna_lista_funcionalidade(tipos_documentos), string_scsdp['dev']
     )
 
-    projetos = retorna_dicionario_projeto(
+    projetos = retorna_projetos(
         retorna_lista_projeto(tipos_documentos), string_scsdp['dev']
     )
+
+    print(funcionalidades)
+    print(projetos)
+
+    for tipo in tipos_documentos:
+
+        if 'Portal' in tipo['funcionalidades']:
+            fl_habilita_campo_texto_1 = 'TRUE'
+        else:
+            fl_habilita_campo_texto_1 = 'FALSE'
+
+        tipo_documento_id = insert_tipo_documento(
+            tipo['nome'],
+            tipo['sigla'],
+            tipo['tamanho'],
+            fl_habilita_campo_texto_1,
+            string_fileserver['preprod'],
+        )
+
+        print(tipo['nome'], tipo_documento_id)
 
 
 if __name__ == '__main__':
