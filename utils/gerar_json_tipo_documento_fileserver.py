@@ -46,7 +46,7 @@ def input_tipos_documentos():
             tipo_documento['extensoes'] = []
 
             tipo_documento['extensoes'].append(
-                input('Extensões válidas para o tipo de documento: ')
+                input('Extensões válidas para o tipo de documento: ').upper()
             )
 
             opcao = input(
