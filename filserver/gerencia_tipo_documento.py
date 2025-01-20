@@ -85,7 +85,7 @@ def insert_tipo_documento(
             AND sg_tipo_documento = '{sigla}'
         );
     """
-    inserir_sql(ambiente, query)
+    executar_query(False, query, ambiente)
 
     data = executar_query(
         True,
