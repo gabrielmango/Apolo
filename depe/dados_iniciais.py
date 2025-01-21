@@ -170,11 +170,51 @@ WHERE NOT EXISTS (
     )
 
 
+def retorna_sql_insert_tb_campo_calculo(ambiente: str):
+    query = f"""
+        SELECT
+            co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo
+        FROM {SCHEMA_DEPE}.tb_campo_calculo
+        WHERE st_ativo = TRUE
+        ORDER BY co_seq_campo_calculo ASC;
+    """
+    dados_tb_campo_calculo = consulta_para_lista(string_depe[ambiente], query)
+
+    for dado in dados_tb_campo_calculo:
+        for chave, valor in dado.items():
+            if valor is None:
+                dado[chave] = 'NULL'
+
+    sql_template = """
+INSERT INTO depe.tb_campo_calculo
+(co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT {co_seq_campo_calculo}, {co_campo}, {co_campo_valor}, {co_campo_para_calculo}, '{ds_tipo_calculo}', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = {co_seq_campo_calculo} AND co_campo = {co_campo}
+);"""
+
+    return ''.join(
+        sql_template.format(
+            **{
+                key: (
+                    value.replace("'", '') if isinstance(value, str) else value
+                )
+                for key, value in campo_calculo.items()
+            }
+        )
+        for campo_calculo in dados_tb_campo_calculo
+    )
+
+
 def main():
     salvar_em_sql(retorna_sql_insert_tb_campo('dev'), NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_regra('dev'), NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_campo_valor('dev'), NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_averbacao('dev'), NOME_ARQUIVO)
+    salvar_em_sql(retorna_sql_insert_tb_campo_calculo('dev'), NOME_ARQUIVO)
 
 
 if __name__ == '__main__':

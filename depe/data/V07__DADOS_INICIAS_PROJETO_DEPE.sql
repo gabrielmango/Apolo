@@ -3943,3 +3943,76 @@ SELECT 1113, 'CONSIGNAÇÕES - INATIVO',
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1113
 );
+
+INSERT INTO depe.tb_campo_calculo
+(co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 2097, 1595, 5486, 2830, 'SOMA', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = 2097 AND co_campo = 1595
+);
+INSERT INTO depe.tb_campo_calculo
+(co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 2098, 1595, 5483, 2830, 'SUBTRACAO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = 2098 AND co_campo = 1595
+);
+INSERT INTO depe.tb_campo_calculo
+(co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 2099, 1595, 5480, 2830, 'SUBTRACAO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = 2099 AND co_campo = 1595
+);
+INSERT INTO depe.tb_campo_calculo
+(co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 2100, 1595, 5484, 2830, 'SOMA', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = 2100 AND co_campo = 1595
+);
+INSERT INTO depe.tb_campo_calculo
+(co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 2101, 1597, 5485, 2830, 'SUBTRACAO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = 2101 AND co_campo = 1597
+);
+INSERT INTO depe.tb_campo_calculo
+(co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 2102, 1597, 5481, 2830, 'SOMA', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = 2102 AND co_campo = 1597
+);
+INSERT INTO depe.tb_campo_calculo
+(co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 2103, 1600, 5483, 2830, 'SOMA', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = 2103 AND co_campo = 1600
+);
+INSERT INTO depe.tb_campo_calculo
+(co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 2474, 4976, 1638, 2830, 'SOMA', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = 2474 AND co_campo = 4976
+);
