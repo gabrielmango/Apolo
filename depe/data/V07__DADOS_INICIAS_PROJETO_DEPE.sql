@@ -7,7 +7,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1567, 'Sistema de Origem', 'NOME_ARQUIVO', 'Código do sistema de origem das informaçöes, mantido no instituoional com Sistemas de Origem.', 4.0, 
 1.0, 'PADRAO', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -21,7 +21,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1568, 'Exercício Financeiro', 'NOME_ARQUIVO', 'Ano corrente da execuçäo da despesa de pessoal.', 1.0, 
 2.0, 'REFERENCIA', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -35,7 +35,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1569, 'Mês de Competência', 'NOME_ARQUIVO', 'Mês de competência da despesa de pessoal.', 2.0, 
 3.0, 'REFERENCIA', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -49,7 +49,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1570, 'Tipo de Processamento', 'NOME_ARQUIVO', 'Código do tipo de processamento, conforme campo do Header do Arquivo.', 2.0, 
 4.0, 'REFERENCIA', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -63,7 +63,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1571, 'Tipo de Folha', 'NOME_ARQUIVO', 'ldentifica outros tipos diferentes e permitidos de folha de pagamento  Tipo para o mesmo tipo de folha.', 2.0, 
 5.0, 'REFERENCIA', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -77,7 +77,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1572, 'Número do Arquivo', 'NOME_ARQUIVO', 'Número do arquivo, criado e controlado pelo responsável pela geraçåo do arquivo de despesa de pessoal. Nåo pode ser repetido', 10.0, 
 6.0, 'REFERENCIA', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -91,7 +91,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1573, 'Tipo de Registro', 'HEADER_ARQUIVO', 'ldentifica o tipo de registro no arquivo.', 1.0, 
 1.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -105,7 +105,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1574, 'Tipo de Processamento', 'HEADER_ARQUIVO', 'lndica a funçäo do arquivo para execuçåo no sistema.', 2.0, 
 2.0, 'SELECAO', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -119,7 +119,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1575, 'Número de Lote', 'HEADER_ARQUIVO', 'Número sequencial para identificar univocamente um lote de informaçäo.', 4.0, 
 3.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -133,7 +133,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1576, 'Exercício Financeiro', 'HEADER_ARQUIVO', 'Ano corrente da apropriação da despesa de pessoal.', 4.0, 
 4.0, 'NUMERICO', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -147,7 +147,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1577, 'Ano de Competência', 'HEADER_ARQUIVO', 'Ano de competência da despesa de pessoal.', 4.0, 
 5.0, 'NUMERICO', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -161,7 +161,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1578, 'Mês de Competência', 'HEADER_ARQUIVO', 'Mês de competência da despesa de pessoal.', 2.0, 
 6.0, 'SELECAO', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -175,7 +175,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1579, 'Número do Arquivo', 'HEADER_ARQUIVO', 'Número do arquivo, criado e controlado pelo responsável pela geraçäo do arquivo', 10.0, 
 7.0, 'NUMERICO', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -189,7 +189,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1580, 'Sistema de Origem', 'HEADER_ARQUIVO', 'Código do sistema de origem das informaçöes.', 4.0, 
 8.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -203,7 +203,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1581, 'Tipo de registro ', 'HEADER_LOTE', 'Identifica o tipo de registro no arquivo.(Header Lote)', 1.0, 
 1.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -217,7 +217,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1582, 'Número do lote ', 'HEADER_LOTE', 'Número sequencial para identificar univocamente um lote de informação. ', 4.0, 
 2.0, 'SEQUENCIAL', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -231,7 +231,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1583, 'Indicador do Tipo de Folha', 'HEADER_ARQUIVO', 'ldentificaçåo da caracterfstica da folha de pessoal.', 2.0, 
 9.0, 'SELECAO', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -245,7 +245,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1584, 'Unidade Orçamentária – Órgão Executor ', 'HEADER_LOTE', 'Código do órgão executor cadastrado no header do arquivo ', 5.0, 
 3.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -259,7 +259,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1585, 'Tipo de registro', 'TRAILER_LOTE', 'Código do identificador de tipo de registro', 1.0, 
 1.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -273,7 +273,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1586, 'Data de Geração do Arquivo', 'HEADER_ARQUIVO', 'Data de criação do arquivo pelo sistema de origem no formato DDMMAAAA', 8.0, 
 10.0, 'DATA_SISTEMA', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -287,7 +287,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1587, 'Hora de Geração do Arquivo', 'HEADER_ARQUIVO', 'Hora de geraçåo do arquivo pelo sistema de origem no formato HHMMSS', 6.0, 
 11.0, 'HORA_SISTEMA', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -301,7 +301,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1588, 'Número de lote', 'TRAILER_LOTE', 'Número sequencial que identifica unicamente um lote de informação ', 4.0, 
 2.0, 'SEQUENCIAL', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -315,7 +315,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1589, 'Número de Escalas de Pagamento', 'HEADER_ARQUIVO', 'Número de escalas de pagamento que seräo realizadas.', 2.0, 
 12.0, 'NUMERICO', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -329,7 +329,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1590, 'Número da Escala Sendo Paga', 'HEADER_ARQUIVO', 'Número da escala de pagamento que está sendo paga.', 2.0, 
 13.0, 'NUMERICO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -343,7 +343,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1591, 'Número do Arquivo de Apropriação', 'HEADER_ARQUIVO', 'Número do arquivo de apropriaçäo relacionado ao arquivo sendo enviado', 10.0, 
 14.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -357,7 +357,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1592, 'Quantidade de registros do lote', 'TRAILER_LOTE', 'Quantidade total de registros pertencentes ao lote ', 10.0, 
 3.0, 'QUANTIDADE_LINHA', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -371,7 +371,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1593, 'Justificativa', 'HEADER_ARQUIVO', 'Justificativa padrão para o arquivo', 30.0, 
 14.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -385,7 +385,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1594, 'Tipo de Registro', 'TRAILER_ARQUIVO', 'ldentifica o tipo de registro no arquivo.', 1.0, 
 1.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -399,7 +399,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1595, 'Valor líquido por UO - Servidor', 'TRAILER_LOTE', 'Somatório do valor líquido por UO - Servidor (verba 1 + verba 3 - verba 2 (TIPO 10 - IR) - verba 4) ', 15.0, 
 4.0, 'CALCULO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -413,7 +413,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1596, 'Número do Lote', 'TRAILER_ARQUIVO', 'Ntlmero sequencial para identificar univocamente um lote de informaçäo.', 4.0, 
 2.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -427,7 +427,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1597, 'Valor líquido por UO - Patronal', 'TRAILER_LOTE', 'Somatório do valor líquido por UO - Patronal (verba 6 - verba 7) ', 15.0, 
 5.0, 'CALCULO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -441,7 +441,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1598, 'Quantidade de Lotes', 'TRAILER_ARQUIVO', 'Quantidade de lotes enviados no arquivo', 4.0, 
 3.0, 'QUANTIDADE_LOTE', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -455,7 +455,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1599, 'Quantidade de Registros do Arquivo', 'TRAILER_ARQUIVO', 'Número total de registros pertencentes ao arquivo.', 10.0, 
 4.0, 'QUANTIDADE_LINHA', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -469,7 +469,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1600, 'Valor líquido por UO - Retenção', 'TRAILER_LOTE', 'Somatório do valor líquido por UO - retenção (verba 2) ', 15.0, 
 6.0, 'CALCULO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -483,7 +483,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1601, 'Tipo de registro ', 'CONTEUDO_LOTE', 'Código do identificador de tipo de registro ', 1.0, 
 1.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -497,7 +497,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1602, 'Número de lote ', 'CONTEUDO_LOTE', 'Número sequencial para identificar univocamente um lote de informação. Criado e controlado paelo responsável pela geração do arquivo. ', 4.0, 
 2.0, 'REFERENCIA', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -511,7 +511,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1609, 'Identificador do tipo de despesa de pessoal ', 'CONTEUDO_LOTE', 'Identificação da origem da despesa para detalhamento da execução ', 2.0, 
 3.0, 'SELECAO', True, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -525,7 +525,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1615, 'Tipo de Retenção ', 'CONTEUDO_LOTE', 'Indica a origem da retenção prevista para a folha de pagamento ', 4.0, 
 5.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -539,7 +539,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1622, 'Função ', 'CONTEUDO_LOTE', 'Código da função ', 2.0, 
 6.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -553,7 +553,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1631, 'Subfunção ', 'CONTEUDO_LOTE', 'Campo destinado para a inserção da Subfunção do lote ', 3.0, 
 7.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -567,7 +567,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1632, 'Programa ', 'CONTEUDO_LOTE', 'Campo destinado para a inserção do Programa do lote ', 3.0, 
 8.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -581,7 +581,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1635, 'Identificador de Projeto / Atividade', 'CONTEUDO_LOTE', 'Campo destinado para a inserção do Identificador de Projeto / Atividade do lote', 1.0, 
 9.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -595,7 +595,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1636, 'Projeto / Atividade ', 'CONTEUDO_LOTE', 'Campo destinado para a inserção do Projeto / Atividade do lote ', 3.0, 
 10.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -609,7 +609,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1637, 'Subprojeto / Subatividade ', 'CONTEUDO_LOTE', 'Campo destinado para a inserção do Subprojeto / Subatividade do lote ', 4.0, 
 11.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -623,7 +623,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1638, 'Categoria Econômica ', 'CONTEUDO_LOTE', 'Campo destinado para a inserção da Categoria Econômica do lote ', 1.0, 
 12.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -637,7 +637,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1641, 'Grupo de despesa', 'CONTEUDO_LOTE', 'Campo destinado para a inserção do Grupo de Despesa da linha ', 1.0, 
 13.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -651,7 +651,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1646, 'Modalidade de Aplicação ', 'CONTEUDO_LOTE', 'Campo destinado para a seleção da Modalidade de Aplicação do lote ', 2.0, 
 14.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -665,7 +665,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1647, 'Elemento Despesa ', 'CONTEUDO_LOTE', 'Campo destinado para a inserção do Item de Despesa da linha ', 3.0, 
 15.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -679,7 +679,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1648, 'Item de Despesa ', 'CONTEUDO_LOTE', 'Campo destinado para a inserção do Item de Despesa da linha ', 3.0, 
 16.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -693,7 +693,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1649, 'IAG', 'CONTEUDO_LOTE', 'Campo destinado para seleção IAG do arquivo. ', 2.0, 
 17.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -707,7 +707,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1650, 'Grupo da Fonte ', 'CONTEUDO_LOTE', 'Campo destinado para a seleção do Grupo de Fonte do lote ', 2.0, 
 18.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -721,7 +721,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1651, 'Fonte de Recurso ', 'CONTEUDO_LOTE', 'Campo destinado para a seleção da Fonte de Recurso do lote ', 6.0, 
 19.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -735,7 +735,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 1654, 'IPU', 'CONTEUDO_LOTE', 'Campo destinado para a inserção do IPU da linha', 2.0, 
 20.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -749,7 +749,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2821, 'Elemento-item de origem', 'CONTEUDO_LOTE', 'Elemento de origem para DEA (despesa de exercício anterior)', 3.0, 
 21.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -763,7 +763,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2822, 'Item Origem', 'CONTEUDO_LOTE', 'Item de origem para DEA (despesa de exercicio anterior)', 3.0, 
 22.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -777,7 +777,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2823, 'Tipo de inscrição do credor da execução de despesa de pessoal', 'CONTEUDO_LOTE', 'Identificador do tipo de inscrição do credor', 1.0, 
 23.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -791,7 +791,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2824, 'Credor da execução de despesa de pessoal', 'CONTEUDO_LOTE', 'CAPF de apropriação da despesa de pessoal', 14.0, 
 24.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -805,7 +805,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2825, 'Tipo de inscrição do credor da retenção / restituição / patronal', 'CONTEUDO_LOTE', 'Identificador do tipo de inscrição credor', 1.0, 
 25.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -819,7 +819,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2826, 'Credor da retenção / restituição / patronal', 'CONTEUDO_LOTE', 'CNPJ do credor da retenção restituição patronal', 14.0, 
 26.0, 'NUMERICO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -833,7 +833,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2827, 'Código de receita', 'CONTEUDO_LOTE', 'Código da receita previdenciária', 6.0, 
 27.0, 'NUMERICO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -847,7 +847,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2828, 'Ano de referência da retenção / patronal / Despesa Bruta Servidor', 'CONTEUDO_LOTE', 'Ano de referência da retenção / patronal / Despesa Bruta Servidor', 4.0, 
 28.0, 'NUMERICO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -861,7 +861,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2829, 'Mês de referência da retenção / patronal / Despesa Bruta Servidor', 'CONTEUDO_LOTE', 'Mês de referência da retenção / patronal / Despesa Bruta Servidor', 2.0, 
 29.0, 'NUMERICO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -875,7 +875,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2830, 'Valor', 'CONTEUDO_LOTE', 'Valor a ser apropriado/retido', 15.0, 
 30.0, 'MONETARIO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -889,7 +889,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2837, 'Centro de custo', 'CONTEUDO_LOTE', 'Código do centro de custo', 7.0, 
 31.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -903,7 +903,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2838, 'Instrumento Jurídico da Fonte', 'CONTEUDO_LOTE', 'Número do instrumento jurídico de entrada da fonte', 10.0, 
 32.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -917,7 +917,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2839, 'Instrumento Jurídico do IPU', 'CONTEUDO_LOTE', 'Número do instrumento jurídico de entrada da procedencia', 10.0, 
 33.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -931,7 +931,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2840, 'Órgão executor da despesa', 'CONTEUDO_LOTE', 'Código do órgão executor da despesa orçamentária a ser eapropriada', 5.0, 
 34.0, 'PADRAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -945,7 +945,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2841, 'Unidade Orçamentária Beneficiária da Retenção', 'CONTEUDO_LOTE', 'Código da unidade Orçamentária Beneficiária da Retenção', 5.0, 
 35.0, 'SELECAO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -959,7 +959,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 2842, 'Unidade Financeira do gasto', 'CONTEUDO_LOTE', 'Código da unidade orçamentaria financeira do gasto', 5.0, 
 36.0, 'NUMERICO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -987,7 +987,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 4301, 'Identificador de Tipo de Verba', 'CONTEUDO_LOTE', 'Identificador de vantagens e descontos', 2.0, 
 4.0, 'SELECAO', False, 
-True, 'None', 
+True, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -1001,7 +1001,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 4575, 'Ano de referência da DEA', 'CONTEUDO_LOTE', 'Ano de referência da DEA', 4.0, 
 37.0, 'NUMERICO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -1015,7 +1015,7 @@ sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador,
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT 4576, 'Mês de referência da DEA', 'CONTEUDO_LOTE', 'Mês de referência da DEA', 2.0, 
 38.0, 'NUMERICO', False, 
-False, 'None', 
+False, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
 uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
@@ -1867,7 +1867,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 2443, 2227, 'None', 1574.0, 'Tipo de Processamento', 
+SELECT 2443, 2227, 'NULL', 1574.0, 'Tipo de Processamento', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 2443 AND co_campo = 2227
@@ -1894,7 +1894,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 2991, 2767, 'None', 1573.0, 'Tipo de Registro', 
+SELECT 2991, 2767, 'NULL', 1573.0, 'Tipo de Registro', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 2991 AND co_campo = 2767
@@ -1903,7 +1903,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 2995, 2768, 'None', 1573.0, 'Tipo de Registro', 
+SELECT 2995, 2768, 'NULL', 1573.0, 'Tipo de Registro', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 2995 AND co_campo = 2768
@@ -1912,7 +1912,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 2996, 2768, 'None', 1574.0, 'Tipo de Processamento', 
+SELECT 2996, 2768, 'NULL', 1574.0, 'Tipo de Processamento', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 2996 AND co_campo = 2768
@@ -1921,7 +1921,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 2997, 2769, 'None', 1573.0, 'None', 
+SELECT 2997, 2769, 'NULL', 1573.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 2997 AND co_campo = 2769
@@ -1930,7 +1930,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 2999, 2770, 'None', 1574.0, 'None', 
+SELECT 2999, 2770, 'NULL', 1574.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 2999 AND co_campo = 2770
@@ -1966,7 +1966,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 3081, 1602, 'None', 1588.0, 'None', 
+SELECT 3081, 1602, 'NULL', 1588.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 3081 AND co_campo = 1602
@@ -2101,7 +2101,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 3642, 3135, 'None', 1573.0, 'None', 
+SELECT 3642, 3135, 'NULL', 1573.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 3642 AND co_campo = 3135
@@ -2209,7 +2209,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 3806, 3294, 'None', 1580.0, 'None', 
+SELECT 3806, 3294, 'NULL', 1580.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 3806 AND co_campo = 3294
@@ -2227,7 +2227,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 3879, 3361, 'None', 1573.0, 'None', 
+SELECT 3879, 3361, 'NULL', 1573.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 3879 AND co_campo = 3361
@@ -2236,7 +2236,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 3887, 3368, 'None', 1574.0, 'None', 
+SELECT 3887, 3368, 'NULL', 1574.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 3887 AND co_campo = 3368
@@ -2245,7 +2245,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 3888, 3369, 'None', 1573.0, 'None', 
+SELECT 3888, 3369, 'NULL', 1573.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 3888 AND co_campo = 3369
@@ -3028,7 +3028,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 5174, 1568, 'None', 1576.0, 'None', 
+SELECT 5174, 1568, 'NULL', 1576.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 5174 AND co_campo = 1568
@@ -3037,7 +3037,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 5178, 1572, 'None', 1579.0, 'None', 
+SELECT 5178, 1572, 'NULL', 1579.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 5178 AND co_campo = 1572
@@ -3046,7 +3046,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 5179, 1569, 'None', 1578.0, 'None', 
+SELECT 5179, 1569, 'NULL', 1578.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 5179 AND co_campo = 1569
@@ -3055,7 +3055,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 5180, 1570, 'None', 1574.0, 'None', 
+SELECT 5180, 1570, 'NULL', 1574.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 5180 AND co_campo = 1570
@@ -3064,7 +3064,7 @@ INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
 st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
-SELECT 5181, 1571, 'None', 1583.0, 'None', 
+SELECT 5181, 1571, 'NULL', 1583.0, 'NULL', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 5181 AND co_campo = 1571
@@ -3860,4 +3860,86 @@ SELECT 5551, 1648, '99', nan, '99',
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = 5551 AND co_campo = 1648
+);
+
+INSERT INTO depe.tb_averbacao
+(co_seq_averbacao, no_averbacao, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 1079, 'PROVENTOS - ATIVO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao
+(co_seq_averbacao, no_averbacao, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 1080, 'PROVENTOS - INATIVO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao
+(co_seq_averbacao, no_averbacao, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 1083, 'RESTITUIÇÃO AO SERVIDOR - ATIVO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1083
+);
+INSERT INTO depe.tb_averbacao
+(co_seq_averbacao, no_averbacao, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 1084, 'RESTITUIÇÃO AO SERVIDOR - INATIVO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1084
+);
+INSERT INTO depe.tb_averbacao
+(co_seq_averbacao, no_averbacao, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 1085, 'PATRONAL - ATIVO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao
+(co_seq_averbacao, no_averbacao, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 1088, 'PATRONAL - INATIVO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao
+(co_seq_averbacao, no_averbacao, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 1111, 'CONSIGNAÇÕES - ATIVO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao
+(co_seq_averbacao, no_averbacao, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 1112, 'RESTITUIÇÃO AO ESTADO - ATIVO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1112
+);
+INSERT INTO depe.tb_averbacao
+(co_seq_averbacao, no_averbacao, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT 1113, 'CONSIGNAÇÕES - INATIVO', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = 1113
 );
