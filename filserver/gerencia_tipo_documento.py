@@ -125,6 +125,52 @@ def insert_tb_tipo_doc_funcion_scsdp(
     )
 
 
+def insert_tb_tipo_doc_projeto_scsdp(
+    ambiente, id_tipo_documento, uuid_projeto
+):
+    executar_query(
+        False,
+        f"""
+        INSERT INTO fileserver.tb_tipo_doc_projeto_scsdp(
+            co_tipo_documento, co_uuid_projeto_scsdp, 
+            st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1
+        )
+        SELECT 
+            {id_tipo_documento}, '{uuid_projeto}', 
+            TRUE, now(), 'CREATE', 1, uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
+        WHERE NOT EXISTS (
+            SELECT 1
+            FROM fileserver.tb_tipo_doc_projeto_scsdp
+            WHERE co_tipo_documento = {id_tipo_documento}
+            AND co_uuid_projeto_scsdp = '{uuid_projeto}'
+        );
+        """,
+        ambiente,
+    )
+
+
+def insert_tb_tipo_doc_extensao_enum(ambiente, id_tipo_documento, extensao):
+    executar_query(
+        False,
+        f"""
+        INSERT INTO fileserver.tb_tipo_doc_extensao_enum(
+            co_tipo_documento, no_extensao_enum, 
+            st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1
+        )
+        SELECT 
+            {id_tipo_documento}, '{extensao}', 
+            TRUE, now(), 'CREATE', 1, uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
+        WHERE NOT EXISTS (
+            SELECT 1
+            FROM fileserver.tb_tipo_doc_extensao_enum
+            WHERE co_tipo_documento = {id_tipo_documento}
+            AND no_extensao_enum = '{extensao}'
+        );
+        """,
+        ambiente,
+    )
+
+
 def main():
     tipos_documentos = carregar_de_json(
         r'filserver\data\tipo_documentos_cesv.json'
@@ -139,6 +185,8 @@ def main():
     )
 
     for tipo in tipos_documentos:
+
+        print(f'Inserindo tipo de documento: {tipo["nome"]}')
 
         if 'Portal' in tipo['funcionalidades']:
             fl_habilita_campo_texto_1 = 'TRUE'
@@ -160,6 +208,22 @@ def main():
                 string_fileserver['preprod'],
                 tipo_documento_id,
                 uuid_funcionalidade,
+            )
+
+        for projeto in tipo['projetos']:
+            uuid_projeto = projetos[projeto]
+
+            insert_tb_tipo_doc_projeto_scsdp(
+                string_fileserver['preprod'],
+                tipo_documento_id,
+                uuid_projeto,
+            )
+
+        for extensao in tipo['extensoes']:
+            insert_tb_tipo_doc_extensao_enum(
+                string_fileserver['preprod'],
+                tipo_documento_id,
+                extensao,
             )
 
 
