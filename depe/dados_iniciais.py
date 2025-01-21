@@ -82,9 +82,44 @@ WHERE NOT EXISTS (
     )
 
 
+def retorna_sql_insert_tb_campo_valor(ambiente: str):
+    query = f"""
+        SELECT
+            co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg
+        FROM depe.tb_campo_valor
+        WHERE st_ativo = TRUE
+        ORDER BY co_seq_campo_valor ASC;
+    """
+    dados_tb_campo_valor = consulta_para_lista(string_depe[ambiente], query)
+
+    sql_template = """
+INSERT INTO depe.tb_campo_valor
+(co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+SELECT {co_seq_campo_valor}, {co_campo}, '{co_valor_sef_mg}', {co_campo_referencia}, '{ds_valor_sef_mg}', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = {co_seq_campo_valor} AND co_campo = {co_campo}
+);"""
+
+    return ''.join(
+        sql_template.format(
+            **{
+                key: (
+                    value.replace("'", '') if isinstance(value, str) else value
+                )
+                for key, value in campo_valor.items()
+            }
+        )
+        for campo_valor in dados_tb_campo_valor
+    )
+
+
 def main():
     salvar_em_sql(retorna_sql_insert_tb_campo('dev'), NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_regra('dev'), NOME_ARQUIVO)
+    salvar_em_sql(retorna_sql_insert_tb_campo_valor('dev'), NOME_ARQUIVO)
 
 
 if __name__ == '__main__':
