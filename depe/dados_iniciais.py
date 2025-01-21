@@ -255,6 +255,48 @@ WHERE NOT EXISTS (
     )
 
 
+def retorna_sql_insert_tb_campo_averbacao(ambiente: str):
+    query = f"""
+        SELECT
+            co_seq_campo_averbacao, co_averbacao, co_campo, co_campo_para_calculo, ds_tipo_calculo
+        FROM {SCHEMA_DEPE}.tb_campo_averbacao
+        WHERE st_ativo = TRUE
+        ORDER BY co_seq_campo_averbacao ASC;
+    """
+    dados_tb_campo_averbacao = consulta_para_lista(
+        string_depe[ambiente], query
+    )
+
+    for dado in dados_tb_campo_averbacao:
+        for chave, valor in dado.items():
+            if valor is None:
+                dado[chave] = 'NULL'
+
+    sql_template = """
+INSERT INTO depe.tb_campo_averbacao
+(co_seq_campo_averbacao, co_averbacao, co_campo, co_campo_para_calculo, ds_tipo_calculo, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT {co_seq_campo_averbacao}, {co_averbacao}, {co_campo}, {co_campo_para_calculo}, '{ds_tipo_calculo}', 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_campo_averbacao WHERE co_seq_campo_averbacao = {co_seq_campo_averbacao} AND co_averbacao = {co_averbacao}
+);"""
+
+    return ''.join(
+        sql_template.format(
+            **{
+                key: (
+                    value.replace("'", '') if isinstance(value, str) else value
+                )
+                for key, value in campo_averbacao.items()
+            }
+        )
+        for campo_averbacao in dados_tb_campo_averbacao
+    )
+
+
 def main():
     salvar_em_sql(retorna_sql_insert_tb_campo('dev'), NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_regra('dev'), NOME_ARQUIVO)
@@ -264,6 +306,7 @@ def main():
     salvar_em_sql(
         retorna_sql_insert_tb_configuracao_tabela('dev'), NOME_ARQUIVO
     )
+    salvar_em_sql(retorna_sql_insert_tb_campo_averbacao('dev'), NOME_ARQUIVO)
 
 
 if __name__ == '__main__':
