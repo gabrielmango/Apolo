@@ -20,7 +20,6 @@ def retorna_sql_insert_tb_campo(ambiente: str):
     dados_tb_campo = consulta_para_lista(string_depe[ambiente], query)
 
     sql_template = """
--- {no_campo}
 INSERT INTO depe.tb_campo
 (co_seq_campo, no_campo, tp_campo, ds_campo, qt_caracteres_codigo, 
 nu_ordem_codigo, tp_valor_campo, fl_campo_obrigatorio, 
@@ -31,7 +30,7 @@ SELECT {co_seq_campo}, '{no_campo}', '{tp_campo}', '{ds_campo}', {qt_caracteres_
 {nu_ordem_codigo}, '{tp_valor_campo}', {fl_campo_obrigatorio}, 
 {fl_destacar_campo_front_end}, '{ds_intervencao_externa}', 
 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, 
-'{co_uuid}', '60a75feb-0170-4f38-a2cc-e31269440a61'
+uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo WHERE co_seq_campo = {co_seq_campo} AND no_campo = '{no_campo}'
 );"""
@@ -49,9 +48,43 @@ WHERE NOT EXISTS (
     )
 
 
+def retorna_sql_insert_tb_regra(ambiente: str):
+    query = f"""
+        SELECT
+            co_seq_regra, co_campo, co_valor_campo, tp_regra, co_uuid
+        FROM {SCHEMA_DEPE}.tb_regra
+        WHERE st_ativo = TRUE
+        ORDER BY co_seq_regra ASC;
+    """
+    dados_tb_regra = consulta_para_lista(string_depe[ambiente], query)
+
+    sql_template = """
+INSERT INTO depe.tb_regra
+(co_seq_regra, co_campo, co_valor_campo, tp_regra, co_uuid, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao)
+SELECT {co_seq_regra}, {co_campo}, {co_valor_campo}, '{tp_regra}', uuid_generate_v4(), 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_regra WHERE co_seq_regra = {co_seq_regra} AND co_campo = {co_campo}
+);"""
+
+    return ''.join(
+        sql_template.format(
+            **{
+                key: (
+                    value.replace("'", '') if isinstance(value, str) else value
+                )
+                for key, value in regra.items()
+            }
+        )
+        for regra in dados_tb_regra
+    )
+
+
 def main():
-    salvar_em_sql('-- Dados para a tabela tb_campo', NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_campo('dev'), NOME_ARQUIVO)
+    salvar_em_sql(retorna_sql_insert_tb_regra('dev'), NOME_ARQUIVO)
 
 
 if __name__ == '__main__':
