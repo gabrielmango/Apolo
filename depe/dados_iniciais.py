@@ -72,9 +72,10 @@ def retorna_sql_insert_tb_regra(ambiente: str):
 INSERT INTO depe.tb_regra
 (co_seq_regra, co_campo, co_valor_campo, tp_regra, co_uuid, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
-st_ativo, dh_criacao, tp_operacao, nu_versao)
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid_1)
 SELECT {co_seq_regra}, {co_campo}, {co_valor_campo}, '{tp_regra}', uuid_generate_v4(), 
-'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1,
+'60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_regra WHERE co_seq_regra = {co_seq_regra} AND co_campo = {co_campo}
 );"""
@@ -111,9 +112,10 @@ def retorna_sql_insert_tb_campo_valor(ambiente: str):
 INSERT INTO depe.tb_campo_valor
 (co_seq_campo_valor, co_campo, co_valor_sef_mg, co_campo_referencia, ds_valor_sef_mg, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
-st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT {co_seq_campo_valor}, {co_campo}, '{co_valor_sef_mg}', {co_campo_referencia}, '{ds_valor_sef_mg}', 
-'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_valor WHERE co_seq_campo_valor = {co_seq_campo_valor} AND co_campo = {co_campo}
 );"""
@@ -150,9 +152,10 @@ def retorna_sql_insert_tb_averbacao(ambiente: str):
 INSERT INTO depe.tb_averbacao
 (co_seq_averbacao, no_averbacao, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
-st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT {co_seq_averbacao}, '{no_averbacao}', 
-'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_averbacao WHERE co_seq_averbacao = {co_seq_averbacao}
 );"""
@@ -189,9 +192,10 @@ def retorna_sql_insert_tb_campo_calculo(ambiente: str):
 INSERT INTO depe.tb_campo_calculo
 (co_seq_campo_calculo, co_campo, co_campo_valor, co_campo_para_calculo, ds_tipo_calculo, 
 sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
-st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid)
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
 SELECT {co_seq_campo_calculo}, {co_campo}, {co_campo_valor}, {co_campo_para_calculo}, '{ds_tipo_calculo}', 
-'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4()
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_calculo WHERE co_seq_campo_calculo = {co_seq_campo_calculo} AND co_campo = {co_campo}
 );"""
@@ -209,12 +213,57 @@ WHERE NOT EXISTS (
     )
 
 
+def retorna_sql_insert_tb_configuracao_tabela(ambiente: str):
+    query = f"""
+        SELECT
+            co_seq_configuracao_tabela, co_campo, nu_ordem_colunas
+        FROM {SCHEMA_DEPE}.tb_configuracao_tabela
+        WHERE st_ativo = TRUE
+        ORDER BY co_seq_configuracao_tabela ASC;
+    """
+    dados_tb_configuracao_tabela = consulta_para_lista(
+        string_depe[ambiente], query
+    )
+
+    for dado in dados_tb_configuracao_tabela:
+        for chave, valor in dado.items():
+            if valor is None:
+                dado[chave] = 'NULL'
+
+    sql_template = """
+INSERT INTO depe.tb_configuracao_tabela
+(co_seq_configuracao_tabela, co_campo, nu_ordem_colunas, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT {co_seq_configuracao_tabela}, {co_campo}, {nu_ordem_colunas}, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_configuracao_tabela WHERE co_seq_configuracao_tabela = {co_seq_configuracao_tabela} AND co_campo = {co_campo}
+);"""
+
+    return ''.join(
+        sql_template.format(
+            **{
+                key: (
+                    value.replace("'", '') if isinstance(value, str) else value
+                )
+                for key, value in configuracao_tabela.items()
+            }
+        )
+        for configuracao_tabela in dados_tb_configuracao_tabela
+    )
+
+
 def main():
     salvar_em_sql(retorna_sql_insert_tb_campo('dev'), NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_regra('dev'), NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_campo_valor('dev'), NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_averbacao('dev'), NOME_ARQUIVO)
     salvar_em_sql(retorna_sql_insert_tb_campo_calculo('dev'), NOME_ARQUIVO)
+    salvar_em_sql(
+        retorna_sql_insert_tb_configuracao_tabela('dev'), NOME_ARQUIVO
+    )
 
 
 if __name__ == '__main__':
