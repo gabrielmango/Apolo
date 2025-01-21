@@ -11,13 +11,6 @@ string_fileserver = {
     'prod': config['FILESERVER_POSTGRES_PROD'],
 }
 
-engine_fileserver = {
-    'dev': create_engine(string_fileserver['dev']),
-    'tst': create_engine(string_fileserver['tst']),
-    'hml': create_engine(string_fileserver['hml']),
-    'preprod': create_engine(string_fileserver['preprod']),
-    'prod': create_engine(string_fileserver['prod']),
-}
 
 string_scsdp = {
     'dev': config['SCSDP_DEV'],
@@ -27,10 +20,10 @@ string_scsdp = {
     'prod': config['SCSDP_PROD'],
 }
 
-engine_scsdp = {
-    'dev': create_engine(string_scsdp['dev']),
-    'tst': create_engine(string_scsdp['tst']),
-    'hml': create_engine(string_scsdp['hml']),
-    'preprod': create_engine(string_scsdp['preprod']),
-    'prod': create_engine(string_scsdp['prod']),
+string_gerais = {
+    'dev': config['GERAIS_DEV'],
+    'tst': config['GERAIS_TST'],
+    'hml': config['GERAIS_HML'],
+    'preprod': config['GERAIS_PREPROD'],
+    'prod': config['GERAIS_PROD'],
 }

@@ -1,5 +1,5 @@
 from database import consulta_para_lista, executar_query, inserir_sql
-from utils.ambientes import string_fileserver, string_scsdp
+from utils.ambientes import string_fileserver, string_gerais, string_scsdp
 from utils.gerenciar_json import carregar_de_json
 
 
@@ -30,6 +30,22 @@ def retorna_uuid_projeto(projeto, ambiente):
         where 
             upper(unaccent(trim(no_projeto))) = 
             upper(unaccent(trim('{projeto}')));
+        """,
+        ambiente,
+    )
+
+
+def retorna_id_agrupador(agrupador, ambiente):
+    return executar_query(
+        True,
+        f"""
+        select 
+            co_seq_agrupador
+        from 
+            gerais.tb_agrupador
+        where 
+            upper(unaccent(trim(no_agrupador))) = 
+            upper(unaccent(trim('{agrupador}')));
         """,
         ambiente,
     )
@@ -171,17 +187,17 @@ def insert_tb_tipo_doc_extensao_enum(ambiente, id_tipo_documento, extensao):
     )
 
 
-def main():
+def main(ambiente: str = 'dev'):
     tipos_documentos = carregar_de_json(
         r'filserver\data\tipo_documentos_cesv.json'
     )
 
     funcionalidades = retorna_funcionalidades(
-        retorna_lista_funcionalidade(tipos_documentos), string_scsdp['dev']
+        retorna_lista_funcionalidade(tipos_documentos), string_scsdp[ambiente]
     )
 
     projetos = retorna_projetos(
-        retorna_lista_projeto(tipos_documentos), string_scsdp['dev']
+        retorna_lista_projeto(tipos_documentos), string_scsdp[ambiente]
     )
 
     for tipo in tipos_documentos:
@@ -198,14 +214,14 @@ def main():
             tipo['sigla'],
             tipo['tamanho'],
             fl_habilita_campo_texto_1,
-            string_fileserver['preprod'],
+            string_fileserver[ambiente],
         )
 
         for funcionalidade in tipo['funcionalidades']:
             uuid_funcionalidade = funcionalidades[funcionalidade]
 
             insert_tb_tipo_doc_funcion_scsdp(
-                string_fileserver['preprod'],
+                string_fileserver[ambiente],
                 tipo_documento_id,
                 uuid_funcionalidade,
             )
@@ -214,17 +230,53 @@ def main():
             uuid_projeto = projetos[projeto]
 
             insert_tb_tipo_doc_projeto_scsdp(
-                string_fileserver['preprod'],
+                string_fileserver[ambiente],
                 tipo_documento_id,
                 uuid_projeto,
             )
 
         for extensao in tipo['extensoes']:
             insert_tb_tipo_doc_extensao_enum(
-                string_fileserver['preprod'],
+                string_fileserver[ambiente],
                 tipo_documento_id,
                 extensao,
             )
+
+
+def adiciona_projeto_agrupador(ambiente: str = 'dev'):
+    uuid_projeto = retorna_uuid_projeto(
+        'Sistema de Gestão de Estágio - SGE', string_scsdp[ambiente]
+    )[0]['co_uuid']
+
+    id_agrupador = retorna_id_agrupador('CESV', string_gerais[ambiente])[0][
+        'co_seq_agrupador'
+    ]
+
+    executar_query(
+        False,
+        f"""
+        INSERT INTO gerais.tb_agrupador_projeto(
+            co_agrupador, co_uuid_projeto,
+            st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1,
+            sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador
+        )
+        SELECT 
+            {id_agrupador}, '{uuid_projeto}',
+            TRUE, now(), 'CREATE', 1, uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61',
+            'manual', 'manual', 'manual'
+        WHERE NOT EXISTS (
+            SELECT 1
+            FROM gerais.tb_agrupador_projeto
+            WHERE co_agrupador = {id_agrupador}
+            AND co_uuid_projeto = '{uuid_projeto}'
+        );
+        """,
+        string_gerais[ambiente],
+    )
+
+    print(
+        'Projeto Sistema de Gestão de Estágio - SGE adicionado no agrupador CESV!'
+    )
 
 
 if __name__ == '__main__':
@@ -234,6 +286,7 @@ if __name__ == '__main__':
     start_time = datetime.now()
 
     main()
+    adiciona_projeto_agrupador()
 
     end_time = datetime.now()
     print(f'\nProcesso finalizado: {datetime.now()} \n')
