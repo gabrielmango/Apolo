@@ -8,7 +8,10 @@ config = dotenv_values('.env')
 
 FILESERVER_POSTGRES_HML = config['FILESERVER_POSTGRES_HML']
 
-def insert_tipo_documento(no_tipo_documento: str, sg_tipo_documento: str) -> None:
+
+def insert_tipo_documento(
+    no_tipo_documento: str, sg_tipo_documento: str
+) -> None:
     executa_sql(
         FILESERVER_POSTGRES_HML,
         f"""
@@ -23,7 +26,7 @@ def insert_tipo_documento(no_tipo_documento: str, sg_tipo_documento: str) -> Non
                 WHERE no_tipo_documento = '{no_tipo_documento}'
                 AND sg_tipo_documento = '{sg_tipo_documento}'
             );
-        """
+        """,
     )
 
     return executa_sql_com_resultados(
@@ -33,19 +36,18 @@ def insert_tipo_documento(no_tipo_documento: str, sg_tipo_documento: str) -> Non
         from fileserver.tb_tipo_documento 
         where no_tipo_documento = '{no_tipo_documento}' and 
         sg_tipo_documento = '{sg_tipo_documento}';
-        """
+        """,
     )
 
 
-
 def main():
-    tipos_documentos = carregar_de_json('data/tipo_documentos_fileserver_cesv.json')
+    tipos_documentos = carregar_de_json(
+        'data/tipo_documentos_fileserver_cesv.json'
+    )
 
     for tipo in tipos_documentos:
         # tb_tipo_documento
         id_tipo_doc = insert_tipo_documento(tipo['nome'], tipo['sigla'])[0][0]
-
-        
 
 
 if __name__ == '__main__':

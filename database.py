@@ -1,5 +1,8 @@
+import pandas as pd
 import psycopg2
 from sqlalchemy import create_engine, text
+from sqlalchemy.exc import SQLAlchemyError
+
 
 def executa_sql_sem_resultados(conn_string: str, query_string: str):
     """Executa uma query sem retornar resultados."""
@@ -11,9 +14,10 @@ def executa_sql_sem_resultados(conn_string: str, query_string: str):
         conn.commit()
         cur.close()
         conn.close()
-        print("Query executada com sucesso (sem resultados).")
+        print('Query executada com sucesso (sem resultados).')
     except Exception as e:
-        print(f"Erro ao executar a query sem resultados: {e}")
+        print(f'Erro ao executar a query sem resultados: {e}')
+
 
 def executa_sql_com_resultados(conn_string: str, query_string: str):
     """Executa uma query e retorna os resultados."""
@@ -24,17 +28,21 @@ def executa_sql_com_resultados(conn_string: str, query_string: str):
             resultados = cursor.fetchall()
         return resultados
     except Exception as e:
-        print(f"Erro ao executar a query e retornar resultados: {e}")
+        print(f'Erro ao executar a query e retornar resultados: {e}')
         return None
     finally:
         conn.close()
 
-def executa_sql_com_retorno(conn_string: str, query_string: str, retorna_resultado: bool):
+
+def executa_sql_com_retorno(
+    conn_string: str, query_string: str, retorna_resultado: bool
+):
     """Executa a query de acordo com a flag retorna_resultado e o tipo de retorno desejado."""
     if retorna_resultado:
         return executa_sql_com_resultados(conn_string, query_string)
     else:
         executa_sql_sem_resultados(conn_string, query_string)
+
 
 def executa_sql(conn_string: str, query_string: str):
     try:
@@ -48,3 +56,58 @@ def executa_sql(conn_string: str, query_string: str):
 
     except Exception as e:
         print(e)
+
+
+def consulta_para_lista(conn_string: str, query_string: str):
+    data = pd.read_sql(query_string, conn_string)
+    return data.to_dict(orient='records')
+
+
+def insert_data(conn_string: str, query_string: str):
+    try:
+        engine = create_engine(conn_string)
+        conn = engine.raw_connection()
+        cur = conn.cursor()
+        cur.execute(text(query_string))
+        conn.commit()
+        cur.close()
+        conn.close()
+    except Exception as e:
+        print(f'Erro: {e}')
+
+
+def inserir_sql(connection_string, sql):
+    engine = create_engine(connection_string)
+
+    try:
+        # Conectando ao banco e executando o comando
+        with engine.begin() as connection:  # engine.begin() gerencia a transação automaticamente
+            result = connection.execute(text(sql))
+            # print(result)
+            # print(f"Comando executado com sucesso. Linhas afetadas: {result.rowcount}")
+            connection.execute(text(sql))
+    except SQLAlchemyError as e:
+        print(f'Ocorreu um erro: {e}')
+
+
+def executar_query(retornar_dados: bool, query: str, string_conexao: str):
+    engine = create_engine(string_conexao)
+
+    if retornar_dados:
+        try:
+            # Executa a consulta SELECT
+            with engine.connect() as connection:
+                result = connection.execute(text(query))
+                colunas = result.keys()
+                dados = [dict(zip(colunas, row)) for row in result.fetchall()]
+                return dados
+        except SQLAlchemyError as e:
+            print(f'Ocorreu um erro ao consultar: {e}')
+            return []
+    else:
+        try:
+            # Executa a query fornecida (ex.: INSERT, UPDATE, DELETE)
+            with engine.begin() as connection:
+                connection.execute(text(query))
+        except SQLAlchemyError as e:
+            print(f'Ocorreu um erro ao executar a query: {e}')

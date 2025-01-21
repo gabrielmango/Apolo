@@ -1,0 +1,386 @@
+[
+    {
+        "nome": "CPF",
+        "sigla": "CPFSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Identidade",
+        "sigla": "IDESGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Declaração de Média Global",
+        "sigla": "DECMEDGLOSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Declaração de Matrícula – com período",
+        "sigla": "DECMATSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Currículo Vitae - livre",
+        "sigla": "CURVITSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Laudo Médico emitido em até 12 meses",
+        "sigla": "LAUMEDSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Histórico Escolar",
+        "sigla": "HISESCSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Diploma/Declaração de Conclusão",
+        "sigla": "DIPDECCONSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Histórico Escolar da Graduação",
+        "sigla": "HISESCGRASGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Declaração de Colação de Grau",
+        "sigla": "DECCOLGRASGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Edital",
+        "sigla": "EDISGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Alteração de Item",
+        "sigla": "ALTITESGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Prorrogação de Inscrição",
+        "sigla": "PROINSSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Alteração de Entrevista",
+        "sigla": "ALTENTSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Alteração de Prova",
+        "sigla": "ALTPROSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Comunicado",
+        "sigla": "COMSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Resultado Análise Curricular",
+        "sigla": "RESANACURSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Resultado de Entrevista",
+        "sigla": "RESENTSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Resultado de Prova",
+        "sigla": "RESPROSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Resultado Preliminar",
+        "sigla": "RESPRESGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Resultado Definitivo",
+        "sigla": "RESDEFSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Recurso",
+        "sigla": "RECSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Homologação",
+        "sigla": "HOMSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Convocação",
+        "sigla": "CONSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Espelho de Prova e Gabarito",
+        "sigla": "ESPPROGABSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Gabarito",
+        "sigla": "GABSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Espelho de Prova",
+        "sigla": "ESPPROSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Prorrogação de Prazo",
+        "sigla": "PROPRASGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    },
+    {
+        "nome": "Retificação e Encerramento de Certame",
+        "sigla": "RETENCCERSGE",
+        "tamanho": 20971520,
+        "funcionalidades": [
+            "Portal"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF"
+        ]
+    }
+]
