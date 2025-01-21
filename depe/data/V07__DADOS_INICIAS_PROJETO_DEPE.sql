@@ -4837,3 +4837,1804 @@ SELECT 913, 1113, 4975, 2830, 'SUBTRACAO',
 WHERE NOT EXISTS (
     SELECT 1 FROM depe.tb_campo_averbacao WHERE co_seq_campo_averbacao = 913 AND co_averbacao = 1113
 );
+
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 696, 4, 1654, 3007, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 696 AND co_averbacao = 4
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 697, 4, 1641, 1692, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 697 AND co_averbacao = 4
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 698, 4, 1651, 4593, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 698 AND co_averbacao = 4
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 699, 4, 2824, 4635, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 699 AND co_averbacao = 4
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 700, 4, 2823, 4533, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 700 AND co_averbacao = 4
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 701, 4, 1610, 4606, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 701 AND co_averbacao = 4
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1066, 2, 2824, 4860, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1066 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1067, 2, 2823, 4533, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1067 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1068, 2, 1646, 5007, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1068 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1069, 2, 1638, 4530, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1069 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1070, 2, 1637, 4529, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1070 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1071, 2, 1636, 4527, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1071 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1072, 2, 1635, 4526, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1072 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1073, 2, 1632, 4523, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1073 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1074, 2, 1631, 4521, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1074 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1075, 2, 1622, 4437, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1075 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1076, 2, 4301, 5002, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1076 AND co_averbacao = 2
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1218, 1, 1651, 5306, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1218 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1219, 1, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1219 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1220, 1, 4301, 5002, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1220 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1221, 1, 1650, 5010, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1221 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1222, 1, 1646, 5007, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1222 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1223, 1, 2821, 3188, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1223 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1224, 1, 2822, 3330, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1224 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1225, 1, 1649, 4627, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1225 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1226, 1, 2824, 4861, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1226 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1227, 1, 2823, 4533, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1227 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1228, 1, 1638, 4530, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1228 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1229, 1, 1637, 4529, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1229 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1230, 1, 1636, 4528, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1230 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1231, 1, 1635, 4525, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1231 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1232, 1, 1632, 4524, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1232 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1233, 1, 1631, 4522, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1233 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1234, 1, 1622, 4438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1234 AND co_averbacao = 1
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1251, 950, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1251 AND co_averbacao = 950
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1252, 3, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1252 AND co_averbacao = 3
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1253, 3, 1654, 3011, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1253 AND co_averbacao = 3
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1254, 3, 1641, 1692, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1254 AND co_averbacao = 3
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1255, 3, 1651, 4541, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1255 AND co_averbacao = 3
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1256, 3, 2824, 4636, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1256 AND co_averbacao = 3
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1257, 3, 2823, 4533, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1257 AND co_averbacao = 3
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1258, 3, 1610, 4606, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1258 AND co_averbacao = 3
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1259, 951, 1622, 4438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1259 AND co_averbacao = 951
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1263, 952, 1622, 4438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1263 AND co_averbacao = 952
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1264, 952, 1615, 1638, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1264 AND co_averbacao = 952
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1265, 955, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1265 AND co_averbacao = 955
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1266, 956, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1266 AND co_averbacao = 956
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1267, 957, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1267 AND co_averbacao = 957
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1268, 959, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1268 AND co_averbacao = 959
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1273, 964, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1273 AND co_averbacao = 964
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1287, 966, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1287 AND co_averbacao = 966
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1288, 966, 1622, 4438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1288 AND co_averbacao = 966
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1289, 966, 1609, 4983, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1289 AND co_averbacao = 966
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1296, 981, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1296 AND co_averbacao = 981
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1301, 986, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1301 AND co_averbacao = 986
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1324, 1009, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1324 AND co_averbacao = 1009
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1331, 1016, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1331 AND co_averbacao = 1016
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1379, 1065, 4301, 5484, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1379 AND co_averbacao = 1065
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1380, 1065, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1380 AND co_averbacao = 1065
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1394, 1078, 1622, 4438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1394 AND co_averbacao = 1078
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1408, 1079, 2822, 3330, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1408 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1409, 1079, 2821, 3188, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1409 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1410, 1079, 1649, 4627, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1410 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1411, 1079, 1650, 5010, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1411 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1412, 1079, 1651, 5306, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1412 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1413, 1079, 2824, 4861, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1413 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1414, 1079, 2823, 5438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1414 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1415, 1079, 1646, 5007, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1415 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1416, 1079, 1638, 4530, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1416 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1417, 1079, 1637, 4529, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1417 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1418, 1079, 1636, 4528, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1418 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1419, 1079, 1635, 4525, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1419 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1420, 1079, 1632, 4524, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1420 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1421, 1079, 1631, 4522, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1421 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1422, 1079, 1622, 4438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1422 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1423, 1079, 4301, 5484, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1423 AND co_averbacao = 1079
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1443, 1083, 2825, 3332, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1443 AND co_averbacao = 1083
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1444, 1083, 1609, 4977, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1444 AND co_averbacao = 1083
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1445, 1083, 1654, 5082, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1445 AND co_averbacao = 1083
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1446, 1083, 1641, 5013, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1446 AND co_averbacao = 1083
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1447, 1083, 1651, 5306, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1447 AND co_averbacao = 1083
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1448, 1083, 2824, 4861, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1448 AND co_averbacao = 1083
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1449, 1083, 2823, 5438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1449 AND co_averbacao = 1083
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1450, 1083, 4301, 5486, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1450 AND co_averbacao = 1083
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1451, 1084, 1654, 5085, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1451 AND co_averbacao = 1084
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1452, 1084, 1641, 5013, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1452 AND co_averbacao = 1084
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1453, 1084, 1651, 5321, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1453 AND co_averbacao = 1084
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1454, 1084, 2824, 4860, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1454 AND co_averbacao = 1084
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1455, 1084, 2823, 5438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1455 AND co_averbacao = 1084
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1456, 1084, 4301, 5486, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1456 AND co_averbacao = 1084
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1457, 1085, 2825, 3332, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1457 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1458, 1085, 1654, 5082, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1458 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1459, 1085, 1641, 5013, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1459 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1460, 1085, 1651, 5306, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1460 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1461, 1085, 2824, 4861, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1461 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1462, 1085, 2823, 5438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1462 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1463, 1085, 1638, 4530, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1463 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1464, 1085, 1637, 4529, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1464 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1465, 1085, 1636, 4528, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1465 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1466, 1085, 1635, 4525, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1466 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1467, 1085, 1632, 4524, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1467 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1468, 1085, 1631, 4522, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1468 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1469, 1085, 1622, 4438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1469 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1470, 1085, 4301, 5481, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1470 AND co_averbacao = 1085
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1547, 1112, 1641, 5013, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1547 AND co_averbacao = 1112
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1548, 1112, 2824, 4861, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1548 AND co_averbacao = 1112
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1549, 1112, 2823, 5438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1549 AND co_averbacao = 1112
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1550, 1112, 4301, 5480, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1550 AND co_averbacao = 1112
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1566, 1080, 1648, 5538, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1566 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1567, 1080, 2822, 3330, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1567 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1568, 1080, 2821, 3188, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1568 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1569, 1080, 1647, 3761, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1569 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1570, 1080, 1654, 5085, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1570 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1571, 1080, 1641, 5013, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1571 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1572, 1080, 1609, 4979, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1572 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1573, 1080, 2824, 4860, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1573 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1574, 1080, 2823, 5438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1574 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1575, 1080, 1646, 5007, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1575 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1576, 1080, 1638, 4530, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1576 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1577, 1080, 1637, 4529, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1577 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1578, 1080, 1636, 4527, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1578 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1579, 1080, 1635, 4526, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1579 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1580, 1080, 1632, 4523, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1580 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1581, 1080, 1631, 4521, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1581 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1582, 1080, 1622, 4437, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1582 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1583, 1080, 4301, 5484, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1583 AND co_averbacao = 1080
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1584, 1088, 1648, 5542, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1584 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1585, 1088, 2825, 3332, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1585 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1586, 1088, 2841, 3754, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1586 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1587, 1088, 1647, 3759, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1587 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1588, 1088, 1646, 5008, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1588 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1589, 1088, 1609, 4981, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1589 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1590, 1088, 1654, 5085, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1590 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1591, 1088, 1641, 5013, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1591 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1592, 1088, 1651, 5321, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1592 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1593, 1088, 2824, 4860, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1593 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1594, 1088, 2823, 5438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1594 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1595, 1088, 1638, 4530, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1595 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1596, 1088, 1637, 4529, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1596 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1597, 1088, 1636, 4527, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1597 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1598, 1088, 1635, 4526, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1598 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1599, 1088, 1632, 4523, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1599 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1600, 1088, 1631, 4521, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1600 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1601, 1088, 1622, 4437, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1601 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1602, 1088, 4301, 5481, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1602 AND co_averbacao = 1088
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1603, 1111, 1648, 5538, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1603 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1604, 1111, 2821, 3188, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1604 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1605, 1111, 1647, 3757, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1605 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1606, 1111, 1646, 5007, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1606 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1607, 1111, 1609, 4977, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1607 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1608, 1111, 1654, 5082, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1608 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1609, 1111, 1641, 5013, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1609 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1610, 1111, 1651, 5306, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1610 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1611, 1111, 2824, 4861, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1611 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1612, 1111, 2823, 5438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1612 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1613, 1111, 1638, 4530, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1613 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1614, 1111, 1637, 4529, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1614 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1615, 1111, 1636, 4528, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1615 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1616, 1111, 1635, 4525, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1616 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1617, 1111, 1632, 4524, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1617 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1618, 1111, 1631, 4522, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1618 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1619, 1111, 1622, 4438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1619 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1620, 1111, 4301, 5481, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1620 AND co_averbacao = 1111
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1637, 1114, 1601, 1592, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1637 AND co_averbacao = 1114
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1655, 1113, 1648, 5538, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1655 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1656, 1113, 1647, 3761, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1656 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1657, 1113, 1646, 5007, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1657 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1658, 1113, 1609, 4979, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1658 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1659, 1113, 1654, 5085, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1659 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1660, 1113, 1641, 5013, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1660 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1661, 1113, 1651, 5321, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1661 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1662, 1113, 2824, 4860, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1662 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1663, 1113, 2823, 5438, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1663 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1664, 1113, 1638, 4530, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1664 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1665, 1113, 1637, 4529, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1665 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1666, 1113, 1636, 4527, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1666 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1667, 1113, 1635, 4526, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1667 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1668, 1113, 1631, 4521, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1668 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1669, 1113, 1622, 4437, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1669 AND co_averbacao = 1113
+);
+INSERT INTO depe.tb_averbacao_campo
+(co_seq_averbacao_campo, co_averbacao, co_campo, co_campo_valor, 
+sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador, 
+st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1)
+SELECT 1670, 1113, 4301, 5481, 
+'INSERSAO_INICIAL', 'INSERSAO_INICIAL', 'INSERSAO_INICIAL', TRUE, now(), 'CREATE', 1, uuid_generate_v4(),
+'60a75feb-0170-4f38-a2cc-e31269440a61'
+WHERE NOT EXISTS (
+    SELECT 1 FROM depe.tb_averbacao_campo WHERE co_seq_averbacao_campo = 1670 AND co_averbacao = 1113
+);
