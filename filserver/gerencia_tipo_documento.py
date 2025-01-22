@@ -279,14 +279,119 @@ def adiciona_projeto_agrupador(ambiente: str = 'dev'):
     )
 
 
+def cadastra_token_sistema(ambiente: str = 'dev'):
+    token_sistema_sge = {
+        'nome': 'SGE - Sistema de Gestão de Estágio',
+        'sigla': 'SGE',
+        'descricao': 'Sistema de Gestão de Estágio',
+    }
+
+    perfil_sti_administrador = {
+        'nome': 'STI - Administrador',
+        'sigla': 'STI-A',
+    }
+
+    perfil_sistema_administrador = {
+        'nome': 'SISTEMA - ADMINISTRADOR',
+        'sigla': 'SISADM',
+    }
+
+    executar_query(
+        False,
+        f"""
+        INSERT INTO scsdp.tb_sistema(
+            no_sistema, sg_sistema, ds_sistema,
+            st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1,
+            sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador
+        )
+        SELECT 
+            '{token_sistema_sge['nome']}', '{token_sistema_sge['sigla']}', '{token_sistema_sge['descricao']}',
+            TRUE, now(), 'CREATE', 1, uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61',
+            'INSERSAO_MANUAL', 'INSERSAO_MANUAL', 'INSERSAO_MANUAL'
+        WHERE NOT EXISTS (
+            SELECT 1
+            FROM scsdp.tb_sistema
+            WHERE upper(unaccent(trim(no_sistema))) = upper(unaccent(trim('{token_sistema_sge['nome']}')))
+            AND upper(unaccent(trim(sg_sistema))) = upper(unaccent(trim('{token_sistema_sge['sigla']}')))
+        );
+        """,
+        string_scsdp[ambiente],
+    )
+
+    id_sistema = executar_query(
+        True,
+        f"""
+        select co_seq_sistema
+        FROM scsdp.tb_sistema
+            WHERE upper(unaccent(trim(no_sistema))) = upper(unaccent(trim('{token_sistema_sge['nome']}')))
+            AND upper(unaccent(trim(sg_sistema))) = upper(unaccent(trim('{token_sistema_sge['sigla']}')))
+        """,
+        string_scsdp[ambiente],
+    )
+
+    id_sti_administrador = executar_query(
+        True,
+        f"""
+        select co_seq_perfil
+        FROM scsdp.tb_perfil
+            WHERE upper(unaccent(trim(no_perfil))) = upper(unaccent(trim('{perfil_sti_administrador['nome']}')))
+            AND upper(unaccent(trim(sg_perfil))) = upper(unaccent(trim('{perfil_sti_administrador['sigla']}')))
+        """,
+        string_scsdp[ambiente],
+    )
+
+    id_sistema_administrador = executar_query(
+        True,
+        f"""
+        select co_seq_perfil
+        FROM scsdp.tb_perfil
+            WHERE upper(unaccent(trim(no_perfil))) = upper(unaccent(trim('{perfil_sistema_administrador['nome']}')))
+            AND upper(unaccent(trim(sg_perfil))) = upper(unaccent(trim('{perfil_sistema_administrador['sigla']}')))
+        """,
+        string_scsdp[ambiente],
+    )
+
+    sistema_perfil = {
+        'sistema': id_sistema[0]['co_seq_sistema'],
+        'perfil': [
+            id_sti_administrador[0]['co_seq_perfil'],
+            id_sistema_administrador[0]['co_seq_perfil'],
+        ],
+    }
+
+    for perfil in sistema_perfil['perfil']:
+        executar_query(
+            False,
+            f"""
+            INSERT INTO scsdp.tb_sistema_perfil(
+                co_sistema, co_perfil,
+                st_ativo, dh_criacao, tp_operacao, nu_versao, co_uuid, co_uuid_1,
+                sg_projeto_modificador, sg_acao_modificadora, no_end_point_modificador
+            )
+            SELECT 
+                {sistema_perfil['sistema']}, {perfil},
+                TRUE, now(), 'CREATE', 1, uuid_generate_v4(), '60a75feb-0170-4f38-a2cc-e31269440a61',
+                'INSERSAO_MANUAL', 'INSERSAO_MANUAL', 'INSERSAO_MANUAL'
+            WHERE NOT EXISTS (
+                SELECT 1
+                FROM scsdp.tb_sistema_perfil
+                WHERE co_sistema = {sistema_perfil['sistema']}
+                AND co_perfil = {perfil}
+            );
+            """,
+            string_scsdp[ambiente],
+        )
+
+
 if __name__ == '__main__':
     from datetime import datetime
 
     print(f'\nProcesso iniciado: {datetime.now()} \n')
     start_time = datetime.now()
 
-    main()
-    adiciona_projeto_agrupador()
+    # main()
+    # adiciona_projeto_agrupador()
+    cadastra_token_sistema()
 
     end_time = datetime.now()
     print(f'\nProcesso finalizado: {datetime.now()} \n')
