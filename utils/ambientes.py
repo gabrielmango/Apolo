@@ -1,5 +1,4 @@
 from dotenv import dotenv_values
-from sqlalchemy import create_engine
 
 config = dotenv_values('.env')
 
@@ -26,4 +25,12 @@ string_gerais = {
     'hml': config['GERAIS_HML'],
     'preprod': config['GERAIS_PREPROD'],
     'prod': config['GERAIS_PROD'],
+}
+
+string_depe = {
+    'dev': config['DEPE_DEV'],
+    'tst': config['DEPE_TST'],
+    'hml': config['DEPE_HML'],
+    'preprod': config['DEPE_PREPROD'],
+    'prod': config['DEPE_PROD'],
 }
