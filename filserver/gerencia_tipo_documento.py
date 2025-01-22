@@ -187,7 +187,7 @@ def insert_tb_tipo_doc_extensao_enum(ambiente, id_tipo_documento, extensao):
     )
 
 
-def main(ambiente: str = 'dev'):
+def cadastro_tipo_documento(ambiente: str = 'dev'):
     tipos_documentos = carregar_de_json(
         r'filserver\data\tipo_documentos_cesv.json'
     )
@@ -383,14 +383,14 @@ def cadastra_token_sistema(ambiente: str = 'dev'):
         )
 
 
-if __name__ == '__main__':
+if __name__ == '__cadastro_tipo_documento__':
     from datetime import datetime
 
     print(f'\nProcesso iniciado: {datetime.now()} \n')
     start_time = datetime.now()
 
-    # main()
-    # adiciona_projeto_agrupador()
+    cadastro_tipo_documento()
+    adiciona_projeto_agrupador()
     cadastra_token_sistema()
 
     end_time = datetime.now()
