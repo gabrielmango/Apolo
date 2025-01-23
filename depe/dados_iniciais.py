@@ -2,9 +2,9 @@ from database import consulta_para_lista
 from utils.ambientes import string_depe
 from utils.gerenciar_sql import salvar_em_sql
 
-SCHEMA_DEPE = 'depe_bkp_inicial'
+SCHEMA_DEPE = 'depe_antes_hml'
 
-NOME_ARQUIVO = 'depe/data/V07__DADOS_INICIAS_PROJETO_DEPE'
+NOME_ARQUIVO = 'depe/data/teste'
 
 
 def retorna_sql_insert_tb_campo(ambiente: str):

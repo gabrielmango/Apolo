@@ -1,0 +1,20 @@
+-- Arquivo de inserções gerado automaticamente
+
+-- Inserções para a tabela tb_campo
+-- Inserções para a tabela tb_regra
+-- Inserções para a tabela tb_campo_valor
+-- Inserções para a tabela tb_regra_campo
+-- Inserções para a tabela tb_lancamento
+-- Inserções para a tabela tb_arquivo_lancamento
+-- Inserções para a tabela tb_arquivo_especificacao
+-- Inserções para a tabela tb_lote_arquivo
+-- Inserções para a tabela tb_averbacao
+-- Inserções para a tabela tb_linha_lote
+-- Inserções para a tabela tb_lancamento_lote
+-- Inserções para a tabela tb_lancamento_linha
+-- Inserções para a tabela tb_lancamento_arquivo
+-- Inserções para a tabela tb_campo_calculo
+-- Inserções para a tabela tb_configuracao_tabela
+-- Inserções para a tabela tb_campo_averbacao
+-- Inserções para a tabela tb_averbacao_campo
+-- Inserções para a tabela tb_especificacao
