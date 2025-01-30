@@ -63,6 +63,15 @@ def consulta_para_lista(conn_string: str, query_string: str):
     return data.to_dict(orient='records')
 
 
+def lista_dados_consulta(conn_string: str, query_string: str):
+    data = consulta_para_lista(conn_string, query_string)
+    dados = []
+    for dado in data:
+        column = list(dado.keys())[0]
+        dados.append(dado[column])
+    return dados
+
+
 def insert_data(conn_string: str, query_string: str):
     try:
         engine = create_engine(conn_string)

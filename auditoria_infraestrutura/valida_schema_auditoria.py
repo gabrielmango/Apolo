@@ -1,10 +1,21 @@
+from database import lista_dados_consulta
+from utils.ambientes import string_base
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
 
+CONSULTA_TODOS_BANCOS = """
+SELECT a.datname as database
+FROM pg_database a 
+WHERE a.datistemplate = false
+ORDER BY a.datname;
+"""
+
 
 def main():
-    ...
+
+    for key, value in string_base.items():
+        bancos = lista_dados_consulta(value, CONSULTA_TODOS_BANCOS)
 
 
 if __name__ == '__main__':
