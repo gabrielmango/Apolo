@@ -59,8 +59,28 @@ def executa_sql(conn_string: str, query_string: str):
 
 
 def consulta_para_lista(conn_string: str, query_string: str):
-    data = pd.read_sql(query_string, conn_string)
+    data = pd.read_sql(text(query_string), conn_string)
     return data.to_dict(orient='records')
+
+
+def lista_dados_consulta(conn_string: str, query_string: str):
+    data = consulta_para_lista(conn_string, query_string)
+    dados = []
+    for dado in data:
+        column = list(dado.keys())[0]
+        dados.append(dado[column])
+    return dados
+
+
+def make_query_and_extract_column(query: str, engine) -> list:
+    """Executa uma query SQL e extrai uma coluna específica como uma lista."""
+    with engine.connect() as conn:
+        df = pd.read_sql_query(text(query), conn)
+        column_name = list(df.keys())[0]
+        dados = []
+        dados.append(df[column_name])
+
+    return dados
 
 
 def insert_data(conn_string: str, query_string: str):

@@ -2,6 +2,12 @@ from dotenv import dotenv_values
 
 config = dotenv_values('.env')
 
+string_base = {
+    'dev': config['DEV'],
+    'tst': config['TST'],
+    'hml': config['HML'],
+}
+
 string_fileserver = {
     'dev': config['FILESERVER_POSTGRES_DEV'],
     'tst': config['FILESERVER_POSTGRES_TST'],
