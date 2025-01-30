@@ -13,15 +13,15 @@ TABELAS = [
     'tb_regra',
     'tb_campo_valor',
     'tb_regra_campo',
-    'tb_lancamento',
-    'tb_arquivo_lancamento',
-    'tb_arquivo_especificacao',
-    'tb_lote_arquivo',
+    # 'tb_lancamento',
+    # 'tb_arquivo_lancamento',
+    # 'tb_arquivo_especificacao',
+    # 'tb_lote_arquivo',
     'tb_averbacao',
-    'tb_linha_lote',
-    'tb_lancamento_lote',
-    'tb_lancamento_linha',
-    'tb_lancamento_arquivo',
+    # 'tb_linha_lote',
+    # 'tb_lancamento_lote',
+    # 'tb_lancamento_linha',
+    # 'tb_lancamento_arquivo',
     'tb_campo_calculo',
     'tb_configuracao_tabela',
     'tb_campo_averbacao',
@@ -29,10 +29,10 @@ TABELAS = [
     'tb_especificacao',
 ]
 
-SCHEMA_ORIGEM = 'depe'
+SCHEMA_ORIGEM = 'depe_bkp_2025_01_30'
 SCHEMA_DESTINO = 'depe'
 
-engine_depe = create_engine(string_depe['dev'])
+engine_depe = create_engine(string_depe['base_teste'])
 
 
 @contextmanager
@@ -62,7 +62,7 @@ def gerar_inserts_unico(data, tabela, arquivo_sql):
 
 
 def main():
-    arquivo_sql = 'DADOS_INICIAIS_DEPE.sql'
+    arquivo_sql = 'DADOS_INICIAIS_DEPE_ZERO.sql'
 
     with open_file(arquivo_sql, 'w') as f:
         f.write('-- Arquivo de inserções gerado automaticamente\n\n')
@@ -72,7 +72,11 @@ def main():
         try:
             with engine_depe.connect() as conn:
                 data = pd.read_sql(
-                    f"SELECT * FROM {SCHEMA_ORIGEM}.{tabela} ORDER BY {tabela.replace('tb_', 'co_seq_')} ASC",
+                    f"""
+                    SELECT * 
+                    FROM {SCHEMA_ORIGEM}.{tabela} 
+                    WHERE st_ativo = TRUE
+                    ORDER BY {tabela.replace('tb_', 'co_seq_')} ASC""",
                     con=conn,
                 )
 

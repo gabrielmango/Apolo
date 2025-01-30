@@ -33,4 +33,5 @@ string_depe = {
     'hml': config['DEPE_HML'],
     'preprod': config['DEPE_PREPROD'],
     'prod': config['DEPE_PROD'],
+    'base_teste': config['BASE_TESTE'],
 }
