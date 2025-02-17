@@ -1,5 +1,101 @@
 [
     {
+        "nome": "Currículo Vitae – livre/atualizado",
+        "sigla": "CURVITATUSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Laudo Médico emitido em até 12 meses - atualizado",
+        "sigla": "LAUMEDATUSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Declaração de Frequência/Regularidade escolar",
+        "sigla": "DECFREREGESCSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Foto Digital 3x4",
+        "sigla": "FOTDIGSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Comprovante de Endereço",
+        "sigla": "COMENDSGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
+        "nome": "Comprovante de Conta – Agência",
+        "sigla": "COMCONAGESGE",
+        "tamanho": 5242880,
+        "funcionalidades": [
+            "Graduação",
+            "Pós-graduação"
+        ],
+        "projetos": ["Sistema de Gestão de Estágio - SGE"],
+        "extensoes": [
+            "PDF",
+            "JPG",
+            "JPEG",
+            "PNG"
+        ]
+    },
+    {
         "nome": "CPF",
         "sigla": "CPFSGE",
         "tamanho": 5242880,
