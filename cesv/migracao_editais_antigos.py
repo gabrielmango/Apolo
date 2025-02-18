@@ -1,7 +1,9 @@
-from utils.ambientes import string_fileserver, string_cesv
-from database import executar_query
-import pandas as pd
 from pprint import pprint
+
+import pandas as pd
+
+from database import executar_query
+from utils.ambientes import string_cesv, string_fileserver
 
 query = """
 select 
@@ -21,6 +23,7 @@ where c.uuid_arquivo is not null
 order by a.ds_titulo_processo_seletivo 
 """
 
+
 def retorna_id_tipo_documento(ambiente, text):
     query = f""" 
 SELECT co_seq_tipo_documento
@@ -35,6 +38,7 @@ limit 1
     if id:
         return id[0]['co_seq_tipo_documento']
     return None
+
 
 def insert_tipo_documento(ambiente, nome, sigla):
     query = f"""
@@ -56,9 +60,15 @@ WHERE NOT EXISTS (
 """
     executar_query(False, query, string_fileserver[ambiente])
 
+
 def insert_anexo(
-    ambiente, co_uuid_2, co_tipo_documento, no_documento, co_uuid_anexo_mongo, dt_1
-    ):
+    ambiente,
+    co_uuid_2,
+    co_tipo_documento,
+    no_documento,
+    co_uuid_anexo_mongo,
+    dt_1,
+):
     query = f"""
 INSERT INTO fileserver.tb_anexo
 (co_uuid_2, co_tipo_documento, co_uuid_anexo_mongo, no_documento, dt_1, no_texto_1,
@@ -82,17 +92,16 @@ def main(ambiente: str = 'prod'):
     dados = executar_query(True, query, string_cesv[ambiente])
 
     tipos_documentos = [
-        dado['tipo_documento'].capitalize().replace('_', ' ')
-        for dado in dados
+        dado['tipo_documento'].capitalize().replace('_', ' ') for dado in dados
     ]
 
     for tipo in list(set(tipos_documentos)):
         insert_tipo_documento(
             ambiente,
             tipo,
-            str(tipo[:len(tipo) // 2].upper() + 'CESV').replace(' ', '')
+            str(tipo[: len(tipo) // 2].upper() + 'CESV').replace(' ', ''),
         )
-    
+
     for dado in dados:
         contador = 1
         print(f'{contador}/{len(dados)}')
@@ -104,9 +113,11 @@ def main(ambiente: str = 'prod'):
             retorna_id_tipo_documento(ambiente, dado['tipo_documento']),
             dado['titulo'],
             dado['uuid_arquivo'],
-            dado['dt_inclusao']
+            dado['dt_inclusao'],
         )
         print(f'Anexado: {dado["ds_titulo_processo_seletivo"]}\n')
+
+        contador = +1
 
 
 if __name__ == '__main__':
