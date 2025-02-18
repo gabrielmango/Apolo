@@ -4,6 +4,9 @@ import pandas as pd
 
 from database import executar_query
 from utils.ambientes import string_cesv, string_fileserver
+from utils.setup_logging import logging, setup_logging
+
+setup_logging(__file__)
 
 query = """
 select 
@@ -101,10 +104,10 @@ def main(ambiente: str = 'prod'):
             tipo,
             str(tipo[: len(tipo) // 2].upper() + 'CESV').replace(' ', ''),
         )
-
+    contador = 0
     for dado in dados:
-        contador = 1
-        print(f'{contador}/{len(dados)}')
+        contador += 1
+        print(f'Contador: {contador}/{len(dados)}')
         print(f'Processando: {dado["ds_titulo_processo_seletivo"]}')
 
         insert_anexo(
@@ -117,8 +120,17 @@ def main(ambiente: str = 'prod'):
         )
         print(f'Anexado: {dado["ds_titulo_processo_seletivo"]}\n')
 
-        contador = +1
-
 
 if __name__ == '__main__':
+    from datetime import datetime
+
+    logging.info('Processo iniciado')
+    start_time = datetime.now()
+
     main()
+
+    end_time = datetime.now()
+    logging.info(
+        f'Tempo de execução: {str(end_time - start_time).split(".")[0]}'
+    )
+    logging.info('Processo finalizado')
