@@ -20,12 +20,21 @@ def valida_coluna_contato_externa(ambiente):
     return False
 
 
-def main(ambiente: str = 'tst'):
+def retorna_pessoas_externas(ambiente):
+    query = """
+        SELECT co_uuid 
+        FROM usuarioexterno.tb_pessoa_externa tpe 
+        WHERE st_ativo;
+    """
+    dados = executar_query(True, query, string_pessoa_externa[ambiente])
+
+    return [dado['co_uuid'] for dado in dados]
+
+
+def main(ambiente: str = 'dev'):
 
     if valida_coluna_contato_externa(ambiente):
-        logging.info(
-            'Coluna fl_principal_pessoa_externa já existe na tabela tb_email'
-        )
+        dados_pessoa_externa = retorna_pessoas_externas(ambiente)
 
 
 if __name__ == '__main__':
