@@ -22,7 +22,7 @@ left join dbportalestagio.tb_estagio b
 	on a.ds_titulo_processo_seletivo = b.titulo 
 left join dbportalestagio.tb_anexo c
 	on b.pk_estagio = c.fk_estagio
-where c.uuid_arquivo is not null
+where c.uuid_arquivo is not null and a.nu_ano_processo_seletivo = '2025'
 order by a.ds_titulo_processo_seletivo 
 """
 

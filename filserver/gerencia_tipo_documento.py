@@ -383,15 +383,17 @@ def cadastra_token_sistema(ambiente: str = 'dev'):
         )
 
 
-if __name__ == '__cadastro_tipo_documento__':
+if __name__ == '__main__':
     from datetime import datetime
 
     print(f'\nProcesso iniciado: {datetime.now()} \n')
     start_time = datetime.now()
 
-    cadastro_tipo_documento()
-    adiciona_projeto_agrupador()
-    cadastra_token_sistema()
+    for ambiente in ['preprod']:
+
+        cadastro_tipo_documento(ambiente)
+        # adiciona_projeto_agrupador(ambiente)
+        # cadastra_token_sistema(ambiente)
 
     end_time = datetime.now()
     print(f'\nProcesso finalizado: {datetime.now()} \n')
