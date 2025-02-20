@@ -28,13 +28,35 @@ def retorna_pessoas_externas(ambiente):
     """
     dados = executar_query(True, query, string_pessoa_externa[ambiente])
 
-    return [dado['co_uuid'] for dado in dados]
+    dados = [dado['co_uuid'] for dado in dados]
+
+    logging.info(f'Retorna todas as pessoas externas: {len(dados)}')
+
+    return dados
+
+
+def atualizar_pessoa_externa(ambiente, uuid):
+    query = f"""
+        UPDATE contato.tb_email
+        SET fl_principal_pessoa_externa = true,
+        dh_alteracao = now(), tp_operacao = 'UPDATE', nu_versao = nu_versao + 1,
+        co_uuid_1 = 'atualizar_email_principal_pessoa_externa', 
+        sg_projeto_modificador = 'AUTOMAÇÃO',
+        sg_acao_modificadora = 'ATUALIZAÇÃO',
+        no_end_point_modificador = 'ATUALIZAÇÃO'
+        WHERE st_ativo AND co_uuid_2 = '{uuid}';
+    """
+    executar_query(False, query, string_contato[ambiente])
+    logging.info(f'Pessoa externa {uuid} atualizada.')
 
 
 def main(ambiente: str = 'dev'):
 
     if valida_coluna_contato_externa(ambiente):
         dados_pessoa_externa = retorna_pessoas_externas(ambiente)
+
+        for uuid in dados_pessoa_externa:
+            atualizar_pessoa_externa(ambiente, uuid)
 
 
 if __name__ == '__main__':
