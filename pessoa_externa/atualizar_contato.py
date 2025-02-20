@@ -57,6 +57,8 @@ def main(ambiente: str = 'dev'):
 
         for uuid in dados_pessoa_externa:
             atualizar_pessoa_externa(ambiente, uuid)
+    else:
+        logging.error(f'tb_emails sem fl_principal_pessoa_externa: {ambiente}')
 
 
 if __name__ == '__main__':
