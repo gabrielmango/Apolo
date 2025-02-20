@@ -1,9 +1,10 @@
+from utils.ambientes import string_pessoa_externa
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
 
 
-def main():
+def main(ambiente: str = 'dev'):
     ...
 
 
