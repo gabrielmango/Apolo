@@ -57,4 +57,12 @@ string_pessoa_externa = {
     'prod': config['PESSOA_EXTERNA_PROD'],
 }
 
+string_contato = {
+    'dev': config['CONTATO_DEV'],
+    'tst': config['CONTATO_TST'],
+    'hml': config['CONTATO_HML'],
+    'preprod': config['CONTATO_PREPROD'],
+    'prod': config['CONTATO_PROD'],
+}
+
 string_patrimonio = {'dev': config['PATRIMONIO_DEV']}
