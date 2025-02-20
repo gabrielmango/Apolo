@@ -49,4 +49,20 @@ string_depe = {
     'prod': config['DEPE_PROD'],
 }
 
+string_pessoa_externa = {
+    'dev': config['PESSOA_EXTERNA_DEV'],
+    'tst': config['PESSOA_EXTERNA_TST'],
+    'hml': config['PESSOA_EXTERNA_HML'],
+    'preprod': config['PESSOA_EXTERNA_PREPROD'],
+    'prod': config['PESSOA_EXTERNA_PROD'],
+}
+
+string_contato = {
+    'dev': config['CONTATO_DEV'],
+    'tst': config['CONTATO_TST'],
+    'hml': config['CONTATO_HML'],
+    'preprod': config['CONTATO_PREPROD'],
+    'prod': config['CONTATO_PROD'],
+}
+
 string_patrimonio = {'dev': config['PATRIMONIO_DEV']}
