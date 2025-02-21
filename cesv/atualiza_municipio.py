@@ -22,6 +22,35 @@ def retorna_processos_seletivos(ambiente):
     )
 
 
+def trata_excecoes(text):
+    if text == 'Monte Sto. de Minas':
+        return 'Monte Santo de Minas'
+    elif text == 'S.Sebastião do Paraíso':
+        return 'São Sebastiao do Paraiso'
+    elif text == 'Belo Horizonte/Barreiro':
+        return 'Belo Horizonte'
+    elif text == 'BH/Barreiro':
+        return 'Belo Horizonte'
+    elif text == 'BH/Psicossocial':
+        return 'Belo Horizonte'
+    elif text == 'Belo Horizonte/ASCOM':
+        return 'Belo Horizonte'
+    elif text == 'Belo Horizonte/Ascom':
+        return 'Belo Horizonte'
+    elif text == 'S. Sebastião do Paraíso':
+        return 'São Sebastiao do Paraíso'
+    elif text == 'S. João Nepomuceno':
+        return 'São João Nepomuceno'
+    elif text == 'Barreiro/BH':
+        return 'Belo Horizonte'
+    elif text == 'S Sebastião do Paraiso':
+        return 'São Sebastiao do Paraíso'
+    elif text == 'S. Sebastião do Paraíso':
+        return 'São Sebastiao do Paraíso'
+    else:
+        return text
+
+
 def extrair_municipio(nome_processo):
     padrao = r'^(?:PSS\s+)?(.+?)(?=\s*(?:-|–|Edital|\d{2}/\d{4}))'
     match = re.search(padrao, nome_processo)
@@ -31,14 +60,14 @@ def extrair_municipio(nome_processo):
         municipio = nome_processo.strip()
 
     municipio = re.sub(r'\d+', '', municipio).strip()
-    return municipio
+    return trata_excecoes(municipio)
 
 
 def main(ambiente: str = 'preprod'):
     processos_seletivos = retorna_processos_seletivos(ambiente)
 
-    for item in processos_seletivos:
-        municipio = extrair_municipio(item['titulo'])
+    for processo in processos_seletivos:
+        processo['municipio'] = extrair_municipio(processo['titulo'])
 
 
 if __name__ == '__main__':
