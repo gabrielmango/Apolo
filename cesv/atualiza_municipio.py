@@ -47,6 +47,10 @@ def trata_excecoes(text):
         return 'São Sebastiao do Paraíso'
     elif text == 'S. Sebastião do Paraíso':
         return 'São Sebastiao do Paraíso'
+    elif text == 'PSS Matias Barbosa':
+        return 'Matias Barbosa'
+    elif text == 'Brasília Núcleo':
+        return 'Brasília/DF'
     else:
         return text
 
@@ -74,8 +78,8 @@ def retorna_uuid_municipio(ambiente, municipio):
                 localizacao.tb_municipio tm 
             where 
                 co_unidade_federacao = 11 and 
-                UPPER(unaccent(TRIM(no_municipio))) = 
-                UPPER(unaccent(TRIM('{municipio}')))
+                UPPER(unaccent(TRIM(no_municipio))) like 
+                UPPER(unaccent(TRIM('%{municipio}%')))
         """
         municipio = executar_query(True, query, string_localizacao[ambiente])
         if municipio:
@@ -84,25 +88,34 @@ def retorna_uuid_municipio(ambiente, municipio):
 
 
 def extrair_municipio(nome_processo):
-    padrao = r'^(?:PSS\s+)?(.+?)(?=\s*(?:-|–|Edital|\d{2}/\d{4}))'
-    match = re.search(padrao, nome_processo)
-    if match:
-        municipio = match.group(1).strip()
+    nome_processo = nome_processo.strip()
+    municipio = ''
+
+    if nome_processo.startswith('Edital'):
+        padrao_edital = r'^Edital\s+\d{2}/\d{4}\s+(.+?)(?=\s*(?:-|–))'
+        match = re.search(padrao_edital, nome_processo)
+        if match:
+            municipio = match.group(1).strip()
+        else:
+            municipio = re.sub(r'^Edital\s+\d{2}/\d{4}\s+', '', nome_processo)
+            municipio = re.split(r'\s*[-–]\s*', municipio)[0].strip()
     else:
-        municipio = nome_processo.strip()
+        padrao = r'^(?:PSS\s+)?(.+?)(?=\s*(?:-|–|Edital|\d{2}/\d{4}))'
+        match = re.search(padrao, nome_processo)
+        if match:
+            municipio = match.group(1).strip()
+        else:
+            municipio = nome_processo.strip()
 
     municipio = re.sub(r'\d+', '', municipio).strip()
     return trata_excecoes(municipio)
 
 
-def main(ambiente: str = 'prod'):
+def main(ambiente: str = 'preprod'):
     processos_seletivos = retorna_processos_seletivos(ambiente)
 
     for processo in processos_seletivos:
         processo['municipio'] = extrair_municipio(processo['titulo'])
-        processo['uuid_municipio'] = retorna_uuid_municipio(
-            ambiente, processo['municipio']
-        )
 
 
 if __name__ == '__main__':
@@ -116,4 +129,4 @@ if __name__ == '__main__':
     end_time = datetime.now()
     duracao = str(end_time - start_time).split('.')[0]
     logging.info(f'Tempo de execução: {duracao}')
-    logging.info('Processo finalizado')
+    logging.info('Processo finalizado\n\n')
