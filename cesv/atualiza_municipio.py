@@ -129,6 +129,17 @@ def main(ambiente: str = 'preprod'):
         for municipio in municipios
     ]
 
+    permite_atualizacao = [
+        municipio for municipio in municipios if municipio['uuid'] is None
+    ]
+
+    if permite_atualizacao:
+        print(
+            f'Os municípios {", ".join([municipio["municipio"] for municipio in permite_atualizacao])} não possuem UUID'
+        )
+    else:
+        print('Todos os municípios possuem UUID')
+
 
 if __name__ == '__main__':
     from datetime import datetime
