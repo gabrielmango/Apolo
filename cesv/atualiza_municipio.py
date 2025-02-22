@@ -117,6 +117,18 @@ def main(ambiente: str = 'preprod'):
     for processo in processos_seletivos:
         processo['municipio'] = extrair_municipio(processo['titulo'])
 
+    municipios = set(
+        [processo['municipio'] for processo in processos_seletivos]
+    )
+
+    municipios = [
+        {
+            'municipio': municipio,
+            'uuid': retorna_uuid_municipio(ambiente, municipio) or None,
+        }
+        for municipio in municipios
+    ]
+
 
 if __name__ == '__main__':
     from datetime import datetime
