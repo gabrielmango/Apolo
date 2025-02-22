@@ -140,6 +140,16 @@ def main(ambiente: str = 'preprod'):
     else:
         print('Todos os municípios possuem UUID')
 
+        municipio_uuid = {
+            municipio['municipio']: municipio['uuid']
+            for municipio in municipios
+        }
+
+        for processo in processos_seletivos:
+            processo['uuid_municipio'] = municipio_uuid.get(
+                processo['municipio']
+            )
+
 
 if __name__ == '__main__':
     from datetime import datetime
