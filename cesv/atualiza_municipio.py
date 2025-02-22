@@ -111,6 +111,27 @@ def extrair_municipio(nome_processo):
     return trata_excecoes(municipio)
 
 
+def atualiza_uuid_municipio(ambiente, processo):
+    executar_query(
+        False,
+        f"""
+            update cesv.tb_processo_seletivo
+            set co_uuid_3 = '{processo['uuid_municipio']}'
+            where co_seq_processo_seletivo = {processo['id']};
+        """,
+        string_cesv[ambiente],
+    )
+    executar_query(
+        False,
+        f"""
+            update cesv.th_processo_seletivo_hist
+            set co_uuid_3 = '{processo['uuid_municipio']}'
+            where co_seq_processo_seletivo = {processo['id']};
+        """,
+        string_cesv[ambiente],
+    )
+
+
 def main(ambiente: str = 'preprod'):
     processos_seletivos = retorna_processos_seletivos(ambiente)
 
@@ -149,6 +170,10 @@ def main(ambiente: str = 'preprod'):
             processo['uuid_municipio'] = municipio_uuid.get(
                 processo['municipio']
             )
+
+        for processo in processos_seletivos:
+            atualiza_uuid_municipio(ambiente, processo)
+            print(f'{processo["titulo"]} atualizado.')
 
 
 if __name__ == '__main__':
