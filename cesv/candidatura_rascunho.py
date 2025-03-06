@@ -1,7 +1,7 @@
 from pprint import pprint
 
 from database import executar_query
-from utils.ambientes import (string_cesv, string_geral_pessoa,
+from utils.ambientes import (string_cesv, string_contato, string_geral_pessoa,
                              string_localizacao)
 from utils.setup_logging import logging, setup_logging
 
@@ -78,6 +78,24 @@ def etapa_endereco(ambiente, uuid):
     return False
 
 
+def etapa_contato(ambiente, uuid):
+    contato = executar_query(
+        True,
+        f"""
+        select 1
+        from contato.tb_telefone
+        where co_uuid_2 = '{uuid}' and fl_contato_emergencia;
+        """,
+        string_contato[ambiente],
+    )
+
+    if contato:
+        logging.info(f'Contato do candidato {uuid} encontrado.')
+        return True
+    logging.info(f'Contato do candidato {uuid} não encontrado.')
+    return False
+
+
 def main(ambiente: str = 'prod'):
 
     logging.info(f'Buscando candidaturas rascunho em {ambiente}')
@@ -95,6 +113,7 @@ def main(ambiente: str = 'prod'):
                 ambiente, candidatura['co_uuid_2']
             ),
             'endereco': etapa_endereco(ambiente, candidatura['co_uuid_2']),
+            'contato': etapa_contato(ambiente, candidatura['co_uuid_2']),
         }
         dados.append(dado_candidatura)
 
