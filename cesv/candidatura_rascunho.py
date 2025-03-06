@@ -107,6 +107,7 @@ def main(ambiente: str = 'prod'):
     dados = []
 
     for candidatura in candidaturas:
+
         dado_candidatura = {
             'uuid': candidatura['co_uuid_2'],
             'dados_pessoais': etapa_dados_pessoais(
@@ -115,7 +116,13 @@ def main(ambiente: str = 'prod'):
             'endereco': etapa_endereco(ambiente, candidatura['co_uuid_2']),
             'contato': etapa_contato(ambiente, candidatura['co_uuid_2']),
         }
-        dados.append(dado_candidatura)
+
+        if candidatura['co_instituicao_ensino'] is not None:
+            etapa_instituicao_ensino = True
+        else:
+            etapa_instituicao_ensino = False
+
+        dado_candidatura['instituicao_ensino'] = etapa_instituicao_ensino
 
 
 if __name__ == '__main__':
