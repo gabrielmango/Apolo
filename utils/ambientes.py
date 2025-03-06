@@ -74,3 +74,11 @@ string_localizacao = {
 }
 
 string_patrimonio = {'dev': config['PATRIMONIO_DEV']}
+
+string_geral_pessoa = {
+    'dev': config['GERAL_PESSOA_DEV'],
+    'tst': config['GERAL_PESSOA_TST'],
+    'hml': config['GERAL_PESSOA_HML'],
+    'preprod': config['GERAL_PESSOA_PREPROD'],
+    'prod': config['GERAL_PESSOA_PROD'],
+}

@@ -131,3 +131,14 @@ def executar_query(retornar_dados: bool, query: str, string_conexao: str):
                 connection.execute(text(query))
         except SQLAlchemyError as e:
             print(f'Ocorreu um erro ao executar a query: {e}')
+
+def list_to_sql(dados, conn_string, table_name, schema):
+    engine = create_engine(conn_string)
+    df = pd.DataFrame(dados)
+    df.to_sql(
+        table_name, 
+        engine, 
+        if_exists='replace',
+        schema=schema,
+        index=False
+    )
