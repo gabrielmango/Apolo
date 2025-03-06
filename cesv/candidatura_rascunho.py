@@ -1,7 +1,7 @@
 from pprint import pprint
 
 from database import executar_query
-from utils.ambientes import string_cesv
+from utils.ambientes import string_cesv, string_geral_pessoa
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
@@ -37,6 +37,28 @@ def candidaturas_rascunho(ambiente):
     )
 
 
+def etapa_dados_pessoais(ambiente, uuid):
+    geral_pessoa = executar_query(
+        True,
+        f"""
+        select 1
+        from geralpessoa.tb_filiacao_pessoa
+        where co_geral_pessoa in (
+            select co_seq_geral_pessoa
+            from geralpessoa.tb_geral_pessoa tgp 
+            where co_uuid_2 = '{uuid}'
+        );
+        """,
+        string_geral_pessoa[ambiente],
+    )
+
+    if geral_pessoa:
+        logging.info(f'Dados pessoais do candidato {uuid} encontrados.')
+        return True
+    logging.info(f'Dados pessoais do candidato {uuid} não encontrados.')
+    return False
+
+
 def main(ambiente: str = 'prod'):
 
     logging.info(f'Buscando candidaturas rascunho em {ambiente}')
@@ -45,8 +67,17 @@ def main(ambiente: str = 'prod'):
         f'Candidaturas rascunho encontradas em {ambiente}: {len(candidaturas)}'
     )
 
+    dados = []
+
     for candidatura in candidaturas:
-        pprint(candidatura)
+        dado_candidatura = {
+            'uuid': candidatura['co_uuid_2'],
+            'dados_pessoais': etapa_dados_pessoais(
+                ambiente, candidatura['co_uuid_2']
+            ),
+        }
+        dados.append(dado_candidatura)
+        pprint(dado_candidatura)
 
 
 if __name__ == '__main__':
