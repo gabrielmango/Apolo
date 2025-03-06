@@ -65,12 +65,12 @@ string_contato = {
     'prod': config['CONTATO_PROD'],
 }
 
-string_localizacao = {
-    'dev': config['LOCALIZACAO_DEV'],
-    'tst': config['LOCALIZACAO_TST'],
-    'hml': config['LOCALIZACAO_HML'],
-    'preprod': config['LOCALIZACAO_PREPROD'],
-    'prod': config['LOCALIZACAO_PROD'],
-}
+# string_localizacao = {
+#     'dev': config['LOCALIZACAO_DEV'],
+#     'tst': config['LOCALIZACAO_TST'],
+#     'hml': config['LOCALIZACAO_HML'],
+#     'preprod': config['LOCALIZACAO_PREPROD'],
+#     'prod': config['LOCALIZACAO_PROD'],
+# }
 
 string_patrimonio = {'dev': config['PATRIMONIO_DEV']}
