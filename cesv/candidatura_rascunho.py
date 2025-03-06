@@ -1,8 +1,8 @@
 from pprint import pprint
 
 from database import executar_query
-from utils.ambientes import (string_cesv, string_contato, string_geral_pessoa,
-                             string_localizacao)
+from utils.ambientes import (string_cesv, string_contato, string_fileserver,
+                             string_geral_pessoa, string_localizacao)
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
@@ -54,9 +54,9 @@ def etapa_dados_pessoais(ambiente, uuid):
     )
 
     if geral_pessoa:
-        logging.info(f'Dados pessoais do candidato {uuid} encontrados.')
+        logging.info(f'Dados pessoais do candidato encontrados.')
         return True
-    logging.info(f'Dados pessoais do candidato {uuid} não encontrados.')
+    logging.info(f'Dados pessoais do candidato não encontrados.')
     return False
 
 
@@ -72,9 +72,9 @@ def etapa_endereco(ambiente, uuid):
     )
 
     if endereco:
-        logging.info(f'Endereço do candidato {uuid} encontrado.')
+        logging.info(f'Endereço do candidato encontrado.')
         return True
-    logging.info(f'Endereço do candidato {uuid} não encontrado.')
+    logging.info(f'Endereço do candidato não encontrado.')
     return False
 
 
@@ -90,9 +90,27 @@ def etapa_contato(ambiente, uuid):
     )
 
     if contato:
-        logging.info(f'Contato do candidato {uuid} encontrado.')
+        logging.info(f'Contato do candidato encontrado.')
         return True
-    logging.info(f'Contato do candidato {uuid} não encontrado.')
+    logging.info(f'Contato do candidato não encontrado.')
+    return False
+
+
+def etapa_anexo(ambiente, uuid):
+    anexo = executar_query(
+        True,
+        f"""
+        select 1
+        from fileserver.tb_anexo
+        where co_uuid_2 = '{uuid}';
+        """,
+        string_fileserver[ambiente],
+    )
+
+    if anexo:
+        logging.info(f'Anexos do candidato encontrados.\n')
+        return True
+    logging.info(f'Anexos do candidato não encontrados.\n')
     return False
 
 
@@ -101,28 +119,37 @@ def main(ambiente: str = 'prod'):
     logging.info(f'Buscando candidaturas rascunho em {ambiente}')
     candidaturas = candidaturas_rascunho(ambiente)
     logging.info(
-        f'Candidaturas rascunho encontradas em {ambiente}: {len(candidaturas)}'
+        f'Candidaturas rascunho encontradas em {ambiente}: {len(candidaturas)}\n'
     )
 
     dados = []
 
     for candidatura in candidaturas:
 
+        logging.info(f"Analisando dados do {candidatura['co_uuid_2']}")
+
         dado_candidatura = {
             'uuid': candidatura['co_uuid_2'],
-            'dados_pessoais': etapa_dados_pessoais(
+            'etapa_dados_pessoais': etapa_dados_pessoais(
                 ambiente, candidatura['co_uuid_2']
             ),
-            'endereco': etapa_endereco(ambiente, candidatura['co_uuid_2']),
-            'contato': etapa_contato(ambiente, candidatura['co_uuid_2']),
+            'etapa_endereco': etapa_endereco(
+                ambiente, candidatura['co_uuid_2']
+            ),
+            'etapa_contato': etapa_contato(ambiente, candidatura['co_uuid_2']),
         }
 
         if candidatura['co_instituicao_ensino'] is not None:
             etapa_instituicao_ensino = True
+            logging.info(f'Instituicao de ensino do candidato encontrado.')
         else:
             etapa_instituicao_ensino = False
+            logging.info(f'Instituicao de ensino do candidato não encontrado.')
 
-        dado_candidatura['instituicao_ensino'] = etapa_instituicao_ensino
+        dado_candidatura['etapa_instituicao_ensino'] = etapa_instituicao_ensino
+        dado_candidatura['etapa_anexo'] = etapa_anexo(
+            ambiente, candidatura['co_uuid_2']
+        )
 
 
 if __name__ == '__main__':
