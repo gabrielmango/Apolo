@@ -13,23 +13,8 @@ def candidaturas_rascunho(ambiente):
         True,
         """
         SELECT 
-            co_processo_seletivo
-            ,co_uuid_2
-            ,dt_conclusao_curso
-            ,no_periodo_atual_curso
-            ,ds_carga_horaria_cursada
-            ,nu_media_nota_global_curso
-            ,fl_estagiou_dpmg
-            ,dt_inicio_contrato
-            ,dt_fim_contrato
-            ,fl_portador_deficiencia_fisica
-            ,ds_deficiencia
-            ,nu_inscricao_processo_seletivo
-            ,st_candidatura
-            ,fl_autodeclaracao_concorr_cota
+            co_uuid_2
             ,co_instituicao_ensino
-            ,st_atual_candidato
-            ,ds_concorrencia_cota
         FROM cesv.tb_candidatura
         WHERE st_candidatura = 'RASCUNHO'
         ORDER BY co_processo_seletivo DESC
