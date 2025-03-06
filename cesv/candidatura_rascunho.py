@@ -1,6 +1,6 @@
-from pprint import pprint
+import pandas as pd
 
-from database import executar_query
+from database import executar_query, list_to_sql
 from utils.ambientes import (string_cesv, string_contato, string_fileserver,
                              string_geral_pessoa, string_localizacao)
 from utils.setup_logging import logging, setup_logging
@@ -135,7 +135,18 @@ def main(ambiente: str = 'prod'):
         dado_candidatura['etapa_anexo'] = etapa_anexo(
             ambiente, candidatura['co_uuid_2']
         )
+    
+        dados.append(dado_candidatura)
 
+    logging.info(f'Exportando dados para SQL em {ambiente}')
+    list_to_sql(
+        dados,
+        string_cesv[ambiente],
+        'analise_candidatura_rascunho',
+        schema='public'
+    )
+
+    logging.info(f'Processo finalizado em {ambiente}')
 
 if __name__ == '__main__':
     from datetime import datetime
