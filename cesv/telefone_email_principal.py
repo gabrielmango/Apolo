@@ -37,6 +37,23 @@ def retorna_email(ambiente, uuid):
     )
 
 
+def retorna_telefone(ambiente, uuid):
+    return executar_query(
+        True,
+        f"""
+        SELECT
+            co_seq_telefone as id,
+            fl_telefone_principal as principal
+        FROM
+            contato.tb_telefone
+        WHERE
+            co_uuid_2 = '{uuid}' and
+            st_ativo and fl_telefone_principal
+        """,
+        string_contato[ambiente],
+    )
+
+
 def main(ambiente: str = 'prod'):
     logging.info(f'Iniciando processo para {ambiente}')
     candidaturas = retorna_candidaturas(ambiente)
@@ -44,14 +61,16 @@ def main(ambiente: str = 'prod'):
         f'Candidaturas encontradas em {ambiente}: {len(candidaturas)}'
     )
 
+    dado = []
+
     for candidatura in candidaturas:
         logging.info(f'UUID: {candidatura["uuid"]}')
 
-        email = retorna_email(ambiente, candidatura['uuid'])
+        telefone = retorna_telefone(ambiente, candidatura['uuid'])
 
-        if not email:
+        if not telefone:
             logging.info(
-                f'Email principal não encontrado para {candidatura["uuid"]}'
+                f'Telefone principal não encontrado para {candidatura["uuid"]}'
             )
 
 
