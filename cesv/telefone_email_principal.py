@@ -55,7 +55,9 @@ def retorna_telefone(ambiente, uuid):
 
 
 def main(ambiente: str = 'prod'):
-    logging.info(f'Iniciando processo para {ambiente}')
+    logging.info(
+        f'Iniciando processo de analise no ambiente de {ambiente.upper()}'
+    )
     candidaturas = retorna_candidaturas(ambiente)
     logging.info(
         f'Candidaturas encontradas em {ambiente}: {len(candidaturas)}'
@@ -88,7 +90,11 @@ def main(ambiente: str = 'prod'):
         schema='public',
     )
 
-    logging.info(f'Processo finalizado')
+    logging.info(f'Processo finalizado!\n')
+
+
+def atualiza_telefone_principal(ambiente: str = 'prod'):
+    logging.info(f'Atualizando telefone principal em {ambiente}')
 
 
 if __name__ == '__main__':
@@ -98,6 +104,7 @@ if __name__ == '__main__':
     start_time = datetime.now()
 
     main()
+    atualiza_telefone_principal()
 
     end_time = datetime.now()
     tempo_execucao = str(end_time - start_time).split('.')[0]
