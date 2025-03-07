@@ -135,7 +135,7 @@ def main(ambiente: str = 'prod'):
         dado_candidatura['etapa_anexo'] = etapa_anexo(
             ambiente, candidatura['co_uuid_2']
         )
-    
+
         dados.append(dado_candidatura)
 
     logging.info(f'Exportando dados para SQL em {ambiente}')
@@ -143,10 +143,11 @@ def main(ambiente: str = 'prod'):
         dados,
         string_cesv[ambiente],
         'analise_candidatura_rascunho',
-        schema='public'
+        schema='public',
     )
 
     logging.info(f'Processo finalizado em {ambiente}')
+
 
 if __name__ == '__main__':
     from datetime import datetime

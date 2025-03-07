@@ -69,7 +69,8 @@ if __name__ == '__main__':
     logging.info('Processo iniciado')
     start_time = datetime.now()
 
-    for ambiente in ['dev', 'tst', 'hml', 'preprod', 'prod']:
+    for ambiente in ['prod']:
+        print(ambiente)
         main(ambiente)
 
     end_time = datetime.now()
