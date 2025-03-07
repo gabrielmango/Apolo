@@ -10,8 +10,8 @@ def retorna_candidaturas(ambiente):
         True,
         """
         SELECT
-            co_uuid_2 AS uuid,
-            st_candidatura as status
+            DISTINCT
+            co_uuid_2 AS uuid
         FROM
             cesv.tb_candidatura
         WHERE st_candidatura <> 'RASCUNHO'
@@ -58,11 +58,32 @@ def retorna_candidatura_sem_telefone_principal(ambiente):
     return executar_query(
         True,
         f"""
-        SELECT uuid
+        SELECT *
         FROM
             public.candidatura_sem_telefone_principal
         """,
         string_cesv[ambiente],
+    )
+
+
+def atualiza_telefone_para_principal(ambiente, uuid):
+    executar_query(
+        False,
+        f"""
+        WITH ultima_entrada AS (
+            SELECT co_seq_telefone
+            FROM contato.tb_telefone
+            WHERE st_ativo
+            AND fl_contato_emergencia = false
+            AND co_uuid_2 = '{uuid}'
+            ORDER BY co_seq_telefone DESC
+            LIMIT 1
+        )
+        UPDATE contato.tb_telefone
+        SET fl_telefone_principal = true
+        WHERE co_seq_telefone IN (SELECT co_seq_telefone FROM ultima_entrada);
+        """,
+        string_contato[ambiente],
     )
 
 
@@ -87,12 +108,7 @@ def main(ambiente: str = 'prod'):
                 f'Telefone principal não encontrado para {candidatura["uuid"]}'
             )
 
-            dado.append(
-                {
-                    'uuid': candidatura['uuid'],
-                    'status': candidatura['status'],
-                }
-            )
+            dado.append({'uuid': candidatura['uuid']})
 
     logging.info(f'Exportando dados para SQL em {ambiente}')
     list_to_sql(
@@ -114,6 +130,19 @@ def atualiza_telefone_principal(ambiente: str = 'prod'):
     logging.info(
         f'Candidaturas sem telefone principal em {ambiente}: {len(candidaturas_sem_telefone_principal)}'
     )
+
+    if candidaturas_sem_telefone_principal:
+        logging.info('Atualizando telefone principal...')
+
+        for candidatura in candidaturas_sem_telefone_principal:
+            atualiza_telefone_para_principal(ambiente, candidatura['uuid'])
+            logging.info(
+                f'Telefone principal atualizado para {candidatura["uuid"]}'
+            )
+    else:
+        logging.info('Nenhuma candidatura sem telefone principal encontrada.')
+
+    logging.info(f'Processo finalizado!\n')
 
 
 if __name__ == '__main__':
