@@ -54,6 +54,18 @@ def retorna_telefone(ambiente, uuid):
     )
 
 
+def retorna_candidatura_sem_telefone_principal(ambiente):
+    return executar_query(
+        True,
+        f"""
+        SELECT uuid
+        FROM
+            public.candidatura_sem_telefone_principal
+        """,
+        string_cesv[ambiente],
+    )
+
+
 def main(ambiente: str = 'prod'):
     logging.info(
         f'Iniciando processo de analise no ambiente de {ambiente.upper()}'
@@ -95,6 +107,13 @@ def main(ambiente: str = 'prod'):
 
 def atualiza_telefone_principal(ambiente: str = 'prod'):
     logging.info(f'Atualizando telefone principal em {ambiente}')
+
+    candidaturas_sem_telefone_principal = (
+        retorna_candidatura_sem_telefone_principal(ambiente)
+    )
+    logging.info(
+        f'Candidaturas sem telefone principal em {ambiente}: {len(candidaturas_sem_telefone_principal)}'
+    )
 
 
 if __name__ == '__main__':
