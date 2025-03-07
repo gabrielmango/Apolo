@@ -1,4 +1,4 @@
-from database import executar_query
+from database import executar_query, list_to_sql
 from utils.ambientes import string_cesv, string_contato
 from utils.setup_logging import logging, setup_logging
 
@@ -72,6 +72,23 @@ def main(ambiente: str = 'prod'):
             logging.info(
                 f'Telefone principal não encontrado para {candidatura["uuid"]}'
             )
+
+            dado.append(
+                {
+                    'uuid': candidatura['uuid'],
+                    'status': candidatura['status'],
+                }
+            )
+
+    logging.info(f'Exportando dados para SQL em {ambiente}')
+    list_to_sql(
+        dado,
+        string_cesv[ambiente],
+        'candidatura_sem_telefone_principal',
+        schema='public',
+    )
+
+    logging.info(f'Processo finalizado')
 
 
 if __name__ == '__main__':
