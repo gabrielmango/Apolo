@@ -99,7 +99,7 @@ def main(ambiente: str = 'prod'):
     dado = []
 
     for candidatura in candidaturas:
-        logging.info(f'UUID: {candidatura["uuid"]}')
+        #logging.info(f'UUID: {candidatura["uuid"]}')
 
         telefone = retorna_telefone(ambiente, candidatura['uuid'])
 
