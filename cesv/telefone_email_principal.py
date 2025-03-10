@@ -147,12 +147,15 @@ def atualiza_telefone_principal(ambiente: str = 'prod'):
 
 if __name__ == '__main__':
     from datetime import datetime
+    import time
 
     logging.info('Processo iniciado')
     start_time = datetime.now()
 
-    main()
-    atualiza_telefone_principal()
+    while True:
+        main()
+        atualiza_telefone_principal()
+        time.sleep(600)
 
     end_time = datetime.now()
     tempo_execucao = str(end_time - start_time).split('.')[0]
