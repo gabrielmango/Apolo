@@ -82,3 +82,6 @@ string_patrimonio = {'dev': config['PATRIMONIO_DEV']}
 #     'preprod': config['GERAL_PESSOA_PREPROD'],
 #     'prod': config['GERAL_PESSOA_PROD'],
 # }
+
+
+string_solar = {'prod': config['SOLAR_PROD']}
