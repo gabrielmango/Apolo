@@ -1,8 +1,9 @@
-from utils.ambientes import string_solar
 from database import executar_query
-from utils.setup_logging import setup_logging, logging
+from utils.ambientes import string_solar
+from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
+
 
 def get_defensorias(ambiente):
     logging.info('Buscando defensorias...')
@@ -12,8 +13,9 @@ def get_defensorias(ambiente):
             SELECT id
             FROM public.contrib_defensoria;
         """,
-        string_solar[ambiente]
+        string_solar[ambiente],
     )
+
 
 def get_eventos(ambiente):
     logging.info('Buscando tipos de eventos...')
@@ -23,11 +25,14 @@ def get_eventos(ambiente):
             SELECT id
             FROM public.core_tipoevento;
         """,
-        string_solar[ambiente]
+        string_solar[ambiente],
     )
 
+
 def insert_defensoria_evento(ambiente, defensoria, evento):
-    logging.info(f'Inserindo relacionamento defensoria {defensoria["id"]} com evento {evento["id"]}...')
+    logging.info(
+        f'Inserindo relacionamento defensoria {defensoria["id"]} com evento {evento["id"]}...'
+    )
     executar_query(
         False,
         f"""
@@ -44,8 +49,9 @@ def insert_defensoria_evento(ambiente, defensoria, evento):
                 AND tipo_evento_id = {evento['id']}
             );
         """,
-        string_solar[ambiente]
+        string_solar[ambiente],
     )
+
 
 def main(ambiente: str = 'prod'):
     defensorias = get_defensorias(ambiente)
@@ -55,7 +61,7 @@ def main(ambiente: str = 'prod'):
     for defensoria in defensorias:
         for evento in eventos:
             insert_defensoria_evento(ambiente, defensoria, evento)
-    
+
     logging.info('Relacionamento entre defensorias e eventos finalizado.')
 
 
