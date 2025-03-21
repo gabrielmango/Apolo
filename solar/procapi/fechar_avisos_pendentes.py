@@ -7,6 +7,19 @@ from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
 
+def fecha_avisos(ambiente, avisos):
+    client = MongoClient(string_procapi[ambiente])
+    db = client['dbprocapi']
+    aviso_collection = db.aviso
+
+    for aviso in avisos:
+        _aviso = str(aviso).replace('-', '').replace('.', '')
+        logging.info(f'Fechando aviso do processo {_aviso}...')
+
+        aviso_collection.update_many(
+            {'processo.numero': _aviso}, {'$set': {'situacao': 30}}
+        )
+        logging.info(f'Avisos fechados.')
 
 def retorna_avisos(ambiente):
     logging.info('Buscando avisos...')
@@ -46,15 +59,21 @@ def atualiza_situacao_avisos(ambiente):
 
 
 def main(ambiente: str = 'prod'):
-    dados = retorna_avisos(ambiente)
 
-    avisos = [dado for dado in dados]
+    avisos = [
+        '0064275-46.2017.8.13.0382',
+        '0015257-12.2024.8.13.0382',
+        '0016131-94.2024.8.13.0382',
+        '5011795-59.2024.8.13.0382',
+        '0006773-13.2021.8.13.0382',
+        '0004111-71.2024.8.13.0382',
+        '5001298-49.2025.8.13.0382',
+        '5002241-66.2025.8.13.0382'
+    ]
 
-    print(len(avisos))
-    for aviso in avisos[:5]:
-        print(
-            f'Aviso: {aviso["numero"]}, Prazo de Ciência: {aviso["prazo_ciencia"]}'
-        )
+    fecha_avisos(
+        ambiente, avisos
+    )
 
 
 if __name__ == '__main__':
