@@ -99,7 +99,7 @@ def main(ambiente: str = 'prod'):
     dado = []
 
     for candidatura in candidaturas:
-        #logging.info(f'UUID: {candidatura["uuid"]}')
+        # logging.info(f'UUID: {candidatura["uuid"]}')
 
         telefone = retorna_telefone(ambiente, candidatura['uuid'])
 
@@ -146,8 +146,8 @@ def atualiza_telefone_principal(ambiente: str = 'prod'):
 
 
 if __name__ == '__main__':
-    from datetime import datetime
     import time
+    from datetime import datetime
 
     logging.info('Processo iniciado')
     start_time = datetime.now()
