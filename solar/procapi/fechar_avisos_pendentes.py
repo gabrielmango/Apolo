@@ -7,6 +7,7 @@ from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
 
+
 def fecha_avisos(ambiente, avisos):
     client = MongoClient(string_procapi[ambiente])
     db = client['dbprocapi']
@@ -20,6 +21,7 @@ def fecha_avisos(ambiente, avisos):
             {'processo.numero': _aviso}, {'$set': {'situacao': 30}}
         )
         logging.info(f'Avisos fechados.')
+
 
 def retorna_avisos(ambiente):
     logging.info('Buscando avisos...')
@@ -68,12 +70,10 @@ def main(ambiente: str = 'prod'):
         '0006773-13.2021.8.13.0382',
         '0004111-71.2024.8.13.0382',
         '5001298-49.2025.8.13.0382',
-        '5002241-66.2025.8.13.0382'
+        '5002241-66.2025.8.13.0382',
     ]
 
-    fecha_avisos(
-        ambiente, avisos
-    )
+    fecha_avisos(ambiente, avisos)
 
 
 if __name__ == '__main__':
