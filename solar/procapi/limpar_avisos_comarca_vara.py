@@ -45,36 +45,41 @@ def retorna_processos(ambiente):
 
 
 def retorna_avisos(ambiente, processo):
-    logging.info('Buscando avisos...')
 
     client = MongoClient(string_procapi[ambiente])
     db = client['dbprocapi']
     aviso_collection = db.aviso
 
-    return aviso_collection.find(
+    avisos =  aviso_collection.find(
         {'processo.numero': processo},
-        {'_id': 1},
+        {'_id': 0, 'numero': 1},
     )
 
+    return avisos
 
-def main(ambiente: str = 'prod'):
+
+def main(ambiente: str = 'dev'):
     logging.info(
         f'Iniciando busca de processos no ambiente {ambiente.upper()}'
     )
-    processos = retorna_processos('prod')
+    processos = retorna_processos(ambiente)
+
+    quant_processos = 0
+    quant_avisos = 0
 
     logging.info(f'Processos encontrados em {ambiente}: {len(processos)}')
-    logging.info('Processos: ')
     for processo in processos:
-        logging.info(processo)
-        avisos = list(retorna_avisos('dev', processo))
+        avisos = list(retorna_avisos(ambiente, processo))
         if len(avisos) > 0:
             logging.info(f'Avisos para o processo {processo}: {len(avisos)}')
+            quant_processos += 1 
             for aviso in avisos:
                 logging.info(aviso)
+                quant_avisos += 1 
             logging.info('----------------------------------------')
-        else:
-            logging.info(f'Nenhum aviso encontrado para o processo {processo}')
+    logging.info(f'Quantidade de processos com avisos: {quant_processos}')
+    logging.info(f'{round((quant_processos/len(processos))*100, 2)}% dos processos possuem avisos.')
+    logging.info(f'Quantidade de avisos: {quant_avisos}')
 
 
 if __name__ == '__main__':
