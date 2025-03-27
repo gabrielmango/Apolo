@@ -2,11 +2,16 @@ from datetime import datetime
 
 from pymongo import MongoClient
 
-from database import executar_query
-from utils.ambientes import string_procapi, string_solar
+from database import executar_query, list_to_sql
+from utils.ambientes import string_base, string_procapi, string_solar
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
+
+quant_avisos = 0
+quant_processos_com_avisos = 0
+
+list_avisos = []
 
 VARA = 'Cível'
 COMARCA = 'Belo Horizonte'
@@ -99,7 +104,7 @@ def retorna_processos(ambiente):
     )
 
 
-def retorna_avisos(ambiente, processo):
+def deleta_avisos(ambiente, processo):
 
     client = MongoClient(string_procapi[ambiente])
     db = client['dbprocapi']
@@ -108,38 +113,156 @@ def retorna_avisos(ambiente, processo):
         {'processo.numero': processo},
         {'_id': 0, 'numero': 1},
     )
-    return list(avisos)
+
+    avisos = list(avisos)
+
+    if avisos:
+        logging.info(f'Processo {processo}: {len(avisos)}')
+        quant_processos_com_avisos += 1
+        for aviso in avisos:
+            logging.info(f'Número do aviso: {aviso["numero"]}')
+            quant_avisos += 1
+            list_avisos.append(
+                {
+                    'numero_processo': processo['numero_processo'],
+                    'numero_aviso': aviso['numero'],
+                }
+            )
+        logging.info('----------------------------------------')
+
+    # aviso_collection.delete_many(
+    #     {'processo.numero': processo['numero_processo']}
+    # )
+
+
+def deleta_avisos_excecao(ambiente, processo, defensoria):
+
+    client = MongoClient(string_procapi[ambiente])
+    db = client['dbprocapi']
+    aviso_collection = db.aviso
+
+    data_inicio = datetime(2025, 3, 20)
+    data_fim = datetime(2025, 3, 28)
+
+    deleta_avisos_nao_fechados_no_periodo(
+        processo, data_inicio, data_fim, aviso_collection, defensoria
+    )
+
+    deleta_avisos_fora_periodo(
+        processo, data_inicio, data_fim, aviso_collection, defensoria
+    )
+
+
+def deleta_avisos_nao_fechados_no_periodo(
+    processo, data_inicio, data_fim, aviso_collection, defensoria
+):
+    avisos = aviso_collection.find(
+        {
+            'processo.numero': processo,
+            'modificado_em': {'$gte': data_inicio, '$lte': data_fim},
+            'situacao': {'$ne': 30},
+        },
+        {'_id': 0, 'numero': 1},
+    )
+
+    avisos = list(avisos)
+
+    if avisos:
+        logging.info(f'>>> Processo {processo}: {defensoria}')
+        logging.info(
+            f'Processo {processo} - Dentro do período ({data_inicio.date()} à {data_fim.date()}) e situação diferente de Fechado: {len(avisos)}'
+        )
+        quant_processos_com_avisos += 1
+        for aviso in avisos:
+            logging.info(f'Número do aviso: {aviso["numero"]}')
+            quant_avisos += 1
+            list_avisos.append(
+                {
+                    'numero_processo': processo['numero_processo'],
+                    'numero_aviso': aviso['numero'],
+                }
+            )
+        logging.info('----------------------------------------')
+
+    # aviso_collection.delete_many(
+    #     {
+    #         "processo.numero": processo,
+    #         "modificado_em": {"$gte": data_inicio, "$lte": data_fim},
+    #         'situacao': {'$ne': 30}
+    #     }
+    # )
+
+
+def deleta_avisos_fora_periodo(
+    processo, data_inicio, data_fim, aviso_collection, defensoria
+):
+    avisos = aviso_collection.find(
+        {
+            'processo.numero': processo,
+            '$or': [
+                {
+                    'modificado_em': {'$lt': data_inicio}
+                },  # Menor que o início do intervalo
+                {
+                    'modificado_em': {'$gt': data_fim}
+                },  # Maior que o fim do intervalo
+            ],
+        },
+        {'_id': 0, 'numero': 1},
+    )
+
+    avisos = list(avisos)
+
+    if avisos:
+        logging.info(f'>>> Processo {processo}: {defensoria}')
+        logging.info(
+            f'*** Processo {processo} - Fora do período ({data_inicio.date()} à {data_fim.date()}): {len(avisos)}'
+        )
+        quant_processos_com_avisos += 1
+        for aviso in avisos:
+            logging.info(f'Número do aviso: {aviso["numero"]}')
+            quant_avisos += 1
+            list_avisos.append(
+                {
+                    'numero_processo': processo['numero_processo'],
+                    'numero_aviso': aviso['numero'],
+                }
+            )
+        logging.info('----------------------------------------')
+
+    # aviso_collection.delete_many(
+    #     {
+    #         "processo.numero": processo,
+    #         "modificado_em": {"$gte": data_inicio, "$lte": data_fim},
+    #         'situacao': {'$ne': 30}
+    #     }
+    # )
 
 
 def main(ambiente: str = 'prod'):
-    logging.info(
-        f'Iniciando busca de processos no ambiente {ambiente.upper()}'
-    )
+    logging.info(f'Busca de processos no ambiente {ambiente.upper()}')
     processos = retorna_processos(ambiente)
 
     logging.info(f'Processos encontrados em {ambiente}: {len(processos)}')
+
     for processo in processos:
 
         if (
             processo['defensoria_1'] in DEFENSORIAS
             or processo['defensoria_2'] in DEFENSORIAS
         ):
+            deleta_avisos_excecao(
+                ambiente, processo['numero_processo'], processo['defensoria_1']
+            )
+        else:
+            deleta_avisos(ambiente, processo['numero_processo'])
 
-            avisos = retorna_avisos(ambiente, processo['numero_processo'])
+    logging.info(f'Processos com avisos: {quant_processos_com_avisos}')
+    logging.info(f'Total de avisos: {quant_avisos}')
 
-            if len(avisos) > 0:
-
-                logging.info(
-                    f'*** Processo {processo["numero_processo"]} pertence às defensorias de exceção!'
-                )
-                logging.info(
-                    f'Avisos encontrados para o processo: {len(avisos)}'
-                )
-
-                for aviso in avisos:
-                    logging.info(f'Número do aviso: {aviso["numero"]}')
-
-                logging.info('----------------------------------------')
+    list_to_sql(
+        list_avisos, string_base['teste'], 'solar_processo_aviso', 'processo'
+    )
 
 
 if __name__ == '__main__':

@@ -6,6 +6,7 @@ string_base = {
     'dev': config['DEV'],
     'tst': config['TST'],
     'hml': config['HML'],
+    'teste': config['BASE_TESTE'],
 }
 
 string_cesv = {
