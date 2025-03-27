@@ -132,10 +132,6 @@ def deleta_avisos(ambiente, processo):
             )
         logging.info('----------------------------------------')
 
-    # aviso_collection.delete_many(
-    #     {'processo.numero': processo['numero_processo']}
-    # )
-
 
 def deleta_avisos_excecao(ambiente, processo, defensoria):
 
@@ -189,14 +185,6 @@ def deleta_avisos_nao_fechados_no_periodo(
             )
         logging.info('----------------------------------------')
 
-    # aviso_collection.delete_many(
-    #     {
-    #         "processo.numero": processo,
-    #         "modificado_em": {"$gte": data_inicio, "$lte": data_fim},
-    #         'situacao': {'$ne': 30}
-    #     }
-    # )
-
 
 def deleta_avisos_fora_periodo(
     processo, data_inicio, data_fim, aviso_collection, defensoria
@@ -237,14 +225,6 @@ def deleta_avisos_fora_periodo(
                 }
             )
         logging.info('----------------------------------------')
-
-    # aviso_collection.delete_many(
-    #     {
-    #         "processo.numero": processo,
-    #         "modificado_em": {"$gte": data_inicio, "$lte": data_fim},
-    #         'situacao': {'$ne': 30}
-    #     }
-    # )
 
 
 def main(ambiente: str = 'prod'):
