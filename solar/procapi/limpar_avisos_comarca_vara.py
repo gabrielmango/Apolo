@@ -105,6 +105,8 @@ def retorna_processos(ambiente):
 
 
 def deleta_avisos(ambiente, processo):
+    global quant_processos_com_avisos
+    global quant_avisos
 
     client = MongoClient(string_procapi[ambiente])
     db = client['dbprocapi']
@@ -156,6 +158,9 @@ def deleta_avisos_excecao(ambiente, processo, defensoria):
 def deleta_avisos_nao_fechados_no_periodo(
     processo, data_inicio, data_fim, aviso_collection, defensoria
 ):
+    global quant_processos_com_avisos
+    global quant_avisos
+
     avisos = aviso_collection.find(
         {
             'processo.numero': processo,
@@ -196,6 +201,9 @@ def deleta_avisos_nao_fechados_no_periodo(
 def deleta_avisos_fora_periodo(
     processo, data_inicio, data_fim, aviso_collection, defensoria
 ):
+    global quant_processos_com_avisos
+    global quant_avisos
+
     avisos = aviso_collection.find(
         {
             'processo.numero': processo,
