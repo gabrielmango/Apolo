@@ -126,7 +126,7 @@ def deleta_avisos(ambiente, processo):
             quant_avisos += 1
             list_avisos.append(
                 {
-                    'numero_processo': processo['numero_processo'],
+                    'numero_processo': processo,
                     'numero_aviso': aviso['numero'],
                 }
             )
@@ -183,7 +183,7 @@ def deleta_avisos_nao_fechados_no_periodo(
             quant_avisos += 1
             list_avisos.append(
                 {
-                    'numero_processo': processo['numero_processo'],
+                    'numero_processo': processo,
                     'numero_aviso': aviso['numero'],
                 }
             )
@@ -232,7 +232,7 @@ def deleta_avisos_fora_periodo(
             quant_avisos += 1
             list_avisos.append(
                 {
-                    'numero_processo': processo['numero_processo'],
+                    'numero_processo': processo,
                     'numero_aviso': aviso['numero'],
                 }
             )
