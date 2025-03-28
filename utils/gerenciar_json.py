@@ -19,6 +19,7 @@ def carregar_de_json(nome_arquivo):
         print(f'Erro ao carregar o arquivo JSON: {e}')
         return []
 
+
 def salvar_avisos_em_json(avisos_lista, arquivo='avisos.json'):
     if avisos_lista:
         for aviso in avisos_lista:
@@ -26,18 +27,18 @@ def salvar_avisos_em_json(avisos_lista, arquivo='avisos.json'):
             for chave, valor in aviso.items():
                 if isinstance(valor, datetime):
                     aviso[chave] = valor.isoformat()
-        
+
         try:
             with open(arquivo, 'r', encoding='utf-8') as f:
                 dados_existentes = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             dados_existentes = []
-        
+
         dados_existentes.extend(avisos_lista)
-        
+
         with open(arquivo, 'w', encoding='utf-8') as f:
             json.dump(dados_existentes, f, ensure_ascii=False, indent=4)
-            
-        print(f"{len(avisos_lista)} novos avisos adicionados ao arquivo {arquivo}.")
 
-
+        print(
+            f'{len(avisos_lista)} novos avisos adicionados ao arquivo {arquivo}.'
+        )

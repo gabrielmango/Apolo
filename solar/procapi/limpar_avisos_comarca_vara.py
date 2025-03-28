@@ -4,8 +4,8 @@ from pymongo import MongoClient
 
 from database import executar_query, list_to_sql
 from utils.ambientes import string_base, string_procapi, string_solar
-from utils.setup_logging import logging, setup_logging
 from utils.gerenciar_json import salvar_avisos_em_json
+from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
 
@@ -112,9 +112,7 @@ def deleta_avisos(ambiente, processo):
     client = MongoClient(string_procapi[ambiente])
     db = client['dbprocapi']
     aviso_collection = db.aviso
-    avisos = aviso_collection.find(
-        {'processo.numero': processo}
-    )
+    avisos = aviso_collection.find({'processo.numero': processo})
 
     avisos = list(avisos)
 
