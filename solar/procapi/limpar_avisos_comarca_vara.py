@@ -5,6 +5,7 @@ from pymongo import MongoClient
 from database import executar_query, list_to_sql
 from utils.ambientes import string_base, string_procapi, string_solar
 from utils.setup_logging import logging, setup_logging
+from utils.gerenciar_json import salvar_avisos_em_json
 
 setup_logging(__file__)
 
@@ -112,11 +113,12 @@ def deleta_avisos(ambiente, processo):
     db = client['dbprocapi']
     aviso_collection = db.aviso
     avisos = aviso_collection.find(
-        {'processo.numero': processo},
-        {'_id': 0, 'numero': 1},
+        {'processo.numero': processo}
     )
 
     avisos = list(avisos)
+
+    salvar_avisos_em_json(avisos, 'solar/procapi/avisos_dev.json')
 
     if avisos:
         logging.info(f'Processo {processo}: {len(avisos)}')
@@ -162,11 +164,12 @@ def deleta_avisos_nao_fechados_no_periodo(
             'processo.numero': processo,
             'modificado_em': {'$gte': data_inicio, '$lte': data_fim},
             'situacao': {'$ne': 30},
-        },
-        {'_id': 0, 'numero': 1},
+        }
     )
 
     avisos = list(avisos)
+
+    salvar_avisos_em_json(avisos, 'solar/procapi/avisos_dev.json')
 
     if avisos:
         logging.info(f'>>> Processo {processo}: {defensoria}')
@@ -203,11 +206,12 @@ def deleta_avisos_fora_periodo(
                     'modificado_em': {'$gt': data_fim}
                 },  # Maior que o fim do intervalo
             ],
-        },
-        {'_id': 0, 'numero': 1},
+        }
     )
 
     avisos = list(avisos)
+
+    salvar_avisos_em_json(avisos, 'solar/procapi/avisos_dev.json')
 
     if avisos:
         logging.info(f'>>> Processo {processo}: {defensoria}')
@@ -227,7 +231,7 @@ def deleta_avisos_fora_periodo(
         logging.info('----------------------------------------')
 
 
-def main(ambiente: str = 'prod'):
+def main(ambiente: str = 'dev'):
     logging.info(f'Busca de processos no ambiente {ambiente.upper()}')
     processos = retorna_processos(ambiente)
 
