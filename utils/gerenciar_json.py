@@ -1,6 +1,8 @@
 import json
 from datetime import datetime
 
+from bson import DBRef, ObjectId
+
 
 def salvar_em_json(lista, nome_arquivo):
     try:
@@ -20,14 +22,18 @@ def carregar_de_json(nome_arquivo):
         return []
 
 
+def json_serializable(obj):
+    if isinstance(obj, datetime):
+        return obj.isoformat()
+    if isinstance(obj, ObjectId):
+        return str(obj)
+    if isinstance(obj, DBRef):
+        return {'_ref': str(obj)}
+    raise TypeError(f'Tipo {type(obj)} não é serializável')
+
+
 def salvar_avisos_em_json(avisos_lista, arquivo='avisos.json'):
     if avisos_lista:
-        for aviso in avisos_lista:
-            aviso.pop('_id', None)
-            for chave, valor in aviso.items():
-                if isinstance(valor, datetime):
-                    aviso[chave] = valor.isoformat()
-
         try:
             with open(arquivo, 'r', encoding='utf-8') as f:
                 dados_existentes = json.load(f)
@@ -37,7 +43,13 @@ def salvar_avisos_em_json(avisos_lista, arquivo='avisos.json'):
         dados_existentes.extend(avisos_lista)
 
         with open(arquivo, 'w', encoding='utf-8') as f:
-            json.dump(dados_existentes, f, ensure_ascii=False, indent=4)
+            json.dump(
+                dados_existentes,
+                f,
+                ensure_ascii=False,
+                indent=4,
+                default=json_serializable,
+            )
 
         print(
             f'{len(avisos_lista)} novos avisos adicionados ao arquivo {arquivo}.'

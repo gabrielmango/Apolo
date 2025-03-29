@@ -17,6 +17,8 @@ list_avisos = []
 VARA = 'Cível'
 COMARCA = 'Belo Horizonte'
 
+FILE_NAME = 'solar/procapi/avisos_prod.json'
+
 DEFENSORIAS = [
     '1ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
     '2ª DEFENSORIA CIVEL DE BELO HORIZONTE',
@@ -116,7 +118,7 @@ def deleta_avisos(ambiente, processo):
 
     avisos = list(avisos)
 
-    salvar_avisos_em_json(avisos, 'solar/procapi/avisos_dev.json')
+    salvar_avisos_em_json(avisos, FILE_NAME)
 
     if avisos:
         logging.info(f'Processo {processo}: {len(avisos)}')
@@ -130,7 +132,9 @@ def deleta_avisos(ambiente, processo):
                     'numero_aviso': aviso['numero'],
                 }
             )
+            aviso_collection.delete_one({'_id': aviso['_id']})
         logging.info('----------------------------------------')
+        aviso_collection.delete_many({'processo.numero': processo})
 
 
 def deleta_avisos_excecao(ambiente, processo, defensoria):
@@ -167,7 +171,7 @@ def deleta_avisos_nao_fechados_no_periodo(
 
     avisos = list(avisos)
 
-    salvar_avisos_em_json(avisos, 'solar/procapi/avisos_dev.json')
+    salvar_avisos_em_json(avisos, FILE_NAME)
 
     if avisos:
         logging.info(f'>>> Processo {processo}: {defensoria}')
@@ -184,6 +188,7 @@ def deleta_avisos_nao_fechados_no_periodo(
                     'numero_aviso': aviso['numero'],
                 }
             )
+            aviso_collection.delete_one({'_id': aviso['_id']})
         logging.info('----------------------------------------')
 
 
@@ -209,7 +214,7 @@ def deleta_avisos_fora_periodo(
 
     avisos = list(avisos)
 
-    salvar_avisos_em_json(avisos, 'solar/procapi/avisos_dev.json')
+    salvar_avisos_em_json(avisos, FILE_NAME)
 
     if avisos:
         logging.info(f'>>> Processo {processo}: {defensoria}')
@@ -226,6 +231,7 @@ def deleta_avisos_fora_periodo(
                     'numero_aviso': aviso['numero'],
                 }
             )
+            aviso_collection.delete_one({'_id': aviso['_id']})
         logging.info('----------------------------------------')
 
 
@@ -251,7 +257,10 @@ def main(ambiente: str = 'dev'):
     logging.info(f'Total de avisos: {quant_avisos}')
 
     list_to_sql(
-        list_avisos, string_base['teste'], 'solar_processo_aviso', 'processo'
+        list_avisos,
+        string_base['teste'],
+        'solar_processo_aviso_dev',
+        'processo',
     )
 
 
