@@ -17,7 +17,7 @@ list_avisos = []
 VARA = 'Cível'
 COMARCA = 'Belo Horizonte'
 
-FILE_NAME = 'solar/procapi/avisos_prod.json'
+FILE_NAME = 'solar/procapi/avisos_prod_20250329.json'
 
 DEFENSORIAS = [
     '1ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
@@ -235,7 +235,7 @@ def deleta_avisos_fora_periodo(
         logging.info('----------------------------------------')
 
 
-def main(ambiente: str = 'dev'):
+def main(ambiente: str = 'prod'):
     logging.info(f'Busca de processos no ambiente {ambiente.upper()}')
     processos = retorna_processos(ambiente)
 
@@ -259,7 +259,7 @@ def main(ambiente: str = 'dev'):
     list_to_sql(
         list_avisos,
         string_base['teste'],
-        'solar_processo_aviso_dev',
+        'solar_aviso_prod_20250329',
         'processo',
     )
 
