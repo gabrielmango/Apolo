@@ -3,17 +3,21 @@ from datetime import datetime
 import pandas as pd
 from pymongo import MongoClient
 
-from utils.ambientes import string_procapi
+from database import executar_query
+from utils.ambientes import string_procapi, string_solar
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
 
 
 class SolarService:
-    def __init__(self, ambiente: str = 'prod'):
+    def __init__(self, comarca: str, vara: str, ambiente: str = 'prod'):
         logging.info('Inicializando Serviço Solar...')
         self._ambiente = ambiente
+        self._comarca = comarca
+        self._vara = vara
         self.avisos = self._get_avisos()
+        self.processos = self._get_processos()
 
     def _get_avisos(self):
         logging.info('Buscando avisos...')
@@ -43,11 +47,38 @@ class SolarService:
         finally:
             client.close()
 
+    def _get_processos(self):
+        logging.info('Buscando processos...')
+        processos = executar_query(
+            True,
+            f"""
+                SELECT 
+                    pp.numero_puro as numero_processo,
+                    cc.nome as comarca,
+                    cv.nome as vara,
+                    cd.nome as defensoria
+                FROM processo_processo pp
+                left join processo_parte pp2 on pp2.processo_id = pp.id
+                left join contrib_defensoria cd on pp2.defensoria_id = cd.id
+                left join contrib_comarca cc on pp.comarca_id = cc.id 
+                left join contrib_vara cv on pp.vara_id = cv.id 
+                order by pp.id desc;
+            """,
+            string_solar.get(self._ambiente),
+        )
+
+        logging.info('Processos buscados com sucesso.')
+        logging.info(f'Processos encontrados: {len(processos)}')
+        return pd.DataFrame(processos)
+
 
 def main():
 
-    solar_service = SolarService()
+    solar_service = SolarService('Belo Horizonte', 'Cível')
     avisos_df = solar_service.avisos
+    processos_df = solar_service.processos
+
+    print(processos_df.head())
 
 
 if __name__ == '__main__':
