@@ -74,16 +74,19 @@ class SolarService:
 
     def _get_processos_com_avisos(self):
         logging.info('Buscando processos com avisos...')
+
         processos_com_avisos = self.processos.merge(
             self.avisos,
             left_on='numero_processo',
             right_on='numero_processo',
             how='inner',
-        )
+        ).drop_duplicates(subset=['numero_processo'], keep='last')
+
         logging.info('Processos com avisos buscados com sucesso.')
         logging.info(
             f'Processos com avisos encontrados: {len(processos_com_avisos)}'
         )
+
         return processos_com_avisos
 
 
