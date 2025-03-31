@@ -4,7 +4,7 @@ import pandas as pd
 from pymongo import MongoClient
 
 from database import executar_query
-from utils.ambientes import string_procapi, string_solar
+from utils.ambientes import string_base, string_procapi, string_solar
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
@@ -18,6 +18,7 @@ class SolarService:
         self._vara = vara
         self.avisos = self._get_avisos()
         self.processos = self._get_processos()
+        self.processos_com_avisos = self._get_processos_com_avisos()
 
     def _get_avisos(self):
         logging.info('Buscando avisos...')
@@ -71,14 +72,33 @@ class SolarService:
         logging.info(f'Processos encontrados: {len(processos)}')
         return pd.DataFrame(processos)
 
+    def _get_processos_com_avisos(self):
+        logging.info('Buscando processos com avisos...')
+        processos_com_avisos = self.processos.merge(
+            self.avisos,
+            left_on='numero_processo',
+            right_on='numero_processo',
+            how='inner',
+        )
+        logging.info('Processos com avisos buscados com sucesso.')
+        logging.info(
+            f'Processos com avisos encontrados: {len(processos_com_avisos)}'
+        )
+        return processos_com_avisos
+
 
 def main():
 
     solar_service = SolarService('Belo Horizonte', 'Cível')
-    avisos_df = solar_service.avisos
-    processos_df = solar_service.processos
+    avisos_com_arquivados = solar_service.processos_com_avisos
 
-    print(processos_df.head())
+    avisos_com_arquivados.to_sql(
+        'processos_com_avisos',
+        string_base.get('teste'),
+        if_exists='replace',
+        schema='solar',
+        index=False,
+    )
 
 
 if __name__ == '__main__':
