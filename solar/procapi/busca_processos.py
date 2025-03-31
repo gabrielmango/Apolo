@@ -2,6 +2,7 @@ import unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
+import pandas as pd
 from pymongo import MongoClient
 
 from database import executar_query, list_to_sql
@@ -20,12 +21,25 @@ def remover_acentos(texto):
     ).upper()
 
 
-def filtrar_processos(ambiente):
+def processos_mongodb(ambiente):
     client = MongoClient(string_procapi[ambiente])
     db = client['dbprocapi']
     collection = db.processo
 
-    numeros_filtrados = []
+    dados_filtrados = [
+        {'numero': processo.get('numero')} for processo in collection.find()
+    ]
+
+    logging.info(f'Retorna dados do mongodb: {len(dados_filtrados)}')
+    return pd.DataFrame(dados_filtrados)
+
+
+def processos_mongodb_filtrados(ambiente):
+    client = MongoClient(string_procapi[ambiente])
+    db = client['dbprocapi']
+    collection = db.processo
+
+    dados_filtrados = []
     processos = collection.find({}, {'numero': 1, 'orgao_julgador.nome': 1})
 
     for processo in processos:
@@ -36,54 +50,42 @@ def filtrar_processos(ambiente):
             'CIVEL' in orgao_julgador_nome
             and 'BELO HORIZONTE' in orgao_julgador_nome
         ):
-            numeros_filtrados.append(processo.get('numero'))
+            dados_filtrados.append({'numero': processo.get('numero')})
+    logging.info(f'Retorna dados do procapi: {len(dados_filtrados)}')
+    return pd.DataFrame(dados_filtrados)
 
-    return numeros_filtrados
 
-
-def retorna_processos(ambiente, numeros_processo):
-    for numero_processo in numeros_processo:
-        print(numero_processo)
-        processos_processo = executar_query(
-            True,
-            f"""
-               SELECT id, numero_puro
-               FROM public.processo_processo
-               WHERE numero_puro = '{numero_processo}';
-            """,
-            string_solar[ambiente],
-        )
-        if processos_processo:
-            logging.info(f'Processo encontrado: {processos_processo}')
+def processos_postgres(ambiente):
+    resultado = executar_query(
+        True,
+        """
+            SELECT numero_puro
+            FROM public.processo_processo;
+        """,
+        string_solar[ambiente],
+    )
+    logging.info(f'Retorna dados do solar: {len(resultado)}')
+    return pd.DataFrame(resultado, columns=['id', 'numero_puro'])
 
 
 def main(ambiente: str = 'prod'):
-    logging.info(f'Buscando processos no ambiente {ambiente.upper()}')
-    processos_filtrados = filtrar_processos(ambiente)
-    logging.info(f'Números de processos filtrados: {len(processos_filtrados)}')
+    logging.info(f'Buscando processos em {ambiente}')
+    df_mongo = processos_mongodb(ambiente)
+    df_postgres = processos_postgres(ambiente)
 
-    if not processos_filtrados:
-        logging.info('Nenhum processo encontrado para processamento.')
-        return
+    df_mongo.rename(columns={'numero': 'numero_puro'}, inplace=True)
+    df_merged = pd.merge(df_postgres, df_mongo, on='numero_puro', how='inner')
+    logging.info(f'Processos encontrados: {len(df_merged)}')
 
-    # Dividir a lista em 10 partes
-    chunk_size = max(
-        1, len(processos_filtrados) // 10
-    )  # Evitar divisão por zero
-    chunks = [
-        processos_filtrados[i : i + chunk_size]
-        for i in range(0, len(processos_filtrados), chunk_size)
-    ]
-
-    with ThreadPoolExecutor(max_workers=10) as executor:
-        executor.map(lambda chunk: retorna_processos(ambiente, chunk), chunks)
+    for numero in df_merged['numero_puro']:
+        logging.info(f'Processo: {numero}')
 
 
 if __name__ == '__main__':
     logging.info('Processo iniciado')
     start_time = datetime.now()
 
-    main()
+    main('prod')
 
     end_time = datetime.now()
     duracao = str(end_time - start_time).split('.')[0]
