@@ -34,13 +34,17 @@ def remover_objectid(avisos):
     """Remove campos do tipo ObjectId de cada aviso."""
     for aviso in avisos:
         if isinstance(aviso, dict):
-            aviso = {k: v for k, v in aviso.items() if not isinstance(v, ObjectId)}
+            aviso = {
+                k: v for k, v in aviso.items() if not isinstance(v, ObjectId)
+            }
     return avisos
 
 
 def salvar_avisos_em_json(avisos_lista, arquivo='avisos.json'):
     if avisos_lista:
-        avisos_lista = remover_objectid(avisos_lista)  # Remove ObjectId antes de salvar 
+        avisos_lista = remover_objectid(
+            avisos_lista
+        )  # Remove ObjectId antes de salvar
 
         try:
             with open(arquivo, 'r', encoding='utf-8') as f:
@@ -59,4 +63,6 @@ def salvar_avisos_em_json(avisos_lista, arquivo='avisos.json'):
                 default=json_serializable,
             )
 
-        print(f'{len(avisos_lista)} novos avisos adicionados ao arquivo {arquivo}.')
+        print(
+            f'{len(avisos_lista)} novos avisos adicionados ao arquivo {arquivo}.'
+        )
