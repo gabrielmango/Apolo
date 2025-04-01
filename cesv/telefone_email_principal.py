@@ -14,7 +14,7 @@ def retorna_candidaturas(ambiente):
             co_uuid_2 AS uuid
         FROM
             cesv.tb_candidatura
-        WHERE st_candidatura <> 'RASCUNHO'
+        --WHERE st_candidatura <> 'RASCUNHO'
         """,
         string_cesv[ambiente],
     )
@@ -118,7 +118,7 @@ def main(ambiente: str = 'prod'):
         schema='public',
     )
 
-    logging.info(f'Processo finalizado!\n')
+    logging.info(f'Processo finalizado!')
 
 
 def atualiza_telefone_principal(ambiente: str = 'prod'):
@@ -155,7 +155,7 @@ if __name__ == '__main__':
     while True:
         main()
         atualiza_telefone_principal()
-        time.sleep(600)
+        time.sleep(100)
 
     end_time = datetime.now()
     tempo_execucao = str(end_time - start_time).split('.')[0]
