@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import List
 
 import pandas as pd
 from pymongo import MongoClient
@@ -12,6 +11,59 @@ setup_logging(__file__)
 
 VARA = 'Cível'
 COMARCA = 'Belo Horizonte'
+
+INICIO_PERIODO = '2025-03-20'
+FIM_PERIODO = '2025-03-29'
+
+DEFENSORIAS = [
+    '1ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '2ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '3ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '4ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '5ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '6ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '7ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '8ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '9ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '10ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '11ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '12ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '13ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '14ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '15ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '16ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '17ª DEFENSORIA CÍVEL',
+    '18ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '19ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '20ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '21ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '22ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '23ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '24ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '25ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '26ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '27ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '28ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '29ª DEFENSORIA CIVEL DE BELO HORIZONTE - A',
+    '30ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '31ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '32ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '33ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '34ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '35ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
+    '36ª DEFENSORIA CIVEL DE BELO HORIZONTE',
+    '37ª DEFENSORIA CIVEL DE BELO HORIZONTE - A',
+    '37ª DEFENSORIA CIVEL DE BELO HORIZONTE - B',
+    '37ª DEFENSORIA CIVEL DE BELO HORIZONTE - C',
+    '37ª DEFENSORIA CIVEL DE BELO HORIZONTE - D',
+    '37ª DEFENSORIA CIVEL DE BELO HORIZONTE - E',
+    '38ª DEFENSORIA CIVEL DE BELO HORIZONTE - A',
+    '38ª DEFENSORIA CIVEL DE BELO HORIZONTE - B',
+    '38ª DEFENSORIA CIVEL DE BELO HORIZONTE - C',
+    '38ª DEFENSORIA CIVEL DE BELO HORIZONTE - D',
+    '38ª DEFENSORIA CIVEL DE BELO HORIZONTE - E',
+    '38ª DEFENSORIA CIVEL DE BELO HORIZONTE - F',
+]
 
 
 class SolarService:
@@ -122,19 +174,65 @@ class SolarService:
 
         return processos_filtrados
 
+    def limpar_avisos_comarca_vara(self):
+        logging.info('Iniciando limpeza dos processos com avisos...')
+
+        inicio_periodo = pd.Timestamp(INICIO_PERIODO)
+        fim_periodo = pd.Timestamp(FIM_PERIODO)
+
+        for _, row in self.processos_com_avisos_filtrados.iterrows():
+            numero_aviso = row['numero_aviso']
+            numero_processo = row['numero_processo']
+
+            if row['defensoria'] not in DEFENSORIAS:
+                logging.info(f'Processo {numero_processo}:')
+                logging.info(
+                    f'Aviso {numero_aviso}: fora da lista de defensorias. Removendo...'
+                )
+                self._remover_aviso(numero_aviso)
+                logging.info(
+                    f'------------------------------------------------------------------'
+                )
+                continue
+
+            data_modificado = pd.to_datetime(row['modificado_em'])
+            if (
+                inicio_periodo <= data_modificado <= fim_periodo
+                and row['situacao'] != 30
+            ):
+                logging.info(f'Processo {numero_processo}:')
+                logging.info(
+                    f'>>> Aviso {numero_aviso}: dentro da lista de defensorias!'
+                )
+                logging.info(
+                    f'Aviso {numero_aviso}: dentro do período válido e situação diferente de fechado. Removendo...'
+                )
+                self._remover_aviso(numero_aviso)
+                logging.info(
+                    f'------------------------------------------------------------------'
+                )
+            else:
+                logging.info(f'Processo {numero_processo}:')
+                logging.info(
+                    f'>>> Aviso {numero_aviso}: dentro da lista de defensorias!'
+                )
+                logging.info(
+                    f'Aviso {numero_aviso}: fora do período. Removendo...'
+                )
+                self._remover_aviso(numero_aviso)
+                logging.info(
+                    f'------------------------------------------------------------------'
+                )
+
+    def _remover_aviso(self, numero_aviso):
+        print(f'Removendo aviso: {numero_aviso}')
+
 
 def main():
 
     solar_service = SolarService(COMARCA, VARA)
-    avisos_com_arquivados = solar_service.processos_com_avisos_filtrados
 
-    avisos_com_arquivados.to_sql(
-        'processos_com_avisos_filtrados',
-        string_base.get('teste'),
-        if_exists='replace',
-        schema='solar',
-        index=False,
-    )
+    solar_service.limpar_avisos_comarca_vara()
 
 
 if __name__ == '__main__':
