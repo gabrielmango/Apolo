@@ -5,6 +5,7 @@ from pymongo import MongoClient
 
 from database import executar_query
 from utils.ambientes import string_base, string_procapi, string_solar
+from utils.gerenciar_json import salvar_avisos_em_json
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
@@ -14,6 +15,8 @@ COMARCA = 'Belo Horizonte'
 
 INICIO_PERIODO = '2025-03-20'
 FIM_PERIODO = '2025-03-29'
+
+FILE_NAME_BACKUP = 'solar/backup/procapi_bkp_20250402.json'
 
 DEFENSORIAS = [
     '1ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
@@ -78,6 +81,7 @@ class SolarService:
         self.processos_com_avisos_filtrados = (
             self._get_processos_com_avisos_por_comarca_e_vara()
         )
+        self.avisos_removidos = []
 
     def _get_avisos(self):
         logging.info('Buscando avisos...')
@@ -189,10 +193,8 @@ class SolarService:
                 logging.info(
                     f'Aviso {numero_aviso}: fora da lista de defensorias. Removendo...'
                 )
-                self._remover_aviso(numero_aviso)
-                logging.info(
-                    f'------------------------------------------------------------------'
-                )
+                self.avisos_removidos.append(numero_aviso)
+                logging.info('---------------------------------------')
                 continue
 
             data_modificado = pd.to_datetime(row['modificado_em'])
@@ -207,10 +209,7 @@ class SolarService:
                 logging.info(
                     f'Aviso {numero_aviso}: dentro do período válido e situação diferente de fechado. Removendo...'
                 )
-                self._remover_aviso(numero_aviso)
-                logging.info(
-                    f'------------------------------------------------------------------'
-                )
+                self.avisos_removidos.append(numero_aviso)
             else:
                 logging.info(f'Processo {numero_processo}:')
                 logging.info(
@@ -219,13 +218,10 @@ class SolarService:
                 logging.info(
                     f'Aviso {numero_aviso}: fora do período. Removendo...'
                 )
-                self._remover_aviso(numero_aviso)
-                logging.info(
-                    f'------------------------------------------------------------------'
-                )
+                self.avisos_removidos.append(numero_aviso)
+            logging.info('---------------------------------------')
 
-    def _remover_aviso(self, numero_aviso):
-        print(f'Removendo aviso: {numero_aviso}')
+        print(len(self.avisos_removidos))
 
 
 def main():
