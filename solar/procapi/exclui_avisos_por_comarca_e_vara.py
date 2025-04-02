@@ -82,6 +82,9 @@ class SolarService:
             self._get_processos_com_avisos_por_comarca_e_vara()
         )
         self.avisos_removidos = []
+        self.filename = (
+            f'solar/backup/procapi_bkp_{self._ambiente}_20250402.json'
+        )
 
     def _get_avisos(self):
         logging.info('Buscando avisos...')
@@ -221,12 +224,35 @@ class SolarService:
                 self.avisos_removidos.append(numero_aviso)
             logging.info('---------------------------------------')
 
-        print(len(self.avisos_removidos))
+        self.remover_avisos()
+
+    def remover_avisos(self):
+        logging.info('Iniciando remoção dos avisos...')
+        lista_avisos = self.avisos_removidos
+        try:
+            client = MongoClient(string_procapi.get(self._ambiente))
+            db = client['dbprocapi']
+            collection = db.aviso
+
+            avisos_para_backup = list(
+                collection.find({'numero': {'$in': lista_avisos}})
+            )
+            if avisos_para_backup:
+                salvar_avisos_em_json(avisos_para_backup, self.filename)
+                logging.info(f'Backup dos avisos removidos foi realizado!')
+
+            # collection.delete_many({'numero': {'$in': lista_avisos}})
+            logging.info(f'Avisos removidos com sucesso!')
+        except Exception as e:
+            logging.error(f'Erro ao remover avisos: {e}')
+            return pd.DataFrame()
+        finally:
+            client.close()
 
 
 def main():
 
-    solar_service = SolarService(COMARCA, VARA)
+    solar_service = SolarService(COMARCA, VARA, 'dev')
 
     solar_service.limpar_avisos_comarca_vara()
 
