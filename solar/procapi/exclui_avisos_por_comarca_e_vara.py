@@ -32,6 +32,9 @@ class SolarService:
                 {
                     'numero_aviso': processo.get('numero'),
                     'numero_processo': processo.get('processo').get('numero'),
+                    'vara': processo.get('processo')
+                    .get('orgaoJulgador')
+                    .get('nomeOrgao'),
                     'modificado_em': processo.get('modificado_em'),
                     'situacao': processo.get('situacao'),
                 }
@@ -56,7 +59,6 @@ class SolarService:
                 SELECT 
                     pp.numero_puro as numero_processo,
                     cc.nome as comarca,
-                    cv.nome as vara,
                     cd.nome as defensoria
                 FROM processo_processo pp
                 left join processo_parte pp2 on pp2.processo_id = pp.id
@@ -75,12 +77,12 @@ class SolarService:
     def _get_processos_com_avisos(self):
         logging.info('Buscando processos com avisos...')
 
-        processos_com_avisos = self.processos.merge(
-            self.avisos,
+        processos_com_avisos = self.avisos.merge(
+            self.processos,
             left_on='numero_processo',
             right_on='numero_processo',
-            how='inner',
-        ).drop_duplicates(subset=['numero_processo'], keep='last')
+            how='left',
+        ).drop_duplicates(subset=['numero_aviso'], keep='last')
 
         logging.info('Processos com avisos buscados com sucesso.')
         logging.info(
