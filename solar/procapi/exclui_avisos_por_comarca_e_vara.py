@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import List
 
 import pandas as pd
 from pymongo import MongoClient
@@ -8,6 +9,9 @@ from utils.ambientes import string_base, string_procapi, string_solar
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
+
+VARA = 'Cível'
+COMARCA = 'Belo Horizonte'
 
 
 class SolarService:
@@ -19,6 +23,9 @@ class SolarService:
         self.avisos = self._get_avisos()
         self.processos = self._get_processos()
         self.processos_com_avisos = self._get_processos_com_avisos()
+        self.processos_com_avisos_filtrados = (
+            self._get_processos_com_avisos_por_comarca_e_vara()
+        )
 
     def _get_avisos(self):
         logging.info('Buscando avisos...')
@@ -91,14 +98,28 @@ class SolarService:
 
         return processos_com_avisos
 
+    def _get_processos_com_avisos_por_comarca_e_vara(self):
+        logging.info(
+            f'Filtrando processos com avisos pela comarca {self._comarca} e pela vara {self._vara}'
+        )
+        processos_filtrados = self.processos_com_avisos[
+            self.processos_com_avisos['comarca']
+            in self._comarca
+            & self.processos_com_avisos['vara'].isin(self._vara)
+        ]
+        logging.info(
+            f'Processos com avisos filtrados: {len(processos_filtrados)}'
+        )
+        return processos_filtrados
+
 
 def main():
 
-    solar_service = SolarService('Belo Horizonte', 'Cível')
-    avisos_com_arquivados = solar_service.processos_com_avisos
+    solar_service = SolarService(COMARCA, VARA)
+    avisos_com_arquivados = solar_service.processos_com_avisos_filtrados
 
     avisos_com_arquivados.to_sql(
-        'processos_com_avisos',
+        'processos_com_avisos_filtrados',
         string_base.get('teste'),
         if_exists='replace',
         schema='solar',
