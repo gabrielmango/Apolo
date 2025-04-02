@@ -104,8 +104,8 @@ class SolarService:
         )
         processos_filtrados = self.processos_com_avisos[
             self.processos_com_avisos['comarca']
-            in self._comarca
-            & self.processos_com_avisos['vara'].isin(self._vara)
+            in self._comarca & self.processos_com_avisos['vara']
+            in self._vara
         ]
         logging.info(
             f'Processos com avisos filtrados: {len(processos_filtrados)}'
