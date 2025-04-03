@@ -29,6 +29,7 @@ class CandidaturaProcessor:
             co_uuid_2 AS uuid
         FROM
             cesv.tb_candidatura
+        WHERE st_candidatura <> 'RASCUNHO'
         """
         return self._execute_query(True, query, self.cesv_connection) or []
 

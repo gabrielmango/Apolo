@@ -101,7 +101,7 @@ def remove_duplicate_avisos(mongo_uri):
 
     if to_delete:
         salvar_avisos_em_json(
-            to_delete, 'solar/procapi/deleted_avisos_prod_20250401.json'
+            to_delete, 'solar/procapi/deleted_avisos_dev_20250403.json'
         )
         collection.delete_many(
             {'_id': {'$in': [doc['_id'] for doc in to_delete]}}
@@ -110,4 +110,4 @@ def remove_duplicate_avisos(mongo_uri):
     client.close()
 
 
-remove_duplicate_avisos(string_procapi.get('prod'))
+remove_duplicate_avisos(string_procapi.get('dev'))
