@@ -3,7 +3,7 @@ from datetime import datetime
 import pandas as pd
 from pymongo import MongoClient
 
-from database import executar_query
+from database import executar_query, list_to_sql
 from utils.ambientes import string_base, string_procapi, string_solar
 from utils.gerenciar_json import salvar_avisos_em_json
 from utils.setup_logging import logging, setup_logging
@@ -15,8 +15,6 @@ COMARCA = 'Belo Horizonte'
 
 INICIO_PERIODO = '2025-03-20'
 FIM_PERIODO = '2025-03-29'
-
-FILE_NAME_BACKUP = 'solar/backup/procapi_bkp_20250402.json'
 
 DEFENSORIAS = [
     '1ª DEFENSORIA CÍVEL DE BELO HORIZONTE',
@@ -96,19 +94,20 @@ class SolarService:
 
             avisos = [
                 {
-                    'numero_aviso': processo.get('numero'),
-                    'numero_processo': processo.get('processo').get('numero'),
-                    'vara': processo.get('processo')
+                    'numero_aviso': aviso.get('numero'),
+                    'numero_processo': aviso.get('processo').get('numero'),
+                    'vara': aviso.get('processo')
                     .get('orgaoJulgador')
                     .get('nomeOrgao'),
-                    'modificado_em': processo.get('modificado_em'),
-                    'situacao': processo.get('situacao'),
+                    'modificado_em': aviso.get('modificado_em'),
+                    'situacao': aviso.get('situacao'),
                 }
-                for processo in collection.find()
+                for aviso in collection.find()
             ]
 
             logging.info('Avisos buscados com sucesso.')
             logging.info(f'Avisos encontrado: {len(avisos)}')
+            list_to_sql(avisos, string_base.get('tst'))
             return pd.DataFrame(avisos)
 
         except Exception as e:
