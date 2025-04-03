@@ -92,5 +92,6 @@ string_solar = {
 
 string_procapi = {
     'prod': config['PROCAPI_PROD'],
+    'preprod': config['PROCAPI_PREPROD'],
     'dev': config['PROCAPI_DEV'],
 }
