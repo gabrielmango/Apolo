@@ -9,29 +9,68 @@ from utils.setup_logging import logging, setup_logging
 setup_logging(__file__)
 
 
-def get_processos(ambiente):
-    logging.info('Buscando processos...')
-    client = MongoClient(string_procapi[ambiente])
-    db = client['dbprocapi']
-    collection = db.processo
+class ProcessoPrimerioMovimento:
+    def __init__(self, ambiente: str = 'preprod'):
+        self._ambiente = ambiente
+        self.processos = self._get_processos()
+        self.eventos = self._get_eventos()
 
-    dados_filtrados = [
-        {
-            'numero': processo.get('numero'),
-            'id': processo.get('id'),
-        }
-        for processo in collection.find(
-            {},  # {'data_primeiro_movimento': {'$exists': True, '$ne': None}},
-            {'_id': 1},
+    def _get_processos(self):
+        logging.info('Buscando processos...')
+
+        client = MongoClient(string_procapi[self._ambiente])
+        db = client['dbprocapi']
+        collection = db.processo
+
+        processos = [
+            {'id': processo.get('id')}
+            for processo in collection.find(
+                {'data_primeiro_movimento': {'$exists': True, '$ne': None}},
+                {'_id': 1},
+            )
+        ]
+
+        logging.info(f'Processos encontrados: {len(processos)}')
+        return pd.DataFrame(processos)
+
+    def _get_eventos(self):
+        logging.info('Buscando eventos...')
+
+        client = MongoClient(string_procapi[self._ambiente])
+        db = client['dbprocapi']
+        collection = db.evento
+
+        pipeline = [
+            {'$sort': {'data_protocolo': 1}},
+            {
+                '$group': {
+                    '_id': '$processo',
+                    'data_protocolo': {'$first': '$data_protocolo'},
+                    'documento': {'$first': '$$ROOT'},
+                }
+            },
+            {
+                '$replaceRoot': {
+                    'newRoot': {
+                        'processo': '$_id',
+                        'data_protocolo': '$data_protocolo',
+                    }
+                }
+            },
+        ]
+
+        eventos = list(collection.aggregate(pipeline))
+
+        logging.info(
+            f'Eventos distintos por processo encontrados: {len(eventos)}'
         )
-    ]
-
-    logging.info(f'Processos encontrados: {len(dados_filtrados)}')
-    return pd.DataFrame(dados_filtrados)
+        return pd.DataFrame(eventos)
 
 
 def main(ambiente: str = 'preprod'):
-    processos = get_processos(ambiente)
+    logging.info(f'Executando script em {ambiente}')
+
+    processos_primerio_movimento = ProcessoPrimerioMovimento(ambiente)
 
 
 if __name__ == '__main__':
