@@ -1,13 +1,17 @@
+import logging
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
-import pandas as pd
 from pymongo import MongoClient
 
-from utils.ambientes import string_base, string_procapi
-from utils.setup_logging import logging, setup_logging
+logging.basicConfig(
+    filename='migration_primeiro_movimento.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+)
 
-setup_logging(__file__)
+
+string_procapi = {'preprod': ''}
 
 
 class ProcessoPrimeiroMovimento:
@@ -92,14 +96,14 @@ def main(ambiente: str):
     logging.info(f'Executando script em {ambiente}')
 
     processos_primeiro_movimento = ProcessoPrimeiroMovimento(ambiente)
-    # processos_primeiro_movimento.executa_migration()
+    processos_primeiro_movimento.executa_migration()
 
 
 if __name__ == '__main__':
     logging.info('Processo iniciado')
     start_time = datetime.now()
 
-    main('prod')
+    main('preprod')
 
     end_time = datetime.now()
     duracao = str(end_time - start_time).split('.')[0]
