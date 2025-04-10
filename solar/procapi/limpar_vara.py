@@ -1,4 +1,5 @@
 from datetime import datetime
+from pathlib import Path
 
 from pymongo import MongoClient
 
@@ -37,14 +38,22 @@ class LimparAvisos:
         ]
 
     def lista_avisos_excecao(self):
-        ...
+        path_file = Path('solar') / 'procapi' / 'data' / f'{self.vara}.txt'
+        try:
+            with open(path_file, 'r', encoding='utf-8') as arquivo:
+                self.avisos_execao = arquivo.read().split('\n')
+        except Exception as e:
+            logging.error(f'Erro ao carregar {path_file}: {e}')
+            self.avisos_execao = []
 
     def limpa_avisos_por_vara(self, vara: str):
         self.vara = vara
+        self.lista_avisos_excecao()
         avisos = self.retorna_avisos()
         logging.info(f'Quantidade de avisos: {len(avisos)}')
-        # for aviso in self.retorna_avisos()
-        #     ...
+        print(self.avisos_execao)
+        for aviso in self.retorna_avisos():
+            ...
 
 
 def main(ambiente: str = 'prod'):
