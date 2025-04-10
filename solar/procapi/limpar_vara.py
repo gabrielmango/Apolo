@@ -28,9 +28,6 @@ class LimparAvisos:
         return [
             {
                 'numero_aviso': aviso.get('numero'),
-                'vara': aviso.get('processo')
-                .get('orgaoJulgador')
-                .get('nomeOrgao'),
             }
             for aviso in collection.find(
                 {'processo.orgaoJulgador.nomeOrgao': self.vara}
@@ -50,10 +47,12 @@ class LimparAvisos:
         self.vara = vara
         self.lista_avisos_excecao()
         avisos = self.retorna_avisos()
+
         logging.info(f'Quantidade de avisos: {len(avisos)}')
-        print(self.avisos_execao)
+
         for aviso in self.retorna_avisos():
-            ...
+            if aviso not in self.avisos_execao:
+                ...
 
 
 def main(ambiente: str = 'prod'):
