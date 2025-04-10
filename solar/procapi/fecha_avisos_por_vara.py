@@ -16,7 +16,7 @@ varas = [
 ]
 
 
-class LimparAvisos:
+class FechaAvisos:
     def __init__(self, ambiente):
         self._ambiente = ambiente
         self.client = MongoClient(string_procapi[self._ambiente])
@@ -43,21 +43,30 @@ class LimparAvisos:
             logging.error(f'Erro ao carregar {path_file}: {e}')
             self.avisos_execao = []
 
+    def fecha_aviso(self, numero_aviso):
+        collection = self.db.aviso
+        collection.update_one(
+            {'numero': numero_aviso},
+            {'$set': {'situacao': 30, 'modificado_em': datetime.now()}},
+        )
+        logging.info(f'Aviso {numero_aviso} fechado.')
+
     def limpa_avisos_por_vara(self, vara: str):
         self.vara = vara
         self.lista_avisos_excecao()
         avisos = self.retorna_avisos()
 
-        logging.info(f'Quantidade de avisos: {len(avisos)}')
+        # logging.info(f'Quantidade de avisos: {len(avisos)}')
 
         for aviso in self.retorna_avisos():
-            if aviso not in self.avisos_execao:
-                ...
+            if aviso['numero_aviso'] not in self.avisos_execao:
+                # print(aviso['numero_aviso'])
+                self.fecha_aviso(aviso['numero_aviso'])
 
 
 def main(ambiente: str = 'prod'):
 
-    limpa_aviso = LimparAvisos(ambiente)
+    limpa_aviso = FechaAvisos(ambiente)
     for vara in varas:
         logging.info(f'VARA: {vara}')
         limpa_aviso.limpa_avisos_por_vara(vara)
