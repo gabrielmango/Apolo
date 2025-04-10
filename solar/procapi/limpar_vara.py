@@ -10,14 +10,49 @@ from utils.setup_logging import logging, setup_logging
 setup_logging(__file__)
 
 varas = [
-    'Avisos 3ª Vara Cível da Comarca de Belo Horizonte',
-    'Avisos 1ª Vara Criminal da Infância e da Juventude da Comarca de Manhuaçu',
+    '3ª Vara Cível da Comarca de Belo Horizonte',
+    '1ª Vara Criminal e da Infância e da Juventude da Comarca de Manhuaçu',
 ]
 
 
-def main(ambiente: str = 'prod'):
-    for vara in varas:
+class LimparAvisos:
+    def __init__(self, ambiente):
+        self._ambiente = ambiente
+        self.client = MongoClient(string_procapi[self._ambiente])
+        self.db = self.client['dbprocapi']
+
+    def retorna_avisos(self):
+        collection = self.db.aviso
+
+        return [
+            {
+                'numero_aviso': aviso.get('numero'),
+                'vara': aviso.get('processo')
+                .get('orgaoJulgador')
+                .get('nomeOrgao'),
+            }
+            for aviso in collection.find(
+                {'processo.orgaoJulgador.nomeOrgao': self.vara}
+            )
+        ]
+
+    def lista_avisos_excecao(self):
         ...
+
+    def limpa_avisos_por_vara(self, vara: str):
+        self.vara = vara
+        avisos = self.retorna_avisos()
+        logging.info(f'Quantidade de avisos: {len(avisos)}')
+        # for aviso in self.retorna_avisos()
+        #     ...
+
+
+def main(ambiente: str = 'prod'):
+
+    limpa_aviso = LimparAvisos(ambiente)
+    for vara in varas:
+        logging.info(f'VARA: {vara}')
+        limpa_aviso.limpa_avisos_por_vara(vara)
 
 
 if __name__ == '__main__':
