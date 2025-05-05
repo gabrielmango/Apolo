@@ -78,15 +78,17 @@ class ProcessoPrimeiroMovimento:
         }
 
         collection.update_one(filtro, atualizacao)
-        #logging.info(f'Processo {processo_ref} atualizado.')
+        # logging.info(f'Processo {processo_ref} atualizado.')
 
     def executa_migration(self, tamanho_lote: int = 1000):
         logging.info('Iniciando migração em lotes...')
         eventos = self.eventos
 
         for i in range(0, len(eventos), tamanho_lote):
-            lote = eventos[i:i + tamanho_lote]
-            logging.info(f'Processando lote {i // tamanho_lote + 1} com {len(lote)} registros.')
+            lote = eventos[i : i + tamanho_lote]
+            logging.info(
+                f'Processando lote {i // tamanho_lote + 1} com {len(lote)} registros.'
+            )
 
             with ThreadPoolExecutor(max_workers=tamanho_lote) as executor:
                 executor.map(self.atualizar_processo, lote)
