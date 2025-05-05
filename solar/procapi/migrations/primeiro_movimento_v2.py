@@ -78,14 +78,18 @@ class ProcessoPrimeiroMovimento:
         }
 
         collection.update_one(filtro, atualizacao)
-        logging.info(f'Processo {processo_ref} atualizado.')
+        #logging.info(f'Processo {processo_ref} atualizado.')
 
-    def executa_migration(self, quantidade: int = 100):
-        logging.info('Iniciando migração...')
+    def executa_migration(self, tamanho_lote: int = 1000):
+        logging.info('Iniciando migração em lotes...')
         eventos = self.eventos
 
-        with ThreadPoolExecutor(max_workers=quantidade) as executor:
-            executor.map(self.atualizar_processo, eventos)
+        for i in range(0, len(eventos), tamanho_lote):
+            lote = eventos[i:i + tamanho_lote]
+            logging.info(f'Processando lote {i // tamanho_lote + 1} com {len(lote)} registros.')
+
+            with ThreadPoolExecutor(max_workers=tamanho_lote) as executor:
+                executor.map(self.atualizar_processo, lote)
 
 
 def main(ambiente: str):
@@ -98,8 +102,8 @@ def main(ambiente: str):
 if __name__ == '__main__':
     logging.info('Processo iniciado')
     start_time = datetime.now()
-
-    main('hml')
+    for ambiente in ['dev', 'tst', 'hml', 'preprod']:
+        main(ambiente)
 
     end_time = datetime.now()
     duracao = str(end_time - start_time).split('.')[0]

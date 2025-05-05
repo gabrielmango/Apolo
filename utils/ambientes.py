@@ -94,4 +94,6 @@ string_procapi = {
     'prod': config['PROCAPI_PROD'],
     'preprod': config['PROCAPI_PREPROD'],
     'dev': config['PROCAPI_DEV'],
+    'hml': config['PROCAPI_HML'],
+    'tst': config['PROCAPI_TST'],
 }
