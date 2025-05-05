@@ -97,3 +97,12 @@ string_procapi = {
     'hml': config['PROCAPI_HML'],
     'tst': config['PROCAPI_TST'],
 }
+
+
+string_portalupload = {
+    'dev': config['PORTALUPLOAD_DEV'],
+    'tst': config['PORTALUPLOAD_TST'],
+    'hml': config['PORTALUPLOAD_HML'],
+    'preprod': config['PORTALUPLOAD_PREPROD'],
+    'prod': config['PORTALUPLOAD_PROD'],
+}
