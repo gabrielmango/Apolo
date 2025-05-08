@@ -106,3 +106,11 @@ string_portalupload = {
     'preprod': config['PORTALUPLOAD_PREPROD'],
     'prod': config['PORTALUPLOAD_PROD'],
 }
+
+
+string_mysql_portal = {
+    'prod_old': config['PORTAL_MYSQL_PROD_OLD'],
+    'preprod_new': config['PORTAL_MYSQL_PREPROD_NEW'],
+    'prod_new': config['PORTAL_MYSQL_PROD_NEW'],
+    'hml': config['PORTAL_MYSQL_HML'],
+}

@@ -8,10 +8,10 @@ from dotenv import dotenv_values
 from sqlalchemy import create_engine, text
 
 config = {
-    'DEV_BASE': 'postgresql+psycopg2://gabriel_mango:k0CA5O1KfQ5eyrEm6nJR@10.230.32.19:5060/postgres',
-    'TST_BASE': 'postgresql+psycopg2://gabriel_mango:k0CA5O1KfQ5eyrEm6nJR@10.230.20.11:5060/postgres',
-    'HML_BASE': 'postgresql+psycopg2://gabriel_mango:k0CA5O1KfQ5eyrEm6nJR@10.100.65.88:5060/postgres',
-    'BANCO_DBAS': 'postgresql+psycopg2://postgres:dpmg2022@10.100.64.55:5432/bohr',
+    'DEV_BASE': '',
+    'TST_BASE': '',
+    'HML_BASE': '',
+    'BANCO_DBAS': '',
 }
 
 CONSULTA_TODOS_BANCOS: str = """

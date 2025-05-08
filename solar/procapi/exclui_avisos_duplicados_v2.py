@@ -69,10 +69,13 @@ def parse_datetime(value):
     return datetime.min  # Retorna uma data mínima para casos inesperados
 
 
-def remove_duplicate_avisos(mongo_uri):
+def remove_duplicate_avisos(ambiente):
+    mongo_uri = 'mongodb://gabriel_mango:k0CA5O1KfQ5eyrEm6nJR@10.100.66.180:27017/?authSource=dbprocapi'
     client = MongoClient(mongo_uri)
     db = client['dbprocapi']
     collection = db.aviso
+
+    print('Conexao com procapi aberta')
 
     pipeline = [
         {
@@ -88,6 +91,10 @@ def remove_duplicate_avisos(mongo_uri):
     duplicates = collection.aggregate(pipeline)
     to_delete = []
 
+    print('Avisos duplicados carregados!')
+
+    print(f'Quantidade de avisos duplicados: {len(list(duplicates))}')
+
     for doc in duplicates:
         sorted_docs = sorted(
             doc['dups'],
@@ -100,9 +107,7 @@ def remove_duplicate_avisos(mongo_uri):
         to_delete.extend(to_remove)
 
     if to_delete:
-        salvar_avisos_em_json(
-            to_delete, 'solar/procapi/deleted_avisos_dev_20250403.json'
-        )
+        salvar_avisos_em_json(to_delete, f'solar/procapi/deleted_avisos.json')
         collection.delete_many(
             {'_id': {'$in': [doc['_id'] for doc in to_delete]}}
         )
@@ -110,4 +115,6 @@ def remove_duplicate_avisos(mongo_uri):
     client.close()
 
 
-remove_duplicate_avisos(string_procapi.get('dev'))
+for ambiente in ['dev', 'preprod', 'prod']:
+    print(ambiente)
+    remove_duplicate_avisos(string_procapi.get(ambiente))

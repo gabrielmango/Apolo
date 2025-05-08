@@ -52,7 +52,7 @@ def reset_sequences():
 
 
 def main():
-    reset_estrutura()
+    # reset_estrutura()
     insert_dados_basicos()
     inserir_dados_antigos()
     reset_sequences()

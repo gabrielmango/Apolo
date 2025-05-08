@@ -389,11 +389,11 @@ if __name__ == '__main__':
     print(f'\nProcesso iniciado: {datetime.now()} \n')
     start_time = datetime.now()
 
-    for ambiente in ['preprod']:
+    for ambiente in ['hml']:
 
         cadastro_tipo_documento(ambiente)
-        # adiciona_projeto_agrupador(ambiente)
-        # cadastra_token_sistema(ambiente)
+        00(ambiente)
+        cadastra_token_sistema(ambiente)
 
     end_time = datetime.now()
     print(f'\nProcesso finalizado: {datetime.now()} \n')
