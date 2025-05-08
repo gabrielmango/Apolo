@@ -114,3 +114,10 @@ string_mysql_portal = {
     'prod_new': config['PORTAL_MYSQL_PROD_NEW'],
     'hml': config['PORTAL_MYSQL_HML'],
 }
+
+string_sgp = {'preprod': config['SGP_PREPROD'], 'prod': config['SGP_PROD']}
+
+string_institucional = {
+    'preprod': config['INSTITUCIONAL_PREPROD'],
+    'prod': config['INSTITUCIONAL_PROD'],
+}
