@@ -9,8 +9,8 @@ from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
 
-PROCESSED_FILE = 'sgp/processed_uuids.txt'
-URL = url_sgp.get('preprod')
+PROCESSED_FILE = 'sgp/processed_uuids_prod.txt'
+URL = url_sgp.get('prod')
 
 Path(PROCESSED_FILE).parent.mkdir(parents=True, exist_ok=True)
 
@@ -33,7 +33,7 @@ def retorna_uuid_institucional():
             a.st_ativo AND v.st_ativo AND s.st_ativo AND
             s.co_seq_inst_situac_funcional NOT IN (18, 19, 21, 22, 23, 24, 29);
         """,
-        string_institucional.get('preprod'),
+        string_institucional.get('prod'),
     )
     return [dado.get('uuid') for dado in lista]
 
