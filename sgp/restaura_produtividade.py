@@ -1,14 +1,9 @@
 import requests
 
 from database import executar_query
-from utils.ambientes import string_institucional
+from utils.ambientes import string_institucional, url_sgp
 
-
-def dividir_em_blocos(lista, tamanho_bloco=100):
-    return [
-        lista[i : i + tamanho_bloco]
-        for i in range(0, len(lista), tamanho_bloco)
-    ]
+URL = url_sgp.get('preprod')
 
 
 def retorna_uuid_institucional():
@@ -24,7 +19,9 @@ def retorna_uuid_institucional():
             on a.co_inst_vinculo = v.co_seq_inst_vinculo 
         left join institucional.tb_inst_situac_funcional s
             on a.co_inst_situac_funcional = s.co_seq_inst_situac_funcional 
-        WHERE a.st_ativo and v.st_ativo and s.st_ativo;
+        WHERE 
+            a.st_ativo and v.st_ativo and s.st_ativo and
+            s.co_seq_inst_situac_funcional not in (18, 19, 21, 22, 23, 24, 29);
         """,
         string_institucional.get('preprod'),
     )
@@ -32,16 +29,22 @@ def retorna_uuid_institucional():
     return [dado.get('uuid') for dado in lista]
 
 
+def dividir_em_blocos(lista, tamanho_bloco=100):
+    return [
+        lista[i : i + tamanho_bloco]
+        for i in range(0, len(lista), tamanho_bloco)
+    ]
+
+
 def atualiza_produtividade(uuids):
-    url = 'https://dev.gerais.mg.def.br/sgp/service/lancar-prestacao/teste-job'
     data = {
         'dataInicio': '2025-04-05',
         'dataFim': '2025-05-08',
         'uuidUsuario': uuids,
     }
-
+    print(uuids)
     try:
-        response = requests.post(url, json=data, timeout=10)
+        response = requests.patch(URL, json=data, timeout=100)
 
         if response.status_code == 200:
             print('Requisição bem-sucedida!')
@@ -55,8 +58,8 @@ def atualiza_produtividade(uuids):
 
 
 def main():
-    for pessoa in dividir_em_blocos(retorna_uuid_institucional()):
-        print(len(pessoa))
+    for uuids in dividir_em_blocos(retorna_uuid_institucional()):
+        atualiza_produtividade(uuids)
 
 
 if __name__ == '__main__':

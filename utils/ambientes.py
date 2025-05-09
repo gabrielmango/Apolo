@@ -108,16 +108,24 @@ string_portalupload = {
 }
 
 
-string_mysql_portal = {
-    'prod_old': config['PORTAL_MYSQL_PROD_OLD'],
-    'preprod_new': config['PORTAL_MYSQL_PREPROD_NEW'],
-    'prod_new': config['PORTAL_MYSQL_PROD_NEW'],
-    'hml': config['PORTAL_MYSQL_HML'],
-}
+# string_mysql_portal = {
+#     'prod_old': config['PORTAL_MYSQL_PROD_OLD'],
+#     'preprod_new': config['PORTAL_MYSQL_PREPROD_NEW'],
+#     'prod_new': config['PORTAL_MYSQL_PROD_NEW'],
+#     'hml': config['PORTAL_MYSQL_HML'],
+# }
 
-string_sgp = {'preprod': config['SGP_PREPROD'], 'prod': config['SGP_PROD']}
+# string_sgp = {'preprod': config['SGP_PREPROD'], 'prod': config['SGP_PROD']}
 
 string_institucional = {
+    'dev': ...,
+    'tst': ...,
+    'hml': ...,
     'preprod': config['INSTITUCIONAL_PREPROD'],
     'prod': config['INSTITUCIONAL_PROD'],
+}
+
+url_sgp = {
+    'preprod': config['URL_ATUALIZA_SGP_PREPROD'],
+    'prod': config['URL_ATUALIZA_SGP_PROD'],
 }
