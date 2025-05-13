@@ -125,7 +125,7 @@ string_institucional = {
     'prod': config['INSTITUCIONAL_PROD'],
 }
 
-url_sgp = {
-    'preprod': config['URL_ATUALIZA_SGP_PREPROD'],
-    'prod': config['URL_ATUALIZA_SGP_PROD'],
-}
+# url_sgp = {
+#     'preprod': config['URL_ATUALIZA_SGP_PREPROD'],
+#     'prod': config['URL_ATUALIZA_SGP_PROD'],
+# }
