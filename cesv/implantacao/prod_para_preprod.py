@@ -1,10 +1,23 @@
 import pandas as pd
 
 from database import executar_query
-from utils.ambientes import string_cesv, string_fileserver
+from utils.ambientes import string_usuario_externo
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
+
+
+def retorna_usuarios_externos(ambiente):
+    return pd.DataFrame(
+        executar_query(
+            True,
+            """
+            select co_uuid 
+            from usuarioexterno.tb_pessoa_externa tpe ;
+        """,
+            string_usuario_externo.get(ambiente),
+        )
+    )
 
 
 def main(ambiente: str = 'prod'):

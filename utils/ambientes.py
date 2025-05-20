@@ -129,3 +129,9 @@ string_institucional = {
 #     'preprod': config['URL_ATUALIZA_SGP_PREPROD'],
 #     'prod': config['URL_ATUALIZA_SGP_PROD'],
 # }
+
+
+string_usuario_externo = {
+    'preprod': config['USUARIOEXTERNO_PREPROD'],
+    'prod': config['USUARIOEXTERNO_PROD'],
+}
