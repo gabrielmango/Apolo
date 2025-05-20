@@ -49,7 +49,7 @@ def retorna_documentos(ambiente):
             True,
             """
             select 
-                t1.co_uuid_2,
+                t1.co_uuid_2 as co_uuid,
                 t2.no_tipo_documento 
             from fileserver.tb_anexo t1
             left join fileserver.tb_tipo_documento t2
@@ -60,11 +60,35 @@ def retorna_documentos(ambiente):
     )
 
 
+def retorna_documentacao_processo_seletivo(ambiente, antigos=False):
+
+    logging.info(f'Buscando processos seletivos.')
+    if antigos:
+        processos_seletivos_antigos = retorna_processos_seletivos(
+            ambiente, True
+        )
+    else:
+        processos_seletivos_antigos = retorna_processos_seletivos(
+            ambiente, False
+        )
+
+    logging.info(f'Buscando documentacao.')
+    documentacao = retorna_documentos(ambiente)
+
+    return pd.merge(
+        processos_seletivos_antigos,
+        documentacao,
+        left_on='co_uuid',
+        right_on='co_uuid',
+        how='inner',
+    )
+
+
 def main(ambiente: str = 'prod'):
 
-    logging.info(f'Buscando candidaturas rascunho em {ambiente}')
+    logging.info(f'Geracao de relatório iniciado em {ambiente}!')
 
-    logging.info(f'Processo finalizado em {ambiente}')
+    logging.info(f'Processo finalizado em {ambiente}!')
 
 
 if __name__ == '__main__':
