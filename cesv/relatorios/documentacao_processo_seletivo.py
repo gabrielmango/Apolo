@@ -8,6 +8,41 @@ from utils.setup_logging import logging, setup_logging
 setup_logging(__file__)
 
 
+def retorna_processos_seletivos(ambiente, antigos=False):
+    if antigos:
+        return pd.DataFrame(
+            executar_query(
+                True,
+                """
+            select 
+                t.ds_titulo_processo_seletivo,
+                t.co_uuid 
+            from 
+                cesv.tb_processo_seletivo t
+            where 
+                t.st_ativo and t.fl_processo_seletivo_antigo; 
+            """,
+                string_cesv.get(ambiente),
+            )
+        )
+    else:
+        return pd.DataFrame(
+            executar_query(
+                True,
+                """
+            select 
+                t.ds_titulo_processo_seletivo,
+                t.co_uuid 
+            from 
+                cesv.tb_processo_seletivo t
+            where 
+                t.st_ativo and t.fl_processo_seletivo_antigo is false; 
+            """,
+                string_cesv.get(ambiente),
+            )
+        )
+
+
 def main(ambiente: str = 'prod'):
 
     logging.info(f'Buscando candidaturas rascunho em {ambiente}')
