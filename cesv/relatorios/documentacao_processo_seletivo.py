@@ -43,6 +43,23 @@ def retorna_processos_seletivos(ambiente, antigos=False):
         )
 
 
+def retorna_documentos(ambiente):
+    return pd.DataFrame(
+        executar_query(
+            True,
+            """
+            select 
+                t1.co_uuid_2,
+                t2.no_tipo_documento 
+            from fileserver.tb_anexo t1
+            left join fileserver.tb_tipo_documento t2
+                on t1.co_tipo_documento = t2.co_seq_tipo_documento;
+            """,
+            string_fileserver.get(ambiente),
+        )
+    )
+
+
 def main(ambiente: str = 'prod'):
 
     logging.info(f'Buscando candidaturas rascunho em {ambiente}')
