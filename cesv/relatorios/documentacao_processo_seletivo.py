@@ -7,39 +7,23 @@ from utils.setup_logging import logging, setup_logging
 setup_logging(__file__)
 
 
-def retorna_processos_seletivos(ambiente, antigos=False):
-    if antigos:
-        return pd.DataFrame(
-            executar_query(
-                True,
-                """
-            select 
-                t.ds_titulo_processo_seletivo,
-                t.co_uuid 
-            from 
-                cesv.tb_processo_seletivo t
-            where 
-                t.st_ativo and t.fl_processo_seletivo_antigo; 
-            """,
-                string_cesv.get(ambiente),
-            )
+def retorna_processos_seletivos(ambiente):
+    return pd.DataFrame(
+        executar_query(
+            True,
+            """
+        select 
+            t.ds_titulo_processo_seletivo,
+            t.co_uuid,
+            t.fl_processo_seletivo_antigo  
+        from 
+            cesv.tb_processo_seletivo t
+        where 
+            t.st_ativo;
+        """,
+            string_cesv.get(ambiente),
         )
-    else:
-        return pd.DataFrame(
-            executar_query(
-                True,
-                """
-            select 
-                t.ds_titulo_processo_seletivo,
-                t.co_uuid 
-            from 
-                cesv.tb_processo_seletivo t
-            where 
-                t.st_ativo and t.fl_processo_seletivo_antigo is false; 
-            """,
-                string_cesv.get(ambiente),
-            )
-        )
+    )
 
 
 def retorna_documentos(ambiente):
@@ -60,17 +44,10 @@ def retorna_documentos(ambiente):
     )
 
 
-def retorna_documentacao_processo_seletivo(ambiente, antigos=False):
+def retorna_documentacao_processo_seletivo(ambiente):
 
     logging.info(f'Buscando processos seletivos.')
-    if antigos:
-        processos_seletivos_antigos = retorna_processos_seletivos(
-            ambiente, True
-        )
-    else:
-        processos_seletivos_antigos = retorna_processos_seletivos(
-            ambiente, False
-        )
+    processos_seletivos_antigos = retorna_processos_seletivos(ambiente)
 
     logging.info(f'Buscando documentacao.')
     documentacao = retorna_documentos(ambiente)
@@ -88,7 +65,7 @@ def main(ambiente: str = 'prod'):
 
     logging.info(f'Geracao de relatório iniciado em {ambiente}!')
 
-    relatorio = retorna_documentacao_processo_seletivo(ambiente, True)
+    relatorio = retorna_documentacao_processo_seletivo(ambiente)
 
     relatorio = relatorio.drop('co_uuid', axis=1)
 
