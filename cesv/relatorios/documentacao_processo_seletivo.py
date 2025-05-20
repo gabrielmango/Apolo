@@ -1,8 +1,7 @@
 import pandas as pd
 
-from database import executar_query, list_to_sql
-from utils.ambientes import (string_cesv, string_contato, string_fileserver,
-                             string_geral_pessoa, string_localizacao)
+from database import executar_query
+from utils.ambientes import string_cesv, string_fileserver
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
@@ -50,7 +49,8 @@ def retorna_documentos(ambiente):
             """
             select 
                 t1.co_uuid_2 as co_uuid,
-                t2.no_tipo_documento 
+                t2.no_tipo_documento,
+                t1.dh_criacao 
             from fileserver.tb_anexo t1
             left join fileserver.tb_tipo_documento t2
                 on t1.co_tipo_documento = t2.co_seq_tipo_documento;
@@ -87,6 +87,18 @@ def retorna_documentacao_processo_seletivo(ambiente, antigos=False):
 def main(ambiente: str = 'prod'):
 
     logging.info(f'Geracao de relatório iniciado em {ambiente}!')
+
+    relatorio = retorna_documentacao_processo_seletivo(ambiente, True)
+
+    relatorio = relatorio.drop('co_uuid', axis=1)
+
+    relatorio.to_sql(
+        'relatorio',
+        string_cesv.get(ambiente),
+        schema='public',
+        index=False,
+        if_exists='replace',
+    )
 
     logging.info(f'Processo finalizado em {ambiente}!')
 
