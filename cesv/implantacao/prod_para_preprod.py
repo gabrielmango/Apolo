@@ -1,28 +1,41 @@
 import pandas as pd
 
 from database import executar_query
-from utils.ambientes import string_usuario_externo
+from utils.ambientes import s, string_usuario_externo
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
 
 
 def retorna_usuarios_externos(ambiente):
-    return pd.DataFrame(
-        executar_query(
-            True,
-            """
+    dados = executar_query(
+        True,
+        """
             select co_uuid 
             from usuarioexterno.tb_pessoa_externa tpe ;
-        """,
-            string_usuario_externo.get(ambiente),
-        )
+            """,
+        string_usuario_externo.get(ambiente),
     )
+    return [dado['co_uuid'] for dado in dados]
+
+
+def nao_tem_documentos(ambiente, uuid):
+    dados = executar_query(
+        True,
+        """
+            select co_uuid 
+            from usuarioexterno.tb_pessoa_externa tpe ;
+            """,
+        string_usuario_externo.get(ambiente),
+    )
+    return [dado['co_uuid'] for dado in dados]
 
 
 def main(ambiente: str = 'prod'):
 
     logging.info(f'Geracao de relatório iniciado em {ambiente}!')
+
+    print(retorna_usuarios_externos(ambiente))
 
     logging.info(f'Processo finalizado em {ambiente}!')
 

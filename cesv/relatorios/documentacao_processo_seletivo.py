@@ -34,7 +34,7 @@ def retorna_documentos(ambiente):
             select 
                 t1.co_uuid_2 as co_uuid,
                 t2.no_tipo_documento,
-                t1.dh_criacao 
+                t1.dt_1 as data_publicacao 
             from fileserver.tb_anexo t1
             left join fileserver.tb_tipo_documento t2
                 on t1.co_tipo_documento = t2.co_seq_tipo_documento;

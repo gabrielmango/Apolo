@@ -1,8 +1,13 @@
 import pandas as pd
 
 from database import executar_query, list_to_sql
-from utils.ambientes import (string_cesv, string_contato, string_fileserver,
-                             string_geral_pessoa, string_localizacao)
+from utils.ambientes import (
+    string_cesv,
+    string_contato,
+    string_fileserver,
+    string_geral_pessoa,
+    string_localizacao,
+)
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
