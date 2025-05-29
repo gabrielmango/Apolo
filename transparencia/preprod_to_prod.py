@@ -1,3 +1,6 @@
+import gridfs
+from pymongo import MongoClient
+
 from database import executar_query
 from utils.ambientes import string_fileserver
 from utils.setup_logging import logging, setup_logging
@@ -11,14 +14,14 @@ def retorna_uuids():
         for data in executar_query(
             True,
             """
-        select co_uuid_anexo_mongo as uuid
-        from fileserver.tb_anexo t1
-        where co_tipo_documento in (
-            select co_seq_tipo_documento
-            from fileserver.tb_tipo_documento t2
-            where t2.sg_tipo_documento like '%TRA-%'
-        );
-        """,
+            select co_uuid_anexo_mongo as uuid
+            from fileserver.tb_anexo t1
+            where co_tipo_documento in (
+                select co_seq_tipo_documento
+                from fileserver.tb_tipo_documento t2
+                where t2.sg_tipo_documento like '%TRA-%'
+            );
+            """,
             string_fileserver.get('preprod'),
         )
     ]
