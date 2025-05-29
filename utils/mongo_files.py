@@ -27,25 +27,28 @@ class GerenciadorPDFMongo:
 
         return file_id
 
-    def ler_pdf(self, file_id, nome_collection, caminho_saida_base):
+    def ler_pdf(self, filename, nome_collection, caminho_saida_base):
         """
-        Recupera um arquivo salvo no MongoDB via GridFS.
-        Adiciona a extensão automaticamente com base no filename salvo.
+        Recupera um arquivo no GridFS pelo campo filename e salva localmente.
+        Usa a extensão correta do campo metadata.extensao.
         """
         with MongoClient(self.uri) as client:
             db = client[self.nome_banco]
             fs = gridfs.GridFS(db, collection=nome_collection)
 
-            grid_out = fs.get(ObjectId(file_id))
-            nome_original = grid_out.filename
-            dados_arquivo = grid_out.read()
+            grid_out = fs.find_one({'filename': filename})
+            if not grid_out:
+                raise FileNotFoundError(
+                    f"Arquivo com filename '{filename}' não encontrado na coleção '{nome_collection}'."
+                )
 
-        # Extrai extensão do nome original
-        _, extensao = os.path.splitext(nome_original)
-        caminho_completo = caminho_saida_base + extensao
+            extensao = grid_out.metadata.get('extensao', '')
+            if extensao and not extensao.startswith('.'):
+                extensao = '.' + extensao
+
+            caminho_completo = caminho_saida_base + extensao
+
+            dados_arquivo = grid_out.read()
 
         with open(caminho_completo, 'wb') as f:
             f.write(dados_arquivo)
-
-        print(f'Arquivo salvo como: {caminho_completo}')
-        return caminho_completo

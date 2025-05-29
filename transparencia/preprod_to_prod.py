@@ -37,6 +37,11 @@ def main():
     )
     arquivos = retorna_uuids()
 
+    for arquivo in arquivos:
+        arquivos_preprod.ler_pdf(
+            arquivo, 'TRA', rf'transparencia\temp\{arquivo}'
+        )
+
 
 if __name__ == '__main__':
     from datetime import datetime

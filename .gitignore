@@ -10,6 +10,7 @@ __pycache__/
 *.so
 
 sgp/*.txt
+transparencia/temp
 
 # Distribution / packaging
 .Python
