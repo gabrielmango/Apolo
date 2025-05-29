@@ -141,3 +141,8 @@ string_mongo_fileserver = {
     'preprod': config['FILESERVER_MONGO_PREPROD'],
     'prod': config['FILESERVER_MONGO_PROD'],
 }
+
+string_transparencia = {
+    'preprod': config['TRANSPARENCIA_PREPROD'],
+    'prod': config['TRANSPARENCIA_PROD'],
+}

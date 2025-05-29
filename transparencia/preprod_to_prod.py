@@ -1,9 +1,8 @@
-import gridfs
 import pandas as pd
-from pymongo import MongoClient
 
 from database import executar_query
-from utils.ambientes import string_fileserver, string_mongo_fileserver
+from utils.ambientes import (string_fileserver, string_mongo_fileserver,
+                             string_transparencia)
 from utils.mongo_files import MigradorGridFS
 from utils.setup_logging import logging, setup_logging
 
@@ -21,13 +20,29 @@ def retorna_transparencia():
             from transparencia.tb_transparencia t
             where t.st_ativo;
             """,
-            string_fileserver.get('preprod'),
+            string_transparencia.get('preprod'),
         )
     )
 
 
 def retorna_anexos():
-    ...
+    return pd.DataFrame(
+        executar_query(
+            True,
+            """
+            select 
+                co_uuid_2 as co_uuid,
+                co_uuid_anexo_mongo 
+            from fileserver.tb_anexo t1
+            where t1.st_ativo and t1.co_tipo_documento in (
+                select co_seq_tipo_documento 
+                from fileserver.tb_tipo_documento t2
+                where t2. st_ativo and t2.sg_tipo_documento like '%TRA-%'
+            );
+            """,
+            string_fileserver.get('preprod'),
+        )
+    )
 
 
 def retorna_uuids():
@@ -44,7 +59,7 @@ def retorna_uuids():
 
     uuids.to_sql(
         'tb_transparencias_anexos',
-        con=string_fileserver.get('preprod'),
+        con=string_transparencia.get('preprod'),
         schema='public',
         index=False,
         if_exists='replace',
@@ -53,6 +68,7 @@ def retorna_uuids():
 
 def main():
     migrador = MigradorGridFS(string_mongo_fileserver.get('preprod'), 'file')
+    retorna_uuids()
 
 
 if __name__ == '__main__':
