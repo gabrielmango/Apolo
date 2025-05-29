@@ -73,7 +73,15 @@ def main():
     dados = retorna_uuids()
 
     for index, row in dados.iterrows():
-        print(row['co_uuid_anexo_mongo'])
+        migrador.migrar_arquivos_por_filename(
+            row['co_uuid_anexo_mongo'],
+            'TRA',
+            string_mongo_fileserver.get('preprod'),
+            'file',
+            'TESTE',
+        )
+
+        logging.info(f"Arquivo '{row['co_uuid_anexo_mongo']}' migrado.")
 
 
 if __name__ == '__main__':

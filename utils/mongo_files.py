@@ -95,7 +95,3 @@ class MigradorGridFS:
             metadata = grid_out.metadata or {}
 
             fs_destino.put(dados, filename=uuid, metadata=metadata)
-
-            print(
-                f"Arquivo '{uuid}' migrado com sucesso de '{colecao_origem}' para '{colecao_destino}'."
-            )
