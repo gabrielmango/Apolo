@@ -65,10 +65,15 @@ def retorna_uuids():
         if_exists='replace',
     )
 
+    return uuids
+
 
 def main():
     migrador = MigradorGridFS(string_mongo_fileserver.get('preprod'), 'file')
-    retorna_uuids()
+    dados = retorna_uuids()
+
+    for index, row in dados.iterrows():
+        print(row['co_uuid_anexo_mongo'])
 
 
 if __name__ == '__main__':
