@@ -4,23 +4,43 @@ from pymongo import MongoClient
 
 from database import executar_query
 from utils.ambientes import string_fileserver, string_mongo_fileserver
-from utils.mongo_files import GerenciadorPDFMongo
+from utils.mongo_files import MigradorGridFS
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
 
 
-def main():
-    arquivos_preprod = GerenciadorPDFMongo(
-        'file', string_mongo_fileserver.get('preprod')
+def retorna_transparencia():
+    ...
+
+
+def retorna_anexos():
+    ...
+
+
+def retorna_uuids():
+    transparencias = retorna_transparencia()
+    anexos = retorna_anexos()
+
+    uuids = pd.merge(
+        transparencias,
+        anexos,
+        left_on='co_uuid',
+        right_on='co_uuid',
+        how='inner',
     )
 
-    arquivos_preprod.migrar_arquivos(
-        outra_uri=string_mongo_fileserver.get('preprod'),
-        outra_banco='file',
-        colecao_origem='TRA',
-        colecao_destino='TESTE',
+    uuids.to_sql(
+        'tb_transparencias_anexos',
+        con=string_fileserver.get('preprod'),
+        schema='public',
+        index=False,
+        if_exists='replace',
     )
+
+
+def main():
+    migrador = MigradorGridFS(string_mongo_fileserver.get('preprod'), 'file')
 
 
 if __name__ == '__main__':
