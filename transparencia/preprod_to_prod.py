@@ -11,7 +11,19 @@ setup_logging(__file__)
 
 
 def retorna_transparencia():
-    ...
+    return pd.DataFrame(
+        executar_query(
+            True,
+            """
+            select 
+                no_transparencia,
+                co_uuid 
+            from transparencia.tb_transparencia t
+            where t.st_ativo;
+            """,
+            string_fileserver.get('preprod'),
+        )
+    )
 
 
 def retorna_anexos():
