@@ -2,7 +2,8 @@ import gridfs
 from pymongo import MongoClient
 
 from database import executar_query
-from utils.ambientes import string_fileserver
+from utils.ambientes import string_fileserver, string_mongo_fileserver
+from utils.mongo_files import GerenciadorPDFMongo
 from utils.setup_logging import logging, setup_logging
 
 setup_logging(__file__)
@@ -28,8 +29,13 @@ def retorna_uuids():
 
 
 def main():
-    for data in retorna_uuids():
-        print(data)
+    arquivos_preprod = GerenciadorPDFMongo(
+        'file', string_mongo_fileserver.get('preprod')
+    )
+    arquivos_prod = GerenciadorPDFMongo(
+        'file', string_mongo_fileserver.get('prod')
+    )
+    arquivos = retorna_uuids()
 
 
 if __name__ == '__main__':
