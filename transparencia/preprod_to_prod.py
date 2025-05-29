@@ -41,6 +41,9 @@ def main():
         arquivos_preprod.ler_pdf(
             arquivo, 'TRA', rf'transparencia\temp\{arquivo}'
         )
+        arquivos_preprod.ler_pdf(
+            arquivo, 'TRA', rf'transparencia\temp\{arquivo}'
+        )
 
 
 if __name__ == '__main__':

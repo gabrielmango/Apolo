@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 import gridfs
 from bson import ObjectId
@@ -12,19 +13,45 @@ class GerenciadorPDFMongo:
         self.nome_banco = nome_banco
         self.uri = uri
 
-    def salvar_pdf(self, caminho_pdf, nome_collection):
+    def salvar_pdf(
+        self,
+        caminho_pdf,
+        nome_collection,
+        nome_amigavel=None,
+        uploadBy=None,
+        privado=False,
+    ):
         """
-        Salva um PDF (ou outro arquivo) no MongoDB usando GridFS.
+        Salva um arquivo no MongoDB GridFS.
+
+        - filename salvo será o nome do arquivo **sem extensão** (ex: UUID)
+        - extensão será salva em metadata.extensao
+        - nome_amigavel pode ser diferente do filename e será salvo em metadata.nome
+        - uploadBy e privado são dados opcionais para metadata
         """
         with MongoClient(self.uri) as client:
             db = client[self.nome_banco]
             fs = gridfs.GridFS(db, collection=nome_collection)
 
+            base_name = os.path.basename(caminho_pdf)
+            nome_sem_extensao, extensao = os.path.splitext(base_name)
+
+            # Se não foi passado nome amigável, usa o nome com extensão (arquivo original)
+            nome_amigavel = nome_amigavel or base_name
+
             with open(caminho_pdf, 'rb') as f:
                 file_id = fs.put(
-                    f, filename=os.path.basename(caminho_pdf)
-                )  # salva o nome original
-
+                    f,
+                    filename=nome_sem_extensao,  # salva filename sem extensão
+                    metadata={
+                        'uploadBy': uploadBy,
+                        'extensao': extensao.lstrip('.'),
+                        'tamanho': os.path.getsize(caminho_pdf),
+                        'dataUpload': datetime.now(),
+                        'nome': nome_amigavel,
+                        'privado': privado,
+                    },
+                )
         return file_id
 
     def ler_pdf(self, filename, nome_collection, caminho_saida_base):
