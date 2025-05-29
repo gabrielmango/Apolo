@@ -135,3 +135,9 @@ string_usuario_externo = {
     'preprod': config['USUARIOEXTERNO_PREPROD'],
     'prod': config['USUARIOEXTERNO_PROD'],
 }
+
+
+string_mongo_fileserver = {
+    'preprod': config['FILESERVER_MONGO_PREPROD'],
+    'prod': config['FILESERVER_MONGO_PROD'],
+}

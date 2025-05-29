@@ -1,7 +1,9 @@
 from datetime import datetime
 from pprint import pprint
 from threading import Thread
+
 from pymongo import MongoClient
+
 from utils.ambientes import string_procapi
 
 
@@ -51,7 +53,9 @@ def monitor_collection(ambiente, colecao):
                 documento = change.get('fullDocument', {})
                 log = {**log_base, 'documento': documento}
                 collection_hist.insert_one(log)
-                print(f"Coleção {colecao}: Registro {log_base['documento_id']} inserido!")
+                print(
+                    f"Coleção {colecao}: Registro {log_base['documento_id']} inserido!"
+                )
 
             elif operacao == 'update':
                 updated_fields = change['updateDescription'].get(
@@ -68,40 +72,52 @@ def monitor_collection(ambiente, colecao):
                     'campos_removidos': removed_fields,
                 }
                 collection_hist.insert_one(log)
-                print(f"Coleção {colecao}: Registro {log_base['documento_id']} atualizado para v{versao}")
-            
-            elif operacao == "delete":
-                ultimo_documento = get_ultima_versao_log(collection_hist, doc_id)
+                print(
+                    f"Coleção {colecao}: Registro {log_base['documento_id']} atualizado para v{versao}"
+                )
+
+            elif operacao == 'delete':
+                ultimo_documento = get_ultima_versao_log(
+                    collection_hist, doc_id
+                )
                 log = {
                     **log_base,
-                    'documento': ultimo_documento['documento'] if ultimo_documento else None
+                    'documento': ultimo_documento['documento']
+                    if ultimo_documento
+                    else None,
                 }
                 collection_hist.insert_one(log)
-                print(f"Coleção {colecao}: Registro {doc_id} deletado! Última versão armazenada.")
+                print(
+                    f'Coleção {colecao}: Registro {doc_id} deletado! Última versão armazenada.'
+                )
 
 
 def main(ambiente, colecao=None):
     client = MongoClient(string_procapi.get(ambiente))
     db = client['dbprocapi']
-    
+
     if colecao:
         # Modo single collection
         monitor_collection(ambiente, colecao)
     else:
         # Modo todas as coleções
-        collections = [col for col in db.list_collection_names() if not col.endswith('_hist')]
-        
-        print(f"Iniciando monitoramento para {len(collections)} coleções:")
+        collections = [
+            col
+            for col in db.list_collection_names()
+            if not col.endswith('_hist')
+        ]
+
+        print(f'Iniciando monitoramento para {len(collections)} coleções:')
         for col in collections:
-            print(f" - {col}")
-        
+            print(f' - {col}')
+
         threads = []
         for col in collections:
             t = Thread(target=monitor_collection, args=(ambiente, col))
             t.daemon = True
             t.start()
             threads.append(t)
-        
+
         # Manter o programa rodando
         for t in threads:
             t.join()
@@ -110,6 +126,6 @@ def main(ambiente, colecao=None):
 if __name__ == '__main__':
     # Para monitorar uma coleção específica:
     # main('prod', 'aviso')
-    
+
     # Para monitorar todas as coleções:
     main('prod', 'aviso')
