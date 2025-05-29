@@ -2,7 +2,6 @@ import os
 from datetime import datetime
 
 import gridfs
-from bson import ObjectId
 from pymongo import MongoClient
 
 
@@ -21,14 +20,6 @@ class GerenciadorPDFMongo:
         uploadBy=None,
         privado=False,
     ):
-        """
-        Salva um arquivo no MongoDB GridFS.
-
-        - filename salvo será o nome do arquivo **sem extensão** (ex: UUID)
-        - extensão será salva em metadata.extensao
-        - nome_amigavel pode ser diferente do filename e será salvo em metadata.nome
-        - uploadBy e privado são dados opcionais para metadata
-        """
         with MongoClient(self.uri) as client:
             db = client[self.nome_banco]
             fs = gridfs.GridFS(db, collection=nome_collection)
@@ -36,13 +27,12 @@ class GerenciadorPDFMongo:
             base_name = os.path.basename(caminho_pdf)
             nome_sem_extensao, extensao = os.path.splitext(base_name)
 
-            # Se não foi passado nome amigável, usa o nome com extensão (arquivo original)
             nome_amigavel = nome_amigavel or base_name
 
             with open(caminho_pdf, 'rb') as f:
                 file_id = fs.put(
                     f,
-                    filename=nome_sem_extensao,  # salva filename sem extensão
+                    filename=nome_sem_extensao,
                     metadata={
                         'uploadBy': uploadBy,
                         'extensao': extensao.lstrip('.'),
@@ -55,10 +45,6 @@ class GerenciadorPDFMongo:
         return file_id
 
     def ler_pdf(self, filename, nome_collection, caminho_saida_base):
-        """
-        Recupera um arquivo no GridFS pelo campo filename e salva localmente.
-        Usa a extensão correta do campo metadata.extensao.
-        """
         with MongoClient(self.uri) as client:
             db = client[self.nome_banco]
             fs = gridfs.GridFS(db, collection=nome_collection)
@@ -79,3 +65,37 @@ class GerenciadorPDFMongo:
 
         with open(caminho_completo, 'wb') as f:
             f.write(dados_arquivo)
+
+
+class MigradorGridFS:
+    def __init__(self, uri_origem, banco_origem):
+        self.uri_origem = uri_origem
+        self.banco_origem = banco_origem
+
+    def migrar_arquivos_por_filename(
+        self, uuid, colecao_origem, uri_destino, banco_destino, colecao_destino
+    ):
+
+        with MongoClient(self.uri_origem) as client_origem, MongoClient(
+            uri_destino
+        ) as client_destino:
+            db_origem = client_origem[self.banco_origem]
+            fs_origem = gridfs.GridFS(db_origem, collection=colecao_origem)
+
+            db_destino = client_destino[banco_destino]
+            fs_destino = gridfs.GridFS(db_destino, collection=colecao_destino)
+
+            grid_out = fs_origem.find_one({'filename': uuid})
+            if not grid_out:
+                raise FileNotFoundError(
+                    f"Arquivo com filename '{uuid}' não encontrado na coleção '{colecao_origem}'."
+                )
+
+            dados = grid_out.read()
+            metadata = grid_out.metadata or {}
+
+            fs_destino.put(dados, filename=uuid, metadata=metadata)
+
+            print(
+                f"Arquivo '{uuid}' migrado com sucesso de '{colecao_origem}' para '{colecao_destino}'."
+            )
