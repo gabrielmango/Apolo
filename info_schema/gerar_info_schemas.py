@@ -62,3 +62,20 @@ class LogHandler:
             duration = end_time - start_time
             self.logger.info(f'Tempo de execução: {duration}')
             self.logger.info('Processo finalizado.\n')
+
+
+class GeraInfoSchemas:
+    def __init__(self):
+        ...
+
+
+handler = LogHandler(__file__)
+
+
+@handler
+def main():
+    gerar_info_schema = GeraInfoSchemas()
+
+
+if __name__ == '__main__':
+    main()
