@@ -84,6 +84,23 @@ class GeraInfoSchemas:
             df = pd.read_sql_query(query, conn)
             return df['banco'].tolist() if 'banco' in df.columns else []
 
+    def retorna_schemas(self, string_conn: str, nome_banco: str):
+        engine_base = create_engine(string_conn)
+        new_engine = create_engine(engine_base.url.set(database=nome_banco))
+        query = """
+            SELECT schema_name AS schema
+            FROM information_schema.schemata
+            WHERE schema_name NOT IN (
+                'pg_toast', 
+                'pg_catalog', 
+                'information_schema'
+            ) 
+            order by schema_name;
+        """
+        with new_engine.connect() as conn:
+            df = pd.read_sql_query(query, conn)
+            return df['banco'].tolist() if 'banco' in df.columns else []
+
 
 handler = LogHandler(__file__)
 
