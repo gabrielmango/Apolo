@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 from database import executar_query
 from utils.ambientes import gerais_system
 from utils.setup_logging import LogHandler
@@ -5,27 +7,24 @@ from utils.setup_logging import LogHandler
 handler = LogHandler('delete_internal_user')
 
 
-class DeleteInternalUser:
+class DropBase(ABC):
     def __init__(self, environment: str, number_cpf: str) -> None:
         self._environment = environment
         self._number_cpf = number_cpf
-        self._user_uuid = self.get_uuid_by_document()
+        self.drop_information()
 
-    def get_uuid_by_document(self):
-        return executar_query(
-            True,
-            f"""
-            select 
-                co_uuid_2 as uuid
-            from 
-                documento.tb_documento td 
-            where 
-                td.tp_documento = 'CPF' and 
-                td.st_ativo and
-                td.nu_documento = '{self._number_cpf}';
-            """,
-            gerais_system.get('documento').get(self._environment),
-        )[0]['uuid']
+    @abstractmethod
+    def drop_information(self) -> None:
+        pass
+
+
+class DropUserSecurity(DropBase):
+    def drop_information(self):
+        handler.logger.info('Delete internal user in security system.')
+        user_id = self._find_user_internal()
+        self._drop_user_profile(user_id)
+        self._drop_user_internal(user_id)
+        handler.logger.info('Internal user successfully deleted!')
 
     def _find_user_internal(self):
         return executar_query(
@@ -61,12 +60,14 @@ class DeleteInternalUser:
             gerais_system.get('scsdp').get(self._environment),
         )
 
-    def drop_user_security(self):
-        handler.logger.info('Delete internal user in security system.')
-        user_id = self._find_user_internal()
-        self._drop_user_profile(user_id)
-        self._drop_user_internal(user_id)
-        handler.logger.info('Internal user successfully deleted!')
+
+class DropGeralInformation(DropBase):
+    def drop_information(self):
+        handler.logger.info('Delete general information user in system.')
+        general_id = self._find_general_information()
+        self._drop_affiliation(general_id)
+        self._drop_general_information(general_id)
+        handler.logger.info('General information user successfully deleted!')
 
     def _find_general_information(self):
         return executar_query(
@@ -101,12 +102,34 @@ class DeleteInternalUser:
             gerais_system.get('geralpessoa').get(self._environment),
         )
 
+
+class DeleteInternalUser:
+    def __init__(self, environment: str, number_cpf: str) -> None:
+        self._environment = environment
+        self._number_cpf = number_cpf
+        self._user_uuid = self.get_uuid_by_document()
+
+    def get_uuid_by_document(self):
+        return executar_query(
+            True,
+            f"""
+            select 
+                co_uuid_2 as uuid
+            from 
+                documento.tb_documento td 
+            where 
+                td.tp_documento = 'CPF' and 
+                td.st_ativo and
+                td.nu_documento = '{self._number_cpf}';
+            """,
+            gerais_system.get('documento').get(self._environment),
+        )[0]['uuid']
+
+    def drop_user_security(self):
+        DropUserSecurity(self._environment, self._number_cpf)
+
     def drop_user_general_information(self):
-        handler.logger.info('Delete general information user in system.')
-        general_id = self._find_general_information()
-        self._drop_affiliation(general_id)
-        self._drop_general_information(general_id)
-        handler.logger.info('General information user successfully deleted!')
+        DropGeralInformation(self._environment, self._number_cpf)
 
 
 @handler
