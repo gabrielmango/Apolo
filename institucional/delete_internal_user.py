@@ -1,5 +1,5 @@
 from database import executar_query
-from utils.ambientes import string_documento, string_scsdp
+from utils.ambientes import gerais_system
 from utils.setup_logging import LogHandler
 
 handler = LogHandler('delete_internal_user')
@@ -24,7 +24,7 @@ class DeleteInternalUser:
                 td.st_ativo and
                 td.nu_documento = '{self._number_cpf}';
             """,
-            string_documento.get(self._environment),
+            gerais_system.get('documento').get(self._environment),
         )[0]['uuid']
 
     def _find_user_internal(self):
@@ -36,7 +36,7 @@ class DeleteInternalUser:
             from scsdp.tb_usuario_interno tui 
             where tui.nu_cpf_usuario_interno = '{self._number_cpf}';
             """,
-            string_scsdp.get(self._environment),
+            gerais_system.get('scsdp').get(self._environment),
         )[0]['id']
 
     def _drop_user_profile(self, user_id):
@@ -47,7 +47,7 @@ class DeleteInternalUser:
             from scsdp.tb_usuario_interno_perfil t1
             where t1.co_usuario_interno = {user_id};
             """,
-            string_scsdp.get(self._environment),
+            gerais_system.get('scsdp').get(self._environment),
         )
 
     def _drop_user_internal(self, user_id):
@@ -58,7 +58,7 @@ class DeleteInternalUser:
             from scsdp.tb_usuario_interno t1
             where t1.co_seq_usuario_interno = {user_id};
             """,
-            string_scsdp.get(self._environment),
+            gerais_system.get('scsdp').get(self._environment),
         )
 
     def drop_user_security(self):

@@ -126,9 +126,9 @@ string_portalupload = {
 # string_sgp = {'preprod': config['SGP_PREPROD'], 'prod': config['SGP_PROD']}
 
 string_institucional = {
-    'dev': ...,
-    'tst': ...,
-    'hml': ...,
+    'dev': config['INSTITUCIONAL_DEV'],
+    'tst': config['INSTITUCIONAL_TST'],
+    'hml': config['INSTITUCIONAL_HML'],
     'preprod': config['INSTITUCIONAL_PREPROD'],
     'prod': config['INSTITUCIONAL_PROD'],
 }
@@ -153,4 +153,21 @@ string_mongo_fileserver = {
 string_transparencia = {
     'preprod': config['TRANSPARENCIA_PREPROD'],
     'prod': config['TRANSPARENCIA_PROD'],
+}
+
+string_geralpessoa = {
+    'dev': config['GERALPESSOA_DEV'],
+    'tst': config['GERALPESSOA_TST'],
+    'hml': config['GERALPESSOA_HML'],
+    'preprod': config['GERALPESSOA_PREPROD'],
+    'prod': config['GERALPESSOA_PROD'],
+}
+
+gerais_system = {
+    'scsdp': string_scsdp,
+    'institucional': string_institucional,
+    'documento': string_documento,
+    'contato': string_contato,
+    'localizacao': string_localizacao,
+    'geralpessoa': string_geralpessoa,
 }
