@@ -27,7 +27,7 @@ class DeleteInternalUser:
             string_documento.get(self._environment),
         )[0]['uuid']
 
-    def find_user_internal(self):
+    def _find_user_internal(self):
         return executar_query(
             True,
             f"""
@@ -39,7 +39,7 @@ class DeleteInternalUser:
             string_scsdp.get(self._environment),
         )[0]['id']
 
-    def drop_user_profile(self, user_id):
+    def _drop_user_profile(self, user_id):
         executar_query(
             False,
             f"""
@@ -50,7 +50,7 @@ class DeleteInternalUser:
             string_scsdp.get(self._environment),
         )
 
-    def drop_user_internal(self, user_id):
+    def _drop_user_internal(self, user_id):
         executar_query(
             False,
             f"""
@@ -63,15 +63,16 @@ class DeleteInternalUser:
 
     def drop_user_security(self):
         handler.logger.info('Delete internal user in security system.')
-        user_id = self.find_user_internal()
-        self.drop_user_profile(user_id)
-        self.drop_user_internal(user_id)
+        user_id = self._find_user_internal()
+        self._drop_user_profile(user_id)
+        self._drop_user_internal(user_id)
         handler.logger.info('Internal user successfully deleted!')
 
 
 @handler
 def main():
     user = DeleteInternalUser('dev', '12314411609')
+    user.drop_user_security()
 
 
 if __name__ == '__main__':
