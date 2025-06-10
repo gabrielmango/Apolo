@@ -9,6 +9,14 @@ string_base = {
     'teste': config['BASE_TESTE'],
 }
 
+string_documento = {
+    'dev': config['DOCUMENTO_DEV'],
+    'tst': config['DOCUMENTO_TST'],
+    'hml': config['DOCUMENTO_HML'],
+    'preprod': config['DOCUMENTO_PREPROD'],
+    'prod': config['DOCUMENTO_PROD'],
+}
+
 string_cesv = {
     'dev': config['CESV_DEV'],
     'tst': config['CESV_TST'],
