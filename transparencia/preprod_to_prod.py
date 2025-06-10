@@ -40,7 +40,7 @@ def retorna_anexos():
                 where t2. st_ativo and t2.sg_tipo_documento like '%TRA-%'
             );
             """,
-            string_fileserver.get('preprod'),
+            string_fileserver.get('prod'),
         )
     )
 
@@ -70,15 +70,15 @@ def retorna_uuids():
 
 def main():
     migrador = MigradorGridFS(string_mongo_fileserver.get('preprod'), 'file')
-    dados = retorna_uuids()
+    dados = retorna_anexos()
 
     for index, row in dados.iterrows():
         migrador.migrar_arquivos_por_filename(
             row['co_uuid_anexo_mongo'],
             'TRA',
-            string_mongo_fileserver.get('preprod'),
+            string_mongo_fileserver.get('prod'),
             'file',
-            'TESTE',
+            'TRA',
         )
 
         logging.info(f"Arquivo '{row['co_uuid_anexo_mongo']}' migrado.")
