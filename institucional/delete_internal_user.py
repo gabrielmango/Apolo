@@ -68,11 +68,50 @@ class DeleteInternalUser:
         self._drop_user_internal(user_id)
         handler.logger.info('Internal user successfully deleted!')
 
+    def _find_general_information(self):
+        return executar_query(
+            True,
+            f"""
+            select co_seq_geral_pessoa as id
+            from geralpessoa.tb_geral_pessoa t
+            where t.co_uuid_2 = '{self._user_uuid}';
+            """,
+            gerais_system.get('geralpessoa').get(self._environment),
+        )[0]['id']
+
+    def _drop_affiliation(self, general_id):
+        executar_query(
+            False,
+            f"""
+            delete
+            from geralpessoa.tb_filiacao_pessoa t1
+            where t1.co_geral_pessoa = {general_id};
+            """,
+            gerais_system.get('geralpessoa').get(self._environment),
+        )
+
+    def _drop_general_information(self, general_id):
+        executar_query(
+            False,
+            f"""
+            delete
+            from geralpessoa.tb_geral_pessoa t1
+            where t1.co_seq_geral_pessoa = {general_id};
+            """,
+            gerais_system.get('geralpessoa').get(self._environment),
+        )
+
+    def drop_user_general_information(self):
+        handler.logger.info('Delete general information user in system.')
+        general_id = self._find_general_information()
+        self._drop_affiliation(general_id)
+        self._drop_general_information(general_id)
+        handler.logger.info('General information user successfully deleted!')
+
 
 @handler
 def main():
     user = DeleteInternalUser('dev', '12314411609')
-    user.drop_user_security()
 
 
 if __name__ == '__main__':
