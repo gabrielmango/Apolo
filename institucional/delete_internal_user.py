@@ -1,5 +1,5 @@
 from database import executar_query
-from utils.ambientes import string_documento
+from utils.ambientes import string_documento, string_scsdp
 from utils.setup_logging import LogHandler
 
 handler = LogHandler('delete_internal_user')
@@ -26,6 +26,47 @@ class DeleteInternalUser:
             """,
             string_documento.get(self._environment),
         )[0]['uuid']
+
+    def find_user_internal(self):
+        return executar_query(
+            True,
+            f"""
+            select 
+                co_seq_usuario_interno as id
+            from scsdp.tb_usuario_interno tui 
+            where tui.nu_cpf_usuario_interno = '{self._number_cpf}';
+            """,
+            string_scsdp.get(self._environment),
+        )[0]['id']
+
+    def drop_user_profile(self, user_id):
+        executar_query(
+            False,
+            f"""
+            delete
+            from scsdp.tb_usuario_interno_perfil t1
+            where t1.co_usuario_interno = {user_id};
+            """,
+            string_scsdp.get(self._environment),
+        )
+
+    def drop_user_internal(self, user_id):
+        executar_query(
+            False,
+            f"""
+            delete
+            from scsdp.tb_usuario_interno t1
+            where t1.co_seq_usuario_interno = {user_id};
+            """,
+            string_scsdp.get(self._environment),
+        )
+
+    def drop_user_security(self):
+        handler.logger.info('Delete internal user in security system.')
+        user_id = self.find_user_internal()
+        self.drop_user_profile(user_id)
+        self.drop_user_internal(user_id)
+        handler.logger.info('Internal user successfully deleted!')
 
 
 @handler
