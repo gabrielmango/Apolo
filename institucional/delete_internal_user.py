@@ -8,9 +8,12 @@ handler = LogHandler('delete_internal_user')
 
 
 class DropBase(ABC):
-    def __init__(self, environment: str, number_cpf: str) -> None:
+    def __init__(
+        self, environment: str, number_cpf: str, user_uuid: str = None
+    ) -> None:
         self._environment = environment
         self._number_cpf = number_cpf
+        self._user_uuid = user_uuid
         self.drop_information()
 
     @abstractmethod
@@ -103,6 +106,24 @@ class DropGeralInformation(DropBase):
         )
 
 
+class DropLocation(DropBase):
+    def drop_information(self):
+        handler.logger.info('Delete location user in system.')
+        self._drop_location()
+        handler.logger.info('Location user successfully deleted!')
+
+    def _drop_location(self):
+        executar_query(
+            False,
+            f"""
+            delete
+            from localizacao.tb_endereco t
+            where t.co_uuid_2 = '{self._user_uuid}';
+            """,
+            gerais_system.get('localizacao').get(self._environment),
+        )
+
+
 class DeleteInternalUser:
     def __init__(self, environment: str, number_cpf: str) -> None:
         self._environment = environment
@@ -130,6 +151,9 @@ class DeleteInternalUser:
 
     def drop_user_general_information(self):
         DropGeralInformation(self._environment, self._number_cpf)
+
+    def drop_user_location(self):
+        DropLocation(self._environment, self._number_cpf, self._user_uuid)
 
 
 @handler
