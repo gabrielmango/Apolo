@@ -139,7 +139,7 @@ class DropContact(DropBase):
             from contato.tb_email t
             where t.co_uuid_2 = '{self._user_uuid}';
             """,
-            gerais_system.get('contact').get(self._environment),
+            gerais_system.get('contato').get(self._environment),
         )
 
     def _drop_telephone(self):
@@ -150,7 +150,25 @@ class DropContact(DropBase):
             from contato.tb_telefone t
             where t.co_uuid_2 = '{self._user_uuid}';
             """,
-            gerais_system.get('contact').get(self._environment),
+            gerais_system.get('contato').get(self._environment),
+        )
+
+
+class DropDocument(DropBase):
+    def drop_information(self):
+        handler.logger.info('Delete documents user in system.')
+        self._drop_documents()
+        handler.logger.info('Documents user successfully deleted!')
+
+    def _drop_documents(self):
+        executar_query(
+            False,
+            f"""
+            delete
+            from documento.tb_documento t
+            where t.co_uuid_2 = '{self._user_uuid}';
+            """,
+            gerais_system.get('documento').get(self._environment),
         )
 
 
@@ -185,6 +203,12 @@ class DeleteInternalUser:
 
     def drop_user_location(self):
         DropLocation(self._environment, self._number_cpf, self._user_uuid)
+
+    def drop_user_contact(self):
+        DropContact(self._environment, self._number_cpf, self._user_uuid)
+
+    def drop_user_document(self):
+        DropDocument(self._environment, self._number_cpf, self._user_uuid)
 
 
 @handler
