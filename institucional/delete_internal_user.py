@@ -124,11 +124,42 @@ class DropLocation(DropBase):
         )
 
 
+class DropContact(DropBase):
+    def drop_information(self):
+        handler.logger.info('Delete contacts user in system.')
+        self._drop_email()
+        self._drop_telephone()
+        handler.logger.info('Contacts user successfully deleted!')
+
+    def _drop_email(self):
+        executar_query(
+            False,
+            f"""
+            delete
+            from contato.tb_email t
+            where t.co_uuid_2 = '{self._user_uuid}';
+            """,
+            gerais_system.get('contact').get(self._environment),
+        )
+
+    def _drop_telephone(self):
+        executar_query(
+            False,
+            f"""
+            delete
+            from contato.tb_telefone t
+            where t.co_uuid_2 = '{self._user_uuid}';
+            """,
+            gerais_system.get('contact').get(self._environment),
+        )
+
+
 class DeleteInternalUser:
     def __init__(self, environment: str, number_cpf: str) -> None:
         self._environment = environment
         self._number_cpf = number_cpf
         self._user_uuid = self.get_uuid_by_document()
+        print(self._user_uuid)
 
     def get_uuid_by_document(self):
         return executar_query(
