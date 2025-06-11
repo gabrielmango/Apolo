@@ -238,7 +238,9 @@ class DeleteInternalUser:
         self._environment = environment
         self._number_cpf = number_cpf
         self._user_uuid = self.get_uuid_by_document()
-        print(self._user_uuid)
+        handler.logger.info(
+            f'{self._user_uuid}: user deletion process in progress...'
+        )
 
     def get_uuid_by_document(self):
         return executar_query(
@@ -260,7 +262,9 @@ class DeleteInternalUser:
         DropUserSecurity(self._environment, self._number_cpf)
 
     def drop_user_general_information(self):
-        DropGeralInformation(self._environment, self._number_cpf)
+        DropGeralInformation(
+            self._environment, self._number_cpf, self._user_uuid
+        )
 
     def drop_user_location(self):
         DropLocation(self._environment, self._number_cpf, self._user_uuid)
@@ -276,8 +280,15 @@ class DeleteInternalUser:
 
 
 @handler
-def main():
-    user = DeleteInternalUser('dev', '12314411609')
+def main(environment: str = 'dev'):
+    user = DeleteInternalUser(environment, '75957809691')
+    user.drop_user_security()
+    user.drop_user_general_information()
+    user.drop_user_location()
+    user.drop_user_contact()
+    user.drop_user_document()
+    user.drop_user_institutional()
+    handler.logger.info('User deletion process complete!')
 
 
 if __name__ == '__main__':
