@@ -172,6 +172,67 @@ class DropDocument(DropBase):
         )
 
 
+class DropInstitutional(DropBase):
+    def drop_information(self):
+        handler.logger.info('Delete institutional user in system.')
+        institutional_id = self.find_institutional_user_id()
+        self._drop_table_dependences(
+            [
+                'tb_inst_cooperacao',
+                'tb_inst_criterio_remocao',
+                'tb_inst_defensor',
+                'tb_inst_estagiario',
+                'tb_inst_horario_trabalho',
+                'tb_inst_movimentacao',
+                'tb_inst_orgao_atu_pessoa',
+                'tb_inst_part_cooperacao',
+                'tb_inst_pessoa_afastam',
+                'tb_inst_servidor',
+                'tb_inst_setor_pessoa',
+                'tb_inst_terceiriz_cedido',
+                'tb_inst_vaga',
+                'th_inst_visualiz_rel_cooperac',
+            ],
+            institutional_id,
+        )
+        self._drop_user_institutional(institutional_id)
+        handler.logger.info('Institutional user successfully deleted!')
+
+    def find_institutional_user_id(self):
+        return executar_query(
+            True,
+            f"""
+            select co_seq_inst_pessoa as id
+            from institucional.tb_inst_pessoa t
+            where t.co_uuid = '{self._user_uuid}'; 
+            """,
+            gerais_system.get('institucional').get(self._environment),
+        )[0]['id']
+
+    def _drop_table_dependences(self, table_list, institutional_id):
+        for table in table_list:
+            executar_query(
+                False,
+                f"""
+                delete 
+                from institucional.{table} t
+                where t.co_inst_pessoa = {institutional_id};
+                """,
+                gerais_system.get('institucional').get(self._environment),
+            )
+
+    def _drop_user_institutional(self, institutional_id):
+        executar_query(
+            False,
+            f"""
+            delete
+            from institucional.tb_inst_pessoa t
+            where t.co_seq_inst_pessoa = {institutional_id};
+            """,
+            gerais_system.get('institucional').get(self._environment),
+        )
+
+
 class DeleteInternalUser:
     def __init__(self, environment: str, number_cpf: str) -> None:
         self._environment = environment
@@ -209,6 +270,9 @@ class DeleteInternalUser:
 
     def drop_user_document(self):
         DropDocument(self._environment, self._number_cpf, self._user_uuid)
+
+    def drop_user_institutional(self):
+        DropInstitutional(self._environment, self._number_cpf, self._user_uuid)
 
 
 @handler
