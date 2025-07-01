@@ -281,7 +281,7 @@ class DeleteInternalUser:
 
 @handler
 def main(environment: str = 'dev'):
-    user = DeleteInternalUser(environment, '75957809691')
+    user = DeleteInternalUser(environment, '12314411609')
     user.drop_user_security()
     user.drop_user_general_information()
     user.drop_user_location()
