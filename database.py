@@ -139,3 +139,34 @@ def list_to_sql(dados, conn_string, table_name, schema):
     df.to_sql(
         table_name, engine, if_exists='replace', schema=schema, index=False
     )
+
+
+class PostgresConnection():
+    def __init__(self, connection_string: str):
+        self.connection_string = connection_string
+        self.engine = create_engine(self.connection_string)
+        self.connection = None
+
+    def __enter__(self):
+        self.connection = self.engine.connect()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.connection:
+            self.connection.close()
+
+    def execute_query(self, query: str) -> list:
+        try:
+            result = self.connection.execute(text(query))
+            columns = result.keys()
+            data = [dict(zip(columns, row)) for row in result.fetchall()]
+            return data
+        except SQLAlchemyError as e:
+            return []
+        
+    def execute_modify(self, query: str):
+        try:
+            with self.engine.begin() as connection:
+                connection.execute(text(query))
+        except SQLAlchemyError as e:
+            raise

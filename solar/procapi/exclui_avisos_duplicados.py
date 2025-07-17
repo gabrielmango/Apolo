@@ -8,7 +8,7 @@ from utils.ambientes import string_procapi
 def remove_duplicate_avisos(mongo_uri):
     client = MongoClient(mongo_uri)
     db = client['dbprocapi']
-    collection = db.aviso
+    collection = db.comunicacao
 
     pipeline = [
         {

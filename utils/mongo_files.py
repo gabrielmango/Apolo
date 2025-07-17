@@ -4,7 +4,6 @@ from datetime import datetime
 import gridfs
 from pymongo import MongoClient
 
-
 class GerenciadorPDFMongo:
     def __init__(
         self, nome_banco='meu_banco', uri='mongodb://localhost:27017/'
@@ -95,3 +94,35 @@ class MigradorGridFS:
             metadata = grid_out.metadata or {}
 
             fs_destino.put(dados, filename=uuid, metadata=metadata)
+
+    def migrar_arquivo_com_uuid_personalizado(
+        self,
+        uuid_origem,               # UUID (filename) do arquivo na origem
+        novo_uuid,                 # UUID que será usado como filename na coleção de destino
+        colecao_origem,
+        uri_destino,
+        banco_destino,
+        colecao_destino
+    ):
+        with MongoClient(self.uri_origem) as client_origem, MongoClient(uri_destino) as client_destino:
+            db_origem = client_origem[self.banco_origem]
+            fs_origem = gridfs.GridFS(db_origem, collection=colecao_origem)
+
+            db_destino = client_destino[banco_destino]
+            fs_destino = gridfs.GridFS(db_destino, collection=colecao_destino)
+
+            # Buscar o arquivo na origem
+            grid_out = fs_origem.find_one({'filename': uuid_origem})
+            if not grid_out:
+                raise FileNotFoundError(
+                    f"Arquivo com filename '{uuid_origem}' não encontrado na coleção '{colecao_origem}'."
+                )
+
+            dados = grid_out.read()
+            metadata = grid_out.metadata or {}
+
+            # Salvar com o UUID personalizado no destino
+            fs_destino.put(dados, filename=str(novo_uuid), metadata=metadata)
+
+            return novo_uuid
+
